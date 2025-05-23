@@ -5,8 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
     <link rel="stylesheet" href="./output.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/istad-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <header
+      class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat]"
+    >
+      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <a
+              class="block text-teal-600 transition-transform hover:scale-105"
+              href="./home-page.html"
+            >
+              <span class="sr-only">Home</span>
+              <img
+                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
+                src="./images/restaurant-logo.png"
+                alt="Restaurant Logo"
+              />
+            </a>
+          </div>
+          <div class="block md:hidden">
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200"
+            >
+              Register
+            </a>
+          </div>
+          <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a
+              href="./listing-page.html"
+              class="text-gray-700 hover:text-teal-600"
+              >Listing</a
+            >
+            <a
+              href="./detail-page.html"
+              class="text-gray-700 hover:text-teal-600"
+              >Detail</a
+            >
+            <a
+              href="./contact-page.html"
+              class="text-gray-700 hover:text-teal-600"
+              >Contact</a
+            >
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition"
+            >
+              Register
+            </a>
+            <a
+              href="./login-page.html"
+              class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition"
+            >
+              Login
+            </a>
+          </div>
+
+          <div class="md:hidden relative">
+            <button
+              type="button"
+              id="menu-toggle"
+              class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+
+            <div
+              id="mobile-menu"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-2 text-sm z-50"
+            >
+              <a
+                href="./listing-page.html"
+                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                >Listing</a
+              >
+              <a
+                href="./detail-page.html"
+                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                >Detail</a
+              >
+              <a
+                href="./contact-page.html"
+                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                >Contact</a
+              >
+              <a
+                href="./login-page.html"
+                class="mx-4 mt-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                >Login</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section></section>
+    </main>
+    <footer>
+      <address></address>
+    </footer>
+    <script>
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      toggleBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (event) => {
+        const isClickInside =
+          mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
+        if (!isClickInside) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
     <script src="../node_modules/preline/preline.js"></script>
   </body>
 </html>
