@@ -16,10 +16,33 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
+    </script>
   </head>
   <body>
     <header
-      class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat]"
+      class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-black text-gray-800 dark:text-white"
     >
       <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -39,7 +62,7 @@
           <div class="block md:hidden">
             <a
               href="./register-page.html"
-              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
             >
               Register
             </a>
@@ -47,31 +70,39 @@
           <div class="hidden md:flex items-center gap-6 text-sm font-medium">
             <a
               href="./listing-page.html"
-              class="text-gray-700 hover:text-teal-600"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
               >Listing</a
             >
             <a
               href="./detail-page.html"
-              class="text-gray-700 hover:text-teal-600"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
               >Detail</a
             >
             <a
               href="./contact-page.html"
-              class="text-gray-700 hover:text-teal-600"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
               >Contact</a
             >
             <a
               href="./register-page.html"
-              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition hover:border-teal-600"
             >
               Register
             </a>
             <a
               href="./login-page.html"
-              class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition"
+              class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
             >
               Login
             </a>
+            <button
+              type="button"
+              id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
+            >
+              <span id="mode-label">Light Mode</span>
+              <i id="mode-icon" class="fa-solid fa-sun"></i>
+            </button>
           </div>
 
           <div class="md:hidden relative">
@@ -98,21 +129,21 @@
 
             <div
               id="mobile-menu"
-              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-2 text-sm z-50"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
             >
               <a
                 href="./listing-page.html"
-                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
                 >Listing</a
-              >
+              ><br />
               <a
                 href="./detail-page.html"
-                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
                 >Detail</a
-              >
+              ><br />
               <a
                 href="./contact-page.html"
-                class="block px-4 py-2 text-gray-700 hover:text-teal-600"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
                 >Contact</a
               >
               <a
@@ -120,6 +151,17 @@
                 class="mx-4 mt-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
                 >Login</a
               >
+              <button
+                type="button"
+                id="btnModeMobile"
+                class="mx-4 mt-2 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+              >
+                <span id="mode-label-mobile">Dark</span>
+                <i
+                  id="mode-icon-mobile"
+                  class="fa-solid fa-moon text-sm pt-[1px]"
+                ></i>
+              </button>
             </div>
           </div>
         </div>
@@ -131,6 +173,7 @@
     <footer>
       <address></address>
     </footer>
+    <script src="../node_modules/preline/preline.js"></script>
     <script>
       const toggleBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -148,6 +191,44 @@
         }
       });
     </script>
-    <script src="../node_modules/preline/preline.js"></script>
+    <script>
+      const btnMode = document.getElementById("btnMode");
+      const modeLabel = document.getElementById("mode-label");
+      const modeIcon = document.getElementById("mode-icon");
+
+      const btnModeMobile = document.getElementById("btnModeMobile");
+      const modeLabelMobile = document.getElementById("mode-label-mobile");
+      const modeIconMobile = document.getElementById("mode-icon-mobile");
+
+      function updateToggleUI(isDark) {
+        // Desktop
+        modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+        modeIcon.classList.remove("fa-moon", "fa-sun");
+        modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
+
+        // Mobile
+        modeLabelMobile.textContent = isDark ? "Light" : "Dark";
+        modeIconMobile.classList.remove("fa-moon", "fa-sun");
+        modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
+      }
+
+      function applyTheme(isDark) {
+        localStorage.theme = isDark ? "dark" : "light";
+        document.documentElement.classList.toggle("dark", isDark);
+        updateToggleUI(isDark);
+      }
+
+      // On load
+      const isDarkMode =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      applyTheme(isDarkMode);
+
+      btnMode.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+      btnModeMobile.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+    </script>
   </body>
 </html>
