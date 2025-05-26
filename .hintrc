@@ -11,7 +11,8 @@
           "color: color-mix(in srgb, oklch(55.1% 0.027 264.364) 75%, transparent)",
           "color: color-mix(in srgb, oklch(44.6% 0.03 256.802) 75%, transparent)",
           "background-color: color-mix(in srgb, #fff 8%, transparent)",
-          "background-color: color-mix(in srgb, #fff 80%, transparent)"
+          "background-color: color-mix(in srgb, #fff 80%, transparent)",
+          "background-color: color-mix(in srgb, #fff 10%, transparent)"
         ]
       }
     ],
