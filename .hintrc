@@ -12,7 +12,10 @@
           "color: color-mix(in srgb, oklch(44.6% 0.03 256.802) 75%, transparent)",
           "background-color: color-mix(in srgb, #fff 8%, transparent)",
           "background-color: color-mix(in srgb, #fff 80%, transparent)",
-          "background-color: color-mix(in srgb, #fff 10%, transparent)"
+          "background-color: color-mix(in srgb, #fff 10%, transparent)",
+          "animation-timeline",
+          "animation-range",
+          "animation-timeline: scroll()"
         ]
       }
     ],
@@ -29,6 +32,7 @@
         "duplicate-id-active": "off",
         "duplicate-id": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }
