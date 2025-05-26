@@ -1,2 +1,4 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin "tailwindcss-motion";
 @import "../node_modules/preline/variants.css";
