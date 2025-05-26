@@ -1,3 +1,5 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @import "../node_modules/preline/variants.css";
+@plugin "tailwindcss-motion";
+@import 'versoly-ui/dist/tailwind.css';
