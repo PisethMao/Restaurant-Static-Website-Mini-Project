@@ -1,4 +1,24 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "tailwindcss-motion";
+@layer components {
+  .scroll-fade-in {
+    view-timeline-name: fade;
+    view-timeline-axis: block;
+    animation-name: fadeIn;
+    animation-timeline: fade;
+    animation-range: entry 0% cover 60%;
+    animation-fill-mode: both;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(150px) scale(0.9) rotate(-3deg);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px) scale(1) rotate(0deg);
+    }
+  }
+}
 @import "../node_modules/preline/variants.css";

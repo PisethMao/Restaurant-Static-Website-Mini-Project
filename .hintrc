@@ -16,7 +16,10 @@
           "animation-timeline",
           "animation-range",
           "animation-timeline: scroll()",
-          "color: color-mix(in srgb, oklch(37.3% 0.034 259.733) 75%, transparent)"
+          "color: color-mix(in srgb, oklch(37.3% 0.034 259.733) 75%, transparent)",
+          "view-timeline-name",
+          "view-timeline-axis",
+          "view-timeline-axis: block"
         ]
       }
     ],
@@ -41,6 +44,7 @@
         "image-alt": "off"
       }
     ],
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "meta-viewport": "off"
   }
 }

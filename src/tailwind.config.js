@@ -6,9 +6,10 @@ module.exports = {
     files: ["./src/**/*.{html,js}"],
   },
   safelist: [
-    "duration-[0ms]",
-    "delay-[0ms]",
-    'html.js :where([class*="taos:"]:not(.taos-init))',
+    "scroll-fade-in",
+    "taos:opacity-0",
+    "taos:translate-y-[100px]",
+    "taos:duration-[1500ms]",
   ],
   plugins: [require("taos/plugin")],
 };
