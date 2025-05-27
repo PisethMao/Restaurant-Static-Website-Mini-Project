@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
     <link rel="stylesheet" href="./output.css" />
-    <link rel="stylesheet" href="./styles/custom.css" />
+    <link rel="stylesheet" href="./style/custom.css" />
     <link
       rel="shortcut icon"
       href="./images/istad-logo.png"
@@ -1509,7 +1509,255 @@
       </section>
     </main>
     <footer>
-      <address></address>
+      <address
+        class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md text-center">
+            <strong
+              class="block text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white font-[Montserrat]"
+            >
+              Want our chef's specials deliverd to your inbox?
+            </strong>
+
+            <form class="mt-6">
+              <div class="relative max-w-lg mx-auto">
+                <label class="sr-only font-[Inter]" for="email"> Email </label>
+
+                <input
+                  class="font-[Inter] w-full rounded-full border-gray-200 bg-gray-100 dark:bg-neutral-800 p-4 pe-32 text-sm font-medium text-gray-800 dark:text-white shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
+                  id="email"
+                  type="email"
+                  placeholder="pisethmao2002@gmail.com"
+                />
+
+                <button
+                  type="submit"
+                  class="font-[Inter] cursor-pointer absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-700 active:scale-95"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-32">
+            <div class="mx-auto max-w-sm lg:max-w-none">
+              <p
+                class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
+              >
+                At
+                <span class="font-semibold text-teal-600">Tasty Bitets</span>,
+                we celebrate Khmer heritage with every dish. From flavorful
+                soups to fresh herbs, we bring the heartt of Cambodia to your
+                plate.
+              </p>
+
+              <div class="mt-6 flex justify-center gap-5 lg:justify-start">
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Facebook </span>
+
+                  <i class="fa-brands fa-facebook fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Instagram </span>
+
+                  <i class="fa-brands fa-instagram fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://x.com/PisethMao528763"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Twitter </span>
+
+                  <i class="fa-brands fa-x-twitter fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.youtube.com/@maopiseth5456"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> YouTube </span>
+
+                  <i class="fa-brands fa-youtube fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.tiktok.com/@piseth_mao"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> TikTok </span>
+
+                  <i class="fa-brands fa-tiktok fa-lg"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-8 text-sm text-center">
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Explore
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html"
+                    >
+                      Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./listing-page.html"
+                    >
+                      Menu
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./detail-page.html"
+                    >
+                      Our Story
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Services
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Dine-In
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Takeaway
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Catering
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Private Events
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Support
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Customer Service
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Location & Hours
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-16 border-t border-gray-100 pt-8 dark:border-neutral-700"
+          >
+            <p class="text-center text-xs text-gray-500 dark:text-neutral-400">
+              © 2025
+              <span class="font-semibold text-teal-600">Tasty Bites</span> . All
+              rights reserved.
+
+              <br />
+
+              Designed with passion in Phnom Penh 🍲🇰🇭
+            </p>
+          </div>
+        </div>
+      </address>
     </footer>
     <script src="../node_modules/preline/preline.js"></script>
     <script>
@@ -1583,5 +1831,6 @@
         });
       });
     </script>
+    <script src="scripts/footer.js" defer></script>
   </body>
 </html>
