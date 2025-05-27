@@ -10,18 +10,488 @@
       href="./images/istad-logo.png"
       type="image/x-icon"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in head to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
+    </script>
   </head>
-  <body>
-    <header>
-      <nav></nav>
+  <body class="dark:bg-black">
+    <header
+      class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-black text-gray-800 dark:text-white"
+    >
+      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <a
+              class="block text-teal-600 transition-transform hover:scale-105"
+              href="./home-page.html"
+            >
+              <span class="sr-only">Home</span>
+              <img
+                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
+                src="./images/restaurant-logo.png"
+                alt="Restaurant Logo"
+              />
+            </a>
+          </div>
+          <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a
+              href="./listing-page.html"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
+              >Listing</a
+            >
+            <a
+              href="./detail-page.html"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
+              >Detail</a
+            >
+            <a
+              href="./contact-page.html"
+              class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
+              >Contact</a
+            >
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition hover:border-teal-600"
+            >
+              Register
+            </a>
+            <a
+              href="./login-page.html"
+              class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+            >
+              Login
+            </a>
+            <button
+              type="button"
+              id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
+            >
+              <span id="mode-label">Light Mode</span>
+              <i id="mode-icon" class="fa-solid fa-sun"></i>
+            </button>
+          </div>
+          <div class="md:hidden relative items-center">
+            <div class="flex">
+              <button
+                type="button"
+                id="btnModeMobile"
+                class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+              >
+                <i
+                  id="mode-icon-mobile"
+                  class="fa-solid fa-moon text-sm pt-[1px]"
+                ></i>
+              </button>
+              <button
+                type="button"
+                id="menu-toggle"
+                class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <div
+              id="mobile-menu"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
+            >
+              <a
+                href="./listing-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
+                >Listing</a
+              ><br />
+              <a
+                href="./detail-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
+                >Detail</a
+              ><br />
+              <a
+                href="./contact-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
+                >Contact</a
+              >
+              <a
+                href="./register-page.html"
+                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
+              >
+                Register
+              </a>
+              <a
+                href="./login-page.html"
+                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                >Login</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
       <section></section>
       <section></section>
     </main>
     <footer>
-      <address></address>
+      <address
+        class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md text-center">
+            <strong
+              class="block text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white font-[Montserrat]"
+            >
+              Want our chef's specials deliverd to your inbox?
+            </strong>
+
+            <form class="mt-6">
+              <div class="relative max-w-lg mx-auto">
+                <label class="sr-only font-[Inter]" for="email"> Email </label>
+
+                <input
+                  class="font-[Inter] w-full rounded-full border-gray-200 bg-gray-100 dark:bg-neutral-800 p-4 pe-32 text-sm font-medium text-gray-800 dark:text-white shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
+                  id="email"
+                  type="email"
+                  placeholder="pisethmao2002@gmail.com"
+                />
+
+                <button
+                  type="submit"
+                  class="font-[Inter] cursor-pointer absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-700 active:scale-95"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-32">
+            <div class="mx-auto max-w-sm lg:max-w-none">
+              <p
+                class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
+              >
+                At
+                <span class="font-semibold text-teal-600">Tasty Bitets</span>,
+                we celebrate Khmer heritage with every dish. From flavorful
+                soups to fresh herbs, we bring the heartt of Cambodia to your
+                plate.
+              </p>
+
+              <div class="mt-6 flex justify-center gap-5 lg:justify-start">
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Facebook </span>
+
+                  <i class="fa-brands fa-facebook fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Instagram </span>
+
+                  <i class="fa-brands fa-instagram fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://x.com/PisethMao528763"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Twitter </span>
+
+                  <i class="fa-brands fa-x-twitter fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.youtube.com/@maopiseth5456"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> YouTube </span>
+
+                  <i class="fa-brands fa-youtube fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.tiktok.com/@piseth_mao"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> TikTok </span>
+
+                  <i class="fa-brands fa-tiktok fa-lg"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-8 text-sm text-center">
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Explore
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html"
+                    >
+                      Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./listing-page.html"
+                    >
+                      Menu
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./detail-page.html"
+                    >
+                      Our Story
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Services
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Dine-In
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Takeaway
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Catering
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Private Events
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Support
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Customer Service
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Location & Hours
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-16 border-t border-gray-100 pt-8 dark:border-neutral-700"
+          >
+            <p class="text-center text-xs text-gray-500 dark:text-neutral-400">
+              © 2025
+              <span class="font-semibold text-teal-600">Tasty Bites</span> . All
+              rights reserved.
+
+              <br />
+
+              Designed with passion in Phnom Penh 🍲🇰🇭
+            </p>
+          </div>
+        </div>
+      </address>
     </footer>
     <script src="../node_modules/preline/preline.js"></script>
+    <script>
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      toggleBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (event) => {
+        const isClickInside =
+          mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
+        if (!isClickInside) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
+    <script>
+      const btnMode = document.getElementById("btnMode");
+      const modeLabel = document.getElementById("mode-label");
+      const modeIcon = document.getElementById("mode-icon");
+
+      const btnModeMobile = document.getElementById("btnModeMobile");
+      const modeLabelMobile = document.getElementById("mode-label-mobile");
+      const modeIconMobile = document.getElementById("mode-icon-mobile");
+
+      function updateToggleUI(isDark) {
+        modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+        modeIcon.classList.remove("fa-moon", "fa-sun");
+        modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
+
+        modeIconMobile.classList.remove("fa-moon", "fa-sun");
+        modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
+      }
+
+      function applyTheme(isDark) {
+        localStorage.theme = isDark ? "dark" : "light";
+        document.documentElement.classList.toggle("dark", isDark);
+        updateToggleUI(isDark);
+      }
+
+      const isDarkMode =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      applyTheme(isDarkMode);
+
+      btnMode.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+      btnModeMobile.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+    </script>
+    <script>
+      window.addEventListener("beforeunload", function () {
+        window.scrollTo(0, 0);
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+              window.history.replaceState(null, null, window.location.pathname);
+            }
+          });
+        });
+      });
+    </script>
+    <script src="scripts/footer.js" defer></script>
   </body>
 </html>
