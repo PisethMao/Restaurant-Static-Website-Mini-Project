@@ -39,6 +39,9 @@
       // Whenever the user explicitly chooses to respect the OS preference
       //   localStorage.removeItem("theme");
     </script>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body class="dark:bg-black">
     <header
@@ -166,7 +169,49 @@
       </nav>
     </header>
     <main>
-      <section></section>
+      <section
+        aria-label="Breadcrumb"
+        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-black"
+      >
+        <ol
+          class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+        >
+          <li class="relative group" aria-current="page">
+            <a
+              href="./home-page.html"
+              class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400 cursor-pointer"
+            >
+              Home
+            </a>
+          </li>
+
+          <li class="rtl:rotate-180 text-gray-400 dark:text-neutral-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m9 20.247 6-16.5"
+              />
+            </svg>
+          </li>
+
+          <li class="relative group" aria-current="page">
+            <a
+              href="./listing-page.html"
+              class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400 cursor-pointer"
+            >
+              Listing
+            </a>
+          </li>
+        </ol>
+      </section>
       <section></section>
     </main>
     <footer>
@@ -493,5 +538,6 @@
       });
     </script>
     <script src="scripts/footer.js" defer></script>
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
   </body>
 </html>
