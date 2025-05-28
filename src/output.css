@@ -533,26 +533,6 @@
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
-  .motion-blur-in-\[8px\] {
-    --motion-origin-blur: 8px;
-    --motion-filter-in-animation: motion-filter-in calc(var(--motion-filter-duration) * var(--motion-filter-perceptual-duration-multiplier)) var(--motion-filter-timing) var(--motion-filter-delay) both;
-    animation: var(--motion-all-loop-and-enter-animations);
-  }
-  .motion-opacity-in-\[80\%\] {
-    --motion-origin-opacity: 80%;
-    --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
-    animation: var(--motion-all-loop-and-enter-animations);
-  }
-  .motion-translate-x-in-\[-130\%\] {
-    --motion-origin-translate-x: -130%;
-    --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-    animation: var(--motion-all-loop-and-enter-animations);
-  }
-  .motion-translate-y-in-\[0\%\] {
-    --motion-origin-translate-y: 0%;
-    --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
-    animation: var(--motion-all-loop-and-enter-animations);
-  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -573,6 +553,9 @@
   }
   .flex-col {
     flex-direction: column;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .items-center {
     align-items: center;
@@ -682,6 +665,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -1094,9 +1080,6 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
-  .delay-\[300ms\] {
-    transition-delay: 300ms;
-  }
   .duration-150 {
     --tw-duration: 150ms;
     transition-duration: 150ms;
@@ -1109,10 +1092,6 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
-  .duration-\[600ms\] {
-    --tw-duration: 600ms;
-    transition-duration: 600ms;
-  }
   .ease-in-out {
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
@@ -1120,9 +1099,6 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
-  }
-  .motion-duration-\[2\.25s\] {
-    --motion-duration: 2.25s;
   }
   .group-hover\:translate-x-1 {
     &:is(:where(.group):hover *) {
@@ -1553,6 +1529,18 @@
   .disabled\:opacity-50 {
     &:disabled {
       opacity: 50%;
+    }
+  }
+  .motion-safe\:hover\:scale-110 {
+    @media (prefers-reduced-motion: no-preference) {
+      &:hover {
+        @media (hover: hover) {
+          --tw-scale-x: 110%;
+          --tw-scale-y: 110%;
+          --tw-scale-z: 110%;
+          scale: var(--tw-scale-x) var(--tw-scale-y);
+        }
+      }
     }
   }
   .sm\:mr-6 {
