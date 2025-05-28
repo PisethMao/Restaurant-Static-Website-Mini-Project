@@ -318,7 +318,7 @@
                     >
                       <img
                         class="shadow-lg shadow-gray-200 rounded-lg dark:shadow-gray-900/20"
-                        src="./images/samlor-korko.png"
+                        src="./images/samlor-korkor.png"
                         alt="Samlo Korko Image"
                       />
                     </div>
@@ -1758,6 +1758,15 @@
           </div>
         </div>
       </address>
+      <address>
+        <button
+          type="button"
+          id="backToTop"
+          class="cursor-pointer hover:bg-teal-600 fixed bottom-6 right-6 bg-emerald-600 text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]"
+        >
+          ↑ Top
+        </button>
+      </address>
     </footer>
     <script src="../node_modules/preline/preline.js"></script>
     <script>
@@ -1829,6 +1838,19 @@
             }
           });
         });
+      });
+    </script>
+    <script>
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.remove("hidden");
+        } else {
+          backToTop.classList.add("hidden");
+        }
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
     </script>
     <script src="scripts/footer.js" defer></script>
