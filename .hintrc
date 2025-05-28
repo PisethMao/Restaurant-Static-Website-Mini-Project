@@ -19,7 +19,8 @@
           "color: color-mix(in srgb, oklch(37.3% 0.034 259.733) 75%, transparent)",
           "view-timeline-name",
           "view-timeline-axis",
-          "view-timeline-axis: block"
+          "view-timeline-axis: block",
+          "color: color-mix(in srgb, #fff 80%, transparent)"
         ]
       }
     ],
