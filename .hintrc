@@ -12,7 +12,14 @@
           "color: color-mix(in srgb, oklch(44.6% 0.03 256.802) 75%, transparent)",
           "background-color: color-mix(in srgb, #fff 8%, transparent)",
           "background-color: color-mix(in srgb, #fff 80%, transparent)",
-          "background-color: color-mix(in srgb, #fff 10%, transparent)"
+          "background-color: color-mix(in srgb, #fff 10%, transparent)",
+          "animation-timeline",
+          "animation-range",
+          "animation-timeline: scroll()",
+          "color: color-mix(in srgb, oklch(37.3% 0.034 259.733) 75%, transparent)",
+          "view-timeline-name",
+          "view-timeline-axis",
+          "view-timeline-axis: block"
         ]
       }
     ],
@@ -29,6 +36,15 @@
         "duplicate-id-active": "off",
         "duplicate-id": "off"
       }
-    ]
+    ],
+    "no-inline-styles": "off",
+    "axe/text-alternatives": [
+      "default",
+      {
+        "image-alt": "off"
+      }
+    ],
+    "disown-opener": "off",
+    "meta-viewport": "off"
   }
 }
