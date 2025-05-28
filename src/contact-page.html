@@ -7,9 +7,53 @@
   <title>Contact Page</title>
   <link rel="stylesheet" href="./output.css" />
   <link rel="shortcut icon" href="./images/istad-logo.png" type="image/x-icon" />
+  <style>
+    /* right to left */
+    @keyframes slideInFromRight {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .animate-on-scroll-right-left {
+      transform: translateX(100px);
+      opacity: 0;
+      animation: slideInFromRight 1s ease forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes slideInFromLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .slide-in-left {
+      transform: translateX(-100px);
+      opacity: 0;
+      animation: slideInFromLeft 1s ease forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+      animation-delay: 0.1s;
+    }
+  </style>
 </head>
 
-<body>
+<body class="scroll-smooth">
 
   <!-- NAVBAR -->
 
@@ -82,18 +126,18 @@
   <!-- Our services -->
 
   <section class="py-12 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
+    <div class="max-w-6xl mx-auto px-4 \">
       <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition transform motion-safe:hover:scale-110">
           <h3 class="text-xl font-semibold mb-2">Dine-In</h3>
           <p>Enjoy a cozy atmosphere and freshly prepared meals.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition transform motion-safe:hover:scale-110">
           <h3 class="text-xl font-semibold mb-2">Delivery</h3>
           <p>We deliver hot meals straight to your doorstep.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-md transition transform motion-safe:hover:scale-110">
           <h3 class="text-xl font-semibold mb-2">VIP Dining Experience</h3>
           <p>Exclusivity, Elegance, and Exceptional Service</p>
         </div>
@@ -108,16 +152,15 @@
       <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
         <div>
           <div class="max-w-lg md:max-w-none">
-            <h2
-              class="text-2xl font-semibold text-gray-900 sm:text-3xl motion-translate-x-in-[-130%] motion-translate-y-in-[0%] motion-opacity-in-[80%] motion-blur-in-[8px] motion-duration-[2.25s]">
+            <h2 class="text-2xl font-semibold text-gray-900 sm:text-3xl slide-in-left">
               Dine-In
             </h2>
-            <p
-              class="mt-4 text-gray-700 motion-translate-x-in-[-130%] motion-translate-y-in-[0%] motion-opacity-in-[80%] motion-blur-in-[8px] motion-duration-[2.25s]">
+            <p class="mt-4 text-gray-700 slide-in-left">
               Enjoy a cozy atmosphere and freshly prepared meals.
             </p>
           </div>
         </div>
+
 
         <div>
           <img src="https://camino.uk.com/wp-content/uploads/2024/05/Kings-Cross-Site-Shots-14-2000x1333.jpg"
@@ -141,11 +184,13 @@
 
 
       <div class="mt-4 md:mt-0">
-        <h2 class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">Let's create more tools
-          and ideas that brings us together.</h2>
-        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect with friends
-          and communities of people who share your interests. Connecting with your friends and family as well as
-          discovering new ones is easy with features like Groups.</p>
+        <h2
+          class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white animate-on-scroll-right-left">
+          Delivery</h2>
+        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400 animate-on-scroll-right-left">Whether
+          you're working late, relaxing at home, or planning a family dinner, our delivery service ensures you enjoy
+          your favorite dishes without stepping outside. We prepare your meals fresh and package them with care to
+          retain flavor, heat, and presentation.</p>
         <a href="#"
           class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
           Get started
@@ -164,8 +209,10 @@
   <section class="bg-white dark:bg-gray-900">
     <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
       <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-        <h2 class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white motion-translate-x-in-[-130%] motion-translate-y-in-[0%] motion-opacity-in-[80%] motion-blur-in-[8px] motion-duration-[2.25s]">VIP Dining Experience</h2>
-        <p class="mb-4 delay-[300ms] duration-[600ms] taos:translate-x-[-100%] taos:opacity-0">Step into a world of refined taste and personalized service with our exclusive VIP Dining
+        <h2 class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white slide-in-left">VIP
+          Dining Experience</h2>
+        <p class="mb-4 slide-in-left">Step into a world of refined taste and personalized service with our exclusive
+          VIP Dining
           Experience. Perfect for special occasions, private celebrations, or simply indulging in luxury, our VIP guests
           enjoy more than just a meal—they enjoy a curated journey of Khmer culinary artistry in a setting designed for
           comfort, privacy, and prestige.</p>
@@ -174,12 +221,14 @@
         <div class="relative text-base">
           <div class="text-black-500">
             <div class="inline-block h-3 w-3 rounded-full mr-2"></div>
-            <p class="inline-block">Luxuriously designed private dining areas with ambient lighting and sound control.
+            <p class="inline-block animate-on-scroll">Luxuriously designed private dining areas with ambient lighting
+              and sound control.
             </p>
           </div>
           <div class="text-black-500">
             <div class="inline-block h-3 w-3 rounded-full mr-2"></div>
-            <p class="inline-block">Perfect for business meetings, anniversaries, or private celebrations.</p>
+            <p class="inline-block animate-on-scroll">Perfect for business meetings, anniversaries, or private
+              celebrations.</p>
           </div>
         </div>
       </div>
