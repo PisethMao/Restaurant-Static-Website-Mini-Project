@@ -166,73 +166,84 @@
       </nav>
     </header>
   <body>
-    <main class="w-full h-screen flex flex-col items-center justify-center sm:px-4">
-      <div class="w-full space-y-6 text-gray-600 sm:max-w-md">
-        <div class="text-center">
-          <div>
-            <h3 class="text-gray-800 dark:text-white text-2xl font-bold sm:text-3xl">
-              Log in to your account
-            </h3>
-            <p class="text-gray-800 dark:text-white/80">
-              Don't have an account?
-              <a href="./register-page.html" class=" text-teal-600 transition-transform hover:scale-105">Sign
-                up</a>
-            </p>
-          </div>
-        </div>
-        <div class="bg-white/80 backdrop-blur-sm shadow-md top-0 z-50 border-gray-50 font-[Montserrat] dark:bg-black text-gray-800 dark:text-white p-4 py-6 space-y-8 sm:p-6 sm:rounded-lg">
-          <div class="grid grid-cols-3 gap-x-3">
-            <button
-              class="flex items-center justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100">
-              <!-- Comment: Google Icon SVG here -->
-              <img
-                src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
-                alt="Google" class="w-5 h-5" />
-            </button>
-            <button
-              class="flex items-center justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100">
-              <!-- Comment: Twitter Icon SVG here -->
-              <img
-                src="https://raw.githubusercontent.com/sidiDev/remote-assets/f7119b9bdd8c58864383802fb92c7fc3a25c0646/twitter-icon.svg"
-                alt="Twitter" class="w-5 h-5" />
-            </button>
-            <button
-              class="flex items-center justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100 dark:bg-black text-gray-800 dark:text-white">
-              <!-- Comment: GitHub Icon SVG here -->
-              <img
-                src="https://raw.githubusercontent.com/sidiDev/remote-assets/0d3b55a09c6bb8155ca19f43283dc6d88ff88bf5/github-icon.svg"
-                alt="Github" class="w-5 h-5" />
-            </button>
-          </div>
-          <div class="relative">
-            <span class="block w-full h-px bg-gray-300"></span>
-            <p class="inline-block w-fit text-sm bg-white dark:bg-black dark:text-white/80 px-2 absolute -top-2 inset-x-0 mx-auto">
-              Or continue with
-            </p>
-          </div>
-          <form onSubmit="event.preventDefault()" class="space-y-5">
-            <div>
-              <label class="font-medium">Email</label>
-              <input type="email" placeholder="pisethmao2002@gmail.com" required
-                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent dark:bg-black dark:text-white/80 outline-none border focus:border-teal-600 shadow-sm rounded-lg" />
-            </div>
-            <div>
-              <label class="font-medium">Password</label>
-              <input type="password" placeholder="********" required
-                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent dark:bg-black dark:text-white/80 outline-none border focus:border-teal-600 shadow-sm rounded-lg" />
-            </div>
-            <button
-              class="w-full mt-4 px-4 py-2 text-white font-medium bg-teal-600 hover:bg-teal-500 active:bg-teal-600 rounded-lg duration-150">
-              Sign in
-            </button>
-          </form>
-        </div>
-        <div class="text-center">
-          <a href="javascript:void(0)" class="text-teal-600 transition-transform hover:scale-105">Forgot password?</a>
-        </div>
+<main
+  class="w-full mt-8 mb-8 flex flex-col items-center justify-center px-4"
+>
+  <div class="max-w-sm w-full text-gray-600 space-y-5">
+    <div class="text-center pb-8">
+      <div class="mt-5">
+        <h3 class="text-gray-800 dark:text-white text-2xl font-bold sm:text-3xl">
+          Log in to your account
+        </h3>
       </div>
-    </main>
-    <footer>
+    </div>
+    <form onSubmit="event.preventDefault()" class="space-y-5">
+      <div>
+        <label class="font-medium"> Email </label>
+        <input
+          type="email"
+          placeholder="pisethmao2002@gmail.com"
+          required
+          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-teal-600 shadow-sm rounded-lg"
+        />
+      </div>
+      <div>
+        <label class="font-medium"> Password </label>
+        <input
+          type="password"
+          placeholder="***********"
+          required
+          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-teal-600 shadow-sm rounded-lg"
+        />
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <div class="flex items-center gap-x-3">
+          <input
+            type="checkbox"
+            id="remember-me-checkbox"
+            class="checkbox-item peer hidden"
+          />
+          <label
+            for="remember-me-checkbox"
+            class="relative flex w-5 h-5 bg-white peer-checked:bg-teal-600 rounded-md border ring-offset-2 ring-teal-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
+          ></label>
+          <span>Remember me</span>
+        </div>
+        <a
+          href="javascript:void(0)"
+          class="text-center text-teal-600 hover:text-teal-500"
+          >Forgot password?</a
+        >
+      </div>
+      <button
+        class="w-full mb-2 px-4 py-2 text-white font-medium bg-teal-600 hover:bg-teal-500 active:bg-teal-600 rounded-lg duration-150"
+      >
+        Sign in
+      </button>
+    </form>
+    <button
+      class="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100"
+    >
+      <!-- SVG for Google Sign In -->
+      <img
+        src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
+        alt="Google"
+        class="w-5 h-5"
+      />
+      <!-- Comment: Google Icon SVG here -->
+      Continue with Google
+    </button>
+    <p class="text-center">
+      Don't have an account?
+      <a
+        href="./register-page.html"
+        class="font-medium text-teal-600 hover:text-teal-500"
+        >Sign up</a
+      >
+    </p>
+  </div>
+</main>
+<footer>
       <address
         class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
       >
