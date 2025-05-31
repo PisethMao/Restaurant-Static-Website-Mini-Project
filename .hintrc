@@ -20,7 +20,9 @@
           "view-timeline-name",
           "view-timeline-axis",
           "view-timeline-axis: block",
-          "color: color-mix(in srgb, #fff 80%, transparent)"
+          "color: color-mix(in srgb, #fff 80%, transparent)",
+          "animation-timeline: view()",
+          "background-color: color-mix(in srgb, #000 50%, transparent)"
         ]
       }
     ],
@@ -46,6 +48,8 @@
       }
     ],
     "disown-opener": "off",
-    "meta-viewport": "off"
+    "meta-viewport": "off",
+    "detect-css-reflows/composite": "off",
+    "detect-css-reflows/paint": "off"
   }
 }
