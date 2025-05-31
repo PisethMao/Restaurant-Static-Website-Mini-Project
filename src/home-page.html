@@ -80,13 +80,16 @@
   </script>
 </head>
 
-<body class="dark:bg-[#222831]">
+<body class="dark:bg-[#222831] m-0 p-0 overflow-x-hidden">
+
+  <!-- NAVBAR -->
+
   <header id="navbar"
     class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white">
     <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="md:flex md:items-center md:gap-12">
-          <a class="block text-teal-600 transition-transform hover:scale-105" href="./home-page.html">
+          <a class="block text-[#00ADB5] transition-transform hover:scale-105" href="./home-page.html">
             <span class="sr-only">Home</span>
             <img class="w-14 mx-auto rounded-md shadow-sm object-contain h-14" src="./images/restaurant-logo.png"
               alt="Restaurant Logo" />
@@ -94,17 +97,18 @@
         </div>
         <div class="hidden md:flex items-center gap-6 text-sm font-medium">
           <a href="./listing-page.html"
-            class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300">Listing</a>
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Listing</a>
           <a href="./detail-page.html"
-            class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300">Detail</a>
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Detail</a>
           <a href="./contact-page.html"
-            class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300">Contact/ Services</a>
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Contact/
+            Services</a>
           <a href="./register-page.html"
-            class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition hover:border-teal-600">
+            class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600">
             Register
           </a>
           <a href="./login-page.html"
-            class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600">
+            class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600">
             Login
           </a>
           <button type="button" id="btnMode"
@@ -130,13 +134,13 @@
           <div id="mobile-menu"
             class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50">
             <a href="./listing-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition">Listing</a><br />
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Listing</a><br />
             <a href="./detail-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition">Detail</a><br />
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Detail</a><br />
             <a href="./contact-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition">Contact</a>
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Contact</a>
             <a href="./register-page.html"
-              class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600">
+              class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600">
               Register
             </a>
             <a href="./login-page.html"
@@ -146,8 +150,52 @@
       </div>
     </nav>
   </header>
+  <!-- END OF NAVBAR -->
+
+  <section class="h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh] w-screen">
+    <section
+      class="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh]  w-screen overflow-hidden">
+      <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+      <div class="relative w-full h-full">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <video autoplay loop muted class="w-full h-full scale-[1.4]" src="Video/short-cooking.mp4"
+            title="video player"></video></div>
+      </div>
+      <div
+        class="absolute inset-0 flex items-center justify-start text-white z-20 p-4 md:p-6 lg:p-8 ml-4 sm:ml-6 md:ml-8 lg:ml-12">
+        <div class="flex flex-col items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-2">
+          <div class="text-center text-white px-4 py-8 bg-opacity-50 rounded-lg max-w-3xl mx-auto">
+            <h1
+              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-md motion-scale-in-[0.5] motion-translate-x-in-[0%] motion-translate-y-in-[-110%] motion-opacity-in-[60%] motion-blur-in-[10px] motion-duration-[2.25s]">
+              Tasty Bites
+            </h1>
+            <p
+              class="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]">
+              Taste the Magic of Authentic <span class="text-red-400 font-semibold">Khmer Cuisine</span>!
+            </p>
+          </div>
+
+          <div class="text-white text-center rounded-lg w-full max-w-md mx-auto motion-translate-x-in-[0%] motion-translate-y-in-[200%] motion-duration-[1.50s]">
+            <h2 class="text-xl font-semibold mb-0">🕒 Opening Hours</h2>
+            <p class="text-sm md:text-base">
+              <span class="font-medium">Monday – Saturday:</span> 10:00 AM – 10:00 PM
+            </p>
+            <p class="text-sm text-gray-300 mt-1">Closed on Sundays</p>
+          </div>
+
+          <a data-aos="fade-up" href="#section-1" class="aos-init aos-animate">
+            <button type="button"
+              class="text-sm md:text-base border border-primary bg-lms-primary sm:mx-4 p-4 py-1.5 text-white-80 sm:mt-4 hover:text-white hover:bg-lms-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg sm:px-5 sm:py-2.5 text-center me-2 transition-colors duration-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]"><span
+                class="button-text font-bold">Explore -></span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+  </section>
+
   <main>
-    <section>
+    <section id="section-1">
       <!-- Features -->
       <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="relative p-6 md:p-16">
@@ -1223,7 +1271,7 @@
     </address>
     <address>
       <button type="button" id="backToTop"
-        class="cursor-pointer hover:bg-teal-600 fixed bottom-6 right-6 bg-emerald-600 text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]">
+        class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]">
         ↑ Top
       </button>
     </address>
