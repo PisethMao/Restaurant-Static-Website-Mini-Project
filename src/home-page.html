@@ -1,1393 +1,2000 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./style/custom.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/istad-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
-  <link rel="stylesheet" href="./output.css" />
-  <link rel="stylesheet" href="./style/custom.css" />
-  <link rel="shortcut icon" href="./images/istad-logo.png" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      /* right to left */
+      @keyframes slideInFromRight {
+        from {
+          transform: translateX(100px);
+          opacity: 0;
+        }
 
-  <style>
-    /* right to left */
-    @keyframes slideInFromRight {
-      from {
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .animate-on-scroll-right-left {
         transform: translateX(100px);
         opacity: 0;
+        animation: slideInFromRight 1s ease forwards;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+        animation-delay: 0.3s;
       }
 
-      to {
-        transform: translateX(0);
-        opacity: 1;
+      @keyframes slideInFromLeft {
+        from {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
       }
-    }
 
-    .animate-on-scroll-right-left {
-      transform: translateX(100px);
-      opacity: 0;
-      animation: slideInFromRight 1s ease forwards;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes slideInFromLeft {
-      from {
+      .slide-in-left {
         transform: translateX(-100px);
         opacity: 0;
+        animation: slideInFromLeft 1s ease forwards;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+        animation-delay: 0.1s;
       }
+    </style>
 
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
+    <script>
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in head to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
+    </script>
+  </head>
 
-    .slide-in-left {
-      transform: translateX(-100px);
-      opacity: 0;
-      animation: slideInFromLeft 1s ease forwards;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
-      animation-delay: 0.1s;
-    }
-  </style>
+  <body class="dark:bg-[#222831] m-0 p-0 overflow-x-hidden">
+    <!-- NAVBAR -->
 
-  <script>
-    localStorage.theme = "light";
-    // On page load or when changing themes, best to add inline in head to avoid FOUC
-    document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-    // Whenever the user explicitly chooses light mode
-    //   localStorage.theme = "light";
-    // Whenever the user explicitly chooses dark mode
-    //   localStorage.theme = "dark";
-    // Whenever the user explicitly chooses to respect the OS preference
-    //   localStorage.removeItem("theme");
-  </script>
-</head>
-
-<body class="dark:bg-[#222831] m-0 p-0 overflow-x-hidden">
-
-  <!-- NAVBAR -->
-
-  <header id="navbar"
-    class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white">
-    <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
-        <div class="md:flex md:items-center md:gap-12">
-          <a class="block text-[#00ADB5] transition-transform hover:scale-105" href="./home-page.html">
-            <span class="sr-only">Home</span>
-            <img class="w-14 mx-auto rounded-md shadow-sm object-contain h-14" src="./images/restaurant-logo.png"
-              alt="Restaurant Logo" />
-          </a>
-        </div>
-        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-          <a href="./listing-page.html"
-            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Listing</a>
-          <a href="./detail-page.html"
-            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Detail</a>
-          <a href="./contact-page.html"
-            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Contact/
-            Services</a>
-          <a href="./register-page.html"
-            class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600">
-            Register
-          </a>
-          <a href="./login-page.html"
-            class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600">
-            Login
-          </a>
-          <button type="button" id="btnMode"
-            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer">
-            <span id="mode-label">Light Mode</span>
-            <i id="mode-icon" class="fa-solid fa-sun"></i>
-          </button>
-        </div>
-        <div class="md:hidden relative items-center">
-          <div class="flex">
-            <button type="button" id="btnModeMobile"
-              class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700">
-              <i id="mode-icon-mobile" class="fa-solid fa-moon text-sm pt-[1px]"></i>
-            </button>
-            <button type="button" id="menu-toggle" class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+    <header
+      id="navbar"
+      class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white"
+    >
+      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <a
+              class="block text-[#00ADB5] transition-transform hover:scale-105"
+              href="./home-page.html"
+            >
+              <span class="sr-only">Home</span>
+              <img
+                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
+                src="./images/restaurant-logo.png"
+                alt="Restaurant Logo"
+              />
+            </a>
           </div>
-
-          <div id="mobile-menu"
-            class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50">
-            <a href="./listing-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Listing</a><br />
-            <a href="./detail-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Detail</a><br />
-            <a href="./contact-page.html"
-              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Contact</a>
-            <a href="./register-page.html"
-              class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600">
+          <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a
+              href="./listing-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Listing</a
+            >
+            <a
+              href="./detail-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Detail</a
+            >
+            <a
+              href="./contact-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Contact/ Services</a
+            >
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600"
+            >
               Register
             </a>
-            <a href="./login-page.html"
-              class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition">Login</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!-- END OF NAVBAR -->
-
-  <section class="h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh] w-screen">
-    <section
-      class="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh]  w-screen overflow-hidden">
-      <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
-      <div class="relative w-full h-full">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <video autoplay loop muted class="w-full h-full scale-[1.4]" src="Video/short-cooking.mp4"
-            title="video player"></video></div>
-      </div>
-      <div
-        class="absolute inset-0 flex items-center justify-start text-white z-20 p-4 md:p-6 lg:p-8 ml-4 sm:ml-6 md:ml-8 lg:ml-12">
-        <div class="flex flex-col items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-2">
-          <div class="text-center text-white px-4 py-8 bg-opacity-50 rounded-lg max-w-3xl mx-auto">
-            <h1
-              class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-md motion-scale-in-[0.5] motion-translate-x-in-[0%] motion-translate-y-in-[-110%] motion-opacity-in-[60%] motion-blur-in-[10px] motion-duration-[2.25s]">
-              Tasty Bites
-            </h1>
-            <p
-              class="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]">
-              Taste the Magic of Authentic <span class="text-red-400 font-semibold">Khmer Cuisine</span>!
-            </p>
-          </div>
-
-          <div class="text-white text-center rounded-lg w-full max-w-md mx-auto motion-translate-x-in-[0%] motion-translate-y-in-[200%] motion-duration-[1.50s]">
-            <h2 class="text-xl font-semibold mb-0">🕒 Opening Hours</h2>
-            <p class="text-sm md:text-base">
-              <span class="font-medium">Monday – Saturday:</span> 10:00 AM – 10:00 PM
-            </p>
-            <p class="text-sm text-gray-300 mt-1">Closed on Sundays</p>
-          </div>
-
-          <a data-aos="fade-up" href="#section-1" class="aos-init aos-animate">
-            <button type="button"
-              class="text-sm md:text-base border border-primary bg-lms-primary sm:mx-4 p-4 py-1.5 text-white-80 sm:mt-4 hover:text-white hover:bg-lms-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg sm:px-5 sm:py-2.5 text-center me-2 transition-colors duration-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]"><span
-                class="button-text font-bold">Explore -></span>
+            <a
+              href="./login-page.html"
+              class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+            >
+              Login
+            </a>
+            <button
+              type="button"
+              id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
+            >
+              <span id="mode-label">Light Mode</span>
+              <i id="mode-icon" class="fa-solid fa-sun"></i>
             </button>
-          </a>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <main>
-    <section id="section-1">
-      <!-- Features -->
-      <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div class="relative p-6 md:p-16">
-          <!-- Grid -->
-          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 lg:items-center">
-            <div class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2 order-2">
-              <h2 class="text-3xl text-gray-800 font-bold sm:text-3xl dark:text-white mb-4 font-[Montserrat]">
-                Athentic Khmer Cuisine to Satisfy Your Taste
-              </h2>
-
-              <!-- Tab Navs -->
-              <nav class="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist" aria-orientation="vertical">
-                <button type="button"
-                  class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
-                  id="tabs-with-card-item-1" aria-selected="true" data-hs-tab="#tabs-with-card-1"
-                  aria-controls="tabs-with-card-1" role="tab">
-                  <span class="flex gap-x-6">
-                    <i
-                      class="fa-solid fa-bowl-rice text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"></i>
-                    <span class="grow">
-                      <span
-                        class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]">Discover
-                        the Flavor of Amok</span>
-                      <span
-                        class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left">Amok
-                        Trey is one Cambodia's most beloved national
-                        dishes. Steamed in banana leaves, this coconut curry
-                        is packed with spices and topped within red
-                        chili.</span>
-                    </span>
-                  </span>
-                </button>
-
-                <button type="button"
-                  class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
-                  id="tabs-with-card-item-2" aria-selected="false" data-hs-tab="#tabs-with-card-2"
-                  aria-controls="tabs-with-card-2" role="tab">
-                  <span class="flex gap-x-6">
-                    <i
-                      class="fa-solid fa-utensils text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"></i>
-                    <span class="grow">
-                      <span
-                        class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]">Start
-                        Your Day With Bai Sach Chrouk</span>
-                      <span
-                        class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left">A
-                        popular Cambodian breakfast dish made with
-                        marinated grilled pork, fluffy rice, and often served
-                        with pickled vegetables and egg.</span>
-                    </span>
-                  </span>
-                </button>
-
-                <button type="button"
-                  class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
-                  id="tabs-with-card-item-3" aria-selected="false" data-hs-tab="#tabs-with-card-3"
-                  aria-controls="tabs-with-card-3" role="tab">
-                  <span class="flex gap-x-6">
-                    <i
-                      class="fa-solid fa-plate-wheat text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"></i>
-                    <span class="grow">
-                      <span
-                        class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]">Taste
-                        the Tradition: Samlor Korko</span>
-                      <span
-                        class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left">Samlor
-                        Korko is a hearty Cambodian stew made with
-                        rich vegetables, fermented fish paste, and tender
-                        meat. It's a celebration of local ingredients in one
-                        bowl.</span>
-                    </span>
-                  </span>
-                </button>
-              </nav>
-              <!-- End Tab Navs -->
-            </div>
-            <!-- End Col -->
-
-            <div class="lg:col-span-6 order-1 lg:order-1">
-              <div class="relative">
-                <!-- Tab Content -->
-                <div>
-                  <div id="tabs-with-card-1" role="tabpanel" aria-labelledby="tabs-with-card-item-1">
-                    <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20" src="./images/amok.png"
-                      alt="Amok Image" />
-                  </div>
-
-                  <div id="tabs-with-card-2" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-2">
-                    <img class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20"
-                      src="./images/bai-sach-chrouk.png" alt="Bai Sach Chrouk Image" />
-                  </div>
-
-                  <div id="tabs-with-card-3" class="hidden" role="tabpanel" aria-labelledby="tabs-with-card-item-3">
-                    <img class="shadow-lg shadow-gray-200 rounded-lg dark:shadow-gray-900/20"
-                      src="./images/samlor-korkor.png" alt="Samlo Korko Image" />
-                  </div>
-                </div>
-                <!-- End Tab Content -->
-
-                <!-- SVG Element -->
-                <div class="hidden absolute top-0 end-0 translate-x-20 md:block lg:translate-x-20">
-                  <svg class="w-16 h-auto text-orange-500 animate-bounce-slow" width="121" height="135"
-                    viewBox="0 0 121 135" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164" stroke="currentColor"
-                      stroke-width="10" stroke-linecap="round" />
-                    <path d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5" stroke="currentColor"
-                      stroke-width="10" stroke-linecap="round" />
-                    <path d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874" stroke="currentColor"
-                      stroke-width="10" stroke-linecap="round" />
-                  </svg>
-                </div>
-                <!-- End SVG Element -->
-              </div>
-            </div>
-            <!-- End Col -->
           </div>
-          <!-- End Grid -->
+          <div class="md:hidden relative items-center">
+            <div class="flex">
+              <button
+                type="button"
+                id="btnModeMobile"
+                class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+              >
+                <i
+                  id="mode-icon-mobile"
+                  class="fa-solid fa-moon text-sm pt-[1px]"
+                ></i>
+              </button>
+              <button
+                type="button"
+                id="menu-toggle"
+                class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
 
-          <!-- Background Color -->
-          <div class="absolute inset-0 grid grid-cols-12 size-full">
             <div
-              class="col-span-full lg:col-span-7 lg:col-start-6 bg-gray-100 w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full dark:bg-neutral-800">
+              id="mobile-menu"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
+            >
+              <a
+                href="./listing-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Listing</a
+              ><br />
+              <a
+                href="./detail-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Detail</a
+              ><br />
+              <a
+                href="./contact-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Contact</a
+              >
+              <a
+                href="./register-page.html"
+                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
+              >
+                Register
+              </a>
+              <a
+                href="./login-page.html"
+                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                >Login</a
+              >
             </div>
           </div>
-          <!-- End Background Color -->
         </div>
-      </div>
-      <!-- End Features -->
-    </section>
-    <section id="reservation" class="scroll-mt-20">
-      <!-- Approach -->
-      <div class="bg-neutral-700 py-16 dark:bg-[#393E46] text-gray-800 dark:text-white transition-colors duration-300">
+      </nav>
+    </header>
+
+    <main>
+      <section
+        class="h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh] w-screen"
+      >
+        <section
+          class="relative h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[90vh] 2xl:h-[100vh] w-screen overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+          <div class="relative w-full h-full">
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <video
+                autoplay
+                loop
+                muted
+                class="w-full h-full scale-[1.4]"
+                src="./videos/short-cooking.mp4"
+                title="video player"
+              ></video>
+            </div>
+          </div>
+          <div
+            class="absolute inset-0 flex items-center justify-start text-white z-20 p-4 md:p-6 lg:p-8 ml-4 sm:ml-6 md:ml-8 lg:ml-12"
+          >
+            <div
+              class="flex flex-col items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-2"
+            >
+              <div
+                class="text-center text-white px-4 py-8 bg-opacity-50 rounded-lg max-w-3xl mx-auto"
+              >
+                <h1
+                  class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-md motion-scale-in-[0.5] motion-translate-x-in-[0%] motion-translate-y-in-[-110%] motion-opacity-in-[60%] motion-blur-in-[10px] motion-duration-[2.25s]"
+                >
+                  Tasty Bites
+                </h1>
+                <p
+                  class="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-gray-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]"
+                >
+                  Taste the Magic of Authentic
+                  <span class="text-red-400 font-semibold">Khmer Cuisine</span>!
+                </p>
+              </div>
+
+              <div
+                class="text-white text-center rounded-lg w-full max-w-md mx-auto motion-translate-x-in-[0%] motion-translate-y-in-[200%] motion-duration-[1.50s]"
+              >
+                <h2 class="text-xl font-semibold mb-0">🕒 Opening Hours</h2>
+                <p class="text-sm md:text-base">
+                  <span class="font-medium">Monday – Saturday:</span> 10:00 AM –
+                  10:00 PM
+                </p>
+                <p class="text-sm text-gray-300 mt-1">Closed on Sundays</p>
+              </div>
+
+              <a
+                data-aos="fade-up"
+                href="#section-1"
+                class="aos-init aos-animate"
+              >
+                <button
+                  type="button"
+                  class="text-sm md:text-base border border-primary bg-lms-primary sm:mx-4 p-4 py-1.5 text-white-80 sm:mt-4 hover:text-white hover:bg-lms-primary/90 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg sm:px-5 sm:py-2.5 text-center me-2 transition-colors duration-200 motion-translate-x-in-[-200%] motion-translate-y-in-[0%] motion-duration-[1.50s]"
+                >
+                  <span class="button-text font-bold">Explore -></span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section id="section-1">
+        <!-- Features -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+          <div class="relative p-6 md:p-16">
+            <!-- Grid -->
+            <div
+              class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 lg:items-center"
+            >
+              <div
+                class="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2 order-2"
+              >
+                <h2
+                  class="text-3xl text-gray-800 font-bold sm:text-3xl dark:text-white mb-4 font-[Montserrat]"
+                >
+                  Athentic Khmer Cuisine to Satisfy Your Taste
+                </h2>
+
+                <!-- Tab Navs -->
+                <nav
+                  class="grid gap-4 mt-5 md:mt-10"
+                  aria-label="Tabs"
+                  role="tablist"
+                  aria-orientation="vertical"
+                >
+                  <button
+                    type="button"
+                    class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
+                    id="tabs-with-card-item-1"
+                    aria-selected="true"
+                    data-hs-tab="#tabs-with-card-1"
+                    aria-controls="tabs-with-card-1"
+                    role="tab"
+                  >
+                    <span class="flex gap-x-6">
+                      <i
+                        class="fa-solid fa-bowl-rice text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"
+                      ></i>
+                      <span class="grow">
+                        <span
+                          class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]"
+                          >Discover the Flavor of Amok</span
+                        >
+                        <span
+                          class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left"
+                          >Amok Trey is one Cambodia's most beloved national
+                          dishes. Steamed in banana leaves, this coconut curry
+                          is packed with spices and topped within red
+                          chili.</span
+                        >
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
+                    id="tabs-with-card-item-2"
+                    aria-selected="false"
+                    data-hs-tab="#tabs-with-card-2"
+                    aria-controls="tabs-with-card-2"
+                    role="tab"
+                  >
+                    <span class="flex gap-x-6">
+                      <i
+                        class="fa-solid fa-utensils text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"
+                      ></i>
+                      <span class="grow">
+                        <span
+                          class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]"
+                          >Start Your Day With Bai Sach Chrouk</span
+                        >
+                        <span
+                          class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left"
+                          >A popular Cambodian breakfast dish made with
+                          marinated grilled pork, fluffy rice, and often served
+                          with pickled vegetables and egg.</span
+                        >
+                      </span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="hs-tab-active:bg-white hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-2xl dark:hs-tab-active:bg-neutral-800 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active relative shadow-md hs-tab-active:scale-[1.02] transition-all duration-300 ease-in-out transform hover:scale-[1.01] dark:bg-neutral-700 hover:shadow-lg cursor-pointer focus:outline-none"
+                    id="tabs-with-card-item-3"
+                    aria-selected="false"
+                    data-hs-tab="#tabs-with-card-3"
+                    aria-controls="tabs-with-card-3"
+                    role="tab"
+                  >
+                    <span class="flex gap-x-6">
+                      <i
+                        class="fa-solid fa-plate-wheat text-2xl md:text-2xl mt-[2px] text-gray-800 dark:text-white hs-tab-active:text-teal-600 dark:hs-tab-active:text-teal-400 transition-all duration-300"
+                      ></i>
+                      <span class="grow">
+                        <span
+                          class="block text-xl font-semibold hs-tab-active:text-blue-600 text-gray-800 dark:hs-tab-active:text-blue-500 dark:text-white mb-4 sm:text-2xl font-[Montserrat]"
+                          >Taste the Tradition: Samlor Korko</span
+                        >
+                        <span
+                          class="block mt-1 text-gray-600 dark:hs-tab-active:text-gray-200 dark:text-gray-300 space-y-3 mr-2 mb-6 font-[Inter] animate-on-scroll-right-left"
+                          >Samlor Korko is a hearty Cambodian stew made with
+                          rich vegetables, fermented fish paste, and tender
+                          meat. It's a celebration of local ingredients in one
+                          bowl.</span
+                        >
+                      </span>
+                    </span>
+                  </button>
+                </nav>
+                <!-- End Tab Navs -->
+              </div>
+              <!-- End Col -->
+
+              <div class="lg:col-span-6 order-1 lg:order-1">
+                <div class="relative">
+                  <!-- Tab Content -->
+                  <div>
+                    <div
+                      id="tabs-with-card-1"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-1"
+                    >
+                      <img
+                        class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20"
+                        src="./images/amok.png"
+                        alt="Amok Image"
+                      />
+                    </div>
+
+                    <div
+                      id="tabs-with-card-2"
+                      class="hidden"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-2"
+                    >
+                      <img
+                        class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20"
+                        src="./images/bai-sach-chrouk.png"
+                        alt="Bai Sach Chrouk Image"
+                      />
+                    </div>
+
+                    <div
+                      id="tabs-with-card-3"
+                      class="hidden"
+                      role="tabpanel"
+                      aria-labelledby="tabs-with-card-item-3"
+                    >
+                      <img
+                        class="shadow-lg shadow-gray-200 rounded-lg dark:shadow-gray-900/20"
+                        src="./images/samlor-korkor.png"
+                        alt="Samlo Korko Image"
+                      />
+                    </div>
+                  </div>
+                  <!-- End Tab Content -->
+
+                  <!-- SVG Element -->
+                  <div
+                    class="hidden absolute top-0 end-0 translate-x-20 md:block lg:translate-x-20"
+                  >
+                    <svg
+                      class="w-16 h-auto text-orange-500 animate-bounce-slow"
+                      width="121"
+                      height="135"
+                      viewBox="0 0 121 135"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
+                        stroke="currentColor"
+                        stroke-width="10"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5"
+                        stroke="currentColor"
+                        stroke-width="10"
+                        stroke-linecap="round"
+                      />
+                      <path
+                        d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874"
+                        stroke="currentColor"
+                        stroke-width="10"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </div>
+                  <!-- End SVG Element -->
+                </div>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Grid -->
+
+            <!-- Background Color -->
+            <div class="absolute inset-0 grid grid-cols-12 size-full">
+              <div
+                class="col-span-full lg:col-span-7 lg:col-start-6 bg-gray-100 w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full dark:bg-neutral-800"
+              ></div>
+            </div>
+            <!-- End Background Color -->
+          </div>
+        </div>
+        <!-- End Features -->
+      </section>
+      <section id="reservation" class="scroll-mt-20">
         <!-- Approach -->
-        <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+        <div
+          class="bg-neutral-700 py-16 dark:bg-[#393E46] text-gray-800 dark:text-white transition-colors duration-300"
+        >
+          <!-- Approach -->
+          <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+            <!-- Title -->
+            <div class="max-w-3xl mb-10 lg:mb-14">
+              <h2
+                class="text-white font-bold text-3xl md:text-4xl md:leading-tight font-[Montserrat] mb-3 hover:text-yellow-400 transition duration-300 cursor-pointer slide-in-left"
+              >
+                Our Culinary Journey
+              </h2>
+              <p
+                class="mt-1 text-gray-300 text-lg font-[Inter] mb-8 dark:text-gray-300 transition-all slide-in-left"
+              >
+                From farm-fresh ingredients to your table, we craft every Khmer
+                classic with passion and precision-so every bite transpots you
+                to the heart of Cambodia.
+              </p>
+            </div>
+            <!-- End Title -->
+
+            <!-- Grid -->
+            <div
+              class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 lg:items-center container mx-auto lg:flex"
+            >
+              <div class="aspect-w-16 aspect-h-9 lg:aspect-none mb-10 lg:mb-0">
+                <img
+                  class="w-full object-cover rounded-xl shadow-lg hover:brightness-105 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
+                  src="./images/lok-lak.png"
+                  alt="Lok Lak Image"
+                />
+              </div>
+              <!-- End Col -->
+
+              <!-- Timeline -->
+              <div>
+                <!-- Heading -->
+                <div class="mb-4">
+                  <h3 class="text-[#ff0] text-xs font-medium uppercase">
+                    Steps
+                  </h3>
+                </div>
+                <!-- End Heading -->
+
+                <!-- Item -->
+                <div class="flex gap-x-5 ms-1">
+                  <!-- Icon -->
+                  <div
+                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800"
+                  >
+                    <div
+                      class="relative z-10 size-8 flex justify-center items-center"
+                    >
+                      <span
+                        class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer"
+                      >
+                        1
+                      </span>
+                    </div>
+                  </div>
+                  <!-- End Icon -->
+
+                  <!-- Right Content -->
+                  <div class="grow pt-0.5 pb-8 sm:pb-12">
+                    <p
+                      class="text-lg lg:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer ml-4 font-[Inter] animate-on-scroll-right-left"
+                    >
+                      <span class="text-white font-bold font-[Montserrat] mb-3"
+                        >Locally Sourced Ingredients:</span
+                      >
+                      We partner with nearby farms and markets to bring you the
+                      freshest produce, herbs, and spices.
+                    </p>
+                  </div>
+                  <!-- End Right Content -->
+                </div>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <div class="flex gap-x-5 ms-1">
+                  <!-- Icon -->
+                  <div
+                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800"
+                  >
+                    <div
+                      class="relative z-10 size-8 flex justify-center items-center"
+                    >
+                      <span
+                        class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer"
+                      >
+                        2
+                      </span>
+                    </div>
+                  </div>
+                  <!-- End Icon -->
+
+                  <!-- Right Content -->
+                  <div class="grow pt-0.5 pb-8 sm:pb-12">
+                    <p
+                      class="text-lg lg:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer font-[Inter] ml-4 animate-on-scroll-right-left"
+                    >
+                      <span class="text-white font-bold font-[Montserrat] mb-3"
+                        >Recipe Creation and Tasting:</span
+                      >
+                      Our chefs experiment, taste, and refine every recipe to
+                      perfection.
+                    </p>
+                  </div>
+                  <!-- End Right Content -->
+                </div>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <div class="flex gap-x-5 ms-1">
+                  <!-- Icon -->
+                  <div
+                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800"
+                  >
+                    <div
+                      class="relative z-10 size-8 flex justify-center items-center"
+                    >
+                      <span
+                        class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer"
+                      >
+                        3
+                      </span>
+                    </div>
+                  </div>
+                  <!-- End Icon -->
+
+                  <!-- Right Content -->
+                  <div class="grow pt-0.5 pb-8 sm:pb-12">
+                    <p
+                      class="text-lg md:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer ml-4 font-[Inter] animate-on-scroll-right-left"
+                    >
+                      <span class="text-white font-bold font-[Montserrat] mb-3"
+                        >Artful Presentation:</span
+                      >
+                      Every plate is composed with care-color, textture, and
+                      aroma combine for a feast of the senses.
+                    </p>
+                  </div>
+                  <!-- End Right Content -->
+                </div>
+                <!-- End Item -->
+
+                <!-- Item -->
+                <div class="flex gap-x-5 ms-1">
+                  <!-- Icon -->
+                  <div
+                    class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800"
+                  >
+                    <div
+                      class="relative z-10 size-8 flex justify-center items-center"
+                    >
+                      <span
+                        class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer"
+                      >
+                        4
+                      </span>
+                    </div>
+                  </div>
+                  <!-- End Icon -->
+
+                  <!-- Right Content -->
+                  <div class="grow pt-0.5 pb-8 sm:pb-12">
+                    <p
+                      class="text-lg md:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer font-[Inter] ml-4 animate-on-scroll-right-left"
+                    >
+                      <span class="text-white font-bold font-[Montserrat] mb-3"
+                        >Warm, Friendly Service:</span
+                      >
+                      From your first greeting to the last bite, our team treats
+                      you like family.
+                    </p>
+                  </div>
+                  <!-- End Right Content -->
+                </div>
+                <!-- End Item -->
+
+                <a
+                  class="group inline-flex items-center gap-x-2 py-3 px-6 mt-10 bg-yellow-500 font-semibold text-sm text-black rounded-full focus:outline-hidden hover:bg-yellow-600 transition-all shadow-lg transform hover:scale-105 duration-300 cursor-pointer"
+                  href="#reservation"
+                >
+                  <svg
+                    class="shrink-0 size-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                    ></path>
+                    <path
+                      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:delay-100 transition"
+                      d="M14.05 2a9 9 0 0 1 8 7.94"
+                    ></path>
+                    <path
+                      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition"
+                      d="M14.05 6A5 5 0 0 1 18 10"
+                    ></path>
+                  </svg>
+                  Reserve a Table
+                </a>
+              </div>
+              <!-- End Timeline -->
+            </div>
+            <!-- End Grid -->
+          </div>
+        </div>
+        <!-- End Approach -->
+      </section>
+      <section class="dark:bg-[#222831] scroll-mt-20" id="job-section">
+        <!-- Team -->
+        <div class="max-w-[85rem] px-4 py-12 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <!-- Title -->
-          <div class="max-w-3xl mb-10 lg:mb-14">
+          <div class="max-w-7xl mx-auto text-center mb-10 lg:mb-14 px-4">
             <h2
-              class="text-white font-bold text-3xl md:text-4xl md:leading-tight font-[Montserrat] mb-3 hover:text-yellow-400 transition duration-300 cursor-pointer slide-in-left">
-              Our Culinary Journey
+              class="text-3xl font-bold md:text-4xl md:leading-tight dark:text-white font-[Montserrat] text-gray-800"
+            >
+              Meet Our Chefs
             </h2>
-            <p class="mt-1 text-gray-300 text-lg font-[Inter] mb-8 dark:text-gray-300 transition-all slide-in-left">
-              From farm-fresh ingredients to your table, we craft every Khmer
-              classic with passion and precision-so every bite transpots you
-              to the heart of Cambodia.
+            <p class="mt-2 text-gray-600 dark:text-neutral-400 font-[Inter]">
+              The heart and soul behind every dish
             </p>
           </div>
           <!-- End Title -->
 
           <!-- Grid -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 lg:items-center container mx-auto lg:flex">
-            <div class="aspect-w-16 aspect-h-9 lg:aspect-none mb-10 lg:mb-0">
-              <img
-                class="w-full object-cover rounded-xl shadow-lg hover:brightness-105 hover:scale-105 transition-transform duration-300 ease-in-out cursor-pointer"
-                src="./images/lok-lak.png" alt="Lok Lak Image" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/piseth.png"
+                  alt="Piseth Mao Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Piseth Mao
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Restaurant Manager
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Proud to represent Khmer hospitality. I lead with heart,
+                ensuring every customer leaves with a smile and a memorable
+                taste of our culture.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:pisethmao2002@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
             </div>
             <!-- End Col -->
 
-            <!-- Timeline -->
-            <div>
-              <!-- Heading -->
-              <div class="mb-4">
-                <h3 class="text-[#ff0] text-xs font-medium uppercase">
-                  Steps
-                </h3>
-              </div>
-              <!-- End Heading -->
-
-              <!-- Item -->
-              <div class="flex gap-x-5 ms-1">
-                <!-- Icon -->
-                <div
-                  class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                  <div class="relative z-10 size-8 flex justify-center items-center">
-                    <span
-                      class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer">
-                      1
-                    </span>
-                  </div>
-                </div>
-                <!-- End Icon -->
-
-                <!-- Right Content -->
-                <div class="grow pt-0.5 pb-8 sm:pb-12">
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/kompheak.png"
+                  alt="Kompheak Yarn Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Kompheak Yarn
+                  </h3>
                   <p
-                    class="text-lg lg:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer ml-4 font-[Inter] animate-on-scroll-right-left">
-                    <span class="text-white font-bold font-[Montserrat] mb-3">Locally Sourced Ingredients:</span>
-                    We partner with nearby farms and markets to bring you the
-                    freshest produce, herbs, and spices.
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Head Chef
                   </p>
                 </div>
-                <!-- End Right Content -->
               </div>
-              <!-- End Item -->
 
-              <!-- Item -->
-              <div class="flex gap-x-5 ms-1">
-                <!-- Icon -->
-                <div
-                  class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                  <div class="relative z-10 size-8 flex justify-center items-center">
-                    <span
-                      class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer">
-                      2
-                    </span>
-                  </div>
-                </div>
-                <!-- End Icon -->
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Passionate about traditional Khmer recipes with a modern twist.
+                I blend tradition with creativity to serve dishes that delight
+                locals and visitors alike.
+              </p>
 
-                <!-- Right Content -->
-                <div class="grow pt-0.5 pb-8 sm:pb-12">
-                  <p
-                    class="text-lg lg:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer font-[Inter] ml-4 animate-on-scroll-right-left">
-                    <span class="text-white font-bold font-[Montserrat] mb-3">Recipe Creation and Tasting:</span>
-                    Our chefs experiment, taste, and refine every recipe to
-                    perfection.
-                  </p>
-                </div>
-                <!-- End Right Content -->
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:kompheakyarn@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/8p4xh8w4vq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.instagram.com/pheak_diary/?hl=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
               </div>
-              <!-- End Item -->
-
-              <!-- Item -->
-              <div class="flex gap-x-5 ms-1">
-                <!-- Icon -->
-                <div
-                  class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                  <div class="relative z-10 size-8 flex justify-center items-center">
-                    <span
-                      class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer">
-                      3
-                    </span>
-                  </div>
-                </div>
-                <!-- End Icon -->
-
-                <!-- Right Content -->
-                <div class="grow pt-0.5 pb-8 sm:pb-12">
-                  <p
-                    class="text-lg md:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer ml-4 font-[Inter] animate-on-scroll-right-left">
-                    <span class="text-white font-bold font-[Montserrat] mb-3">Artful Presentation:</span>
-                    Every plate is composed with care-color, textture, and
-                    aroma combine for a feast of the senses.
-                  </p>
-                </div>
-                <!-- End Right Content -->
-              </div>
-              <!-- End Item -->
-
-              <!-- Item -->
-              <div class="flex gap-x-5 ms-1">
-                <!-- Icon -->
-                <div
-                  class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:w-px after:-translate-x-[0.5px] after:bg-neutral-800">
-                  <div class="relative z-10 size-8 flex justify-center items-center">
-                    <span
-                      class="flex shrink-0 justify-center items-center size-8 border border-neutral-800 text-black font-bold text-xs uppercase rounded-full bg-yellow-500 hover:scale-110 transform transition-transform shadow-md cursor-pointer">
-                      4
-                    </span>
-                  </div>
-                </div>
-                <!-- End Icon -->
-
-                <!-- Right Content -->
-                <div class="grow pt-0.5 pb-8 sm:pb-12">
-                  <p
-                    class="text-lg md:text-base text-gray-300 dark:text-gray-300 hover:text-teal-500 transition duration-200 ease-in-out cursor-pointer font-[Inter] ml-4 animate-on-scroll-right-left">
-                    <span class="text-white font-bold font-[Montserrat] mb-3">Warm, Friendly Service:</span>
-                    From your first greeting to the last bite, our team treats
-                    you like family.
-                  </p>
-                </div>
-                <!-- End Right Content -->
-              </div>
-              <!-- End Item -->
-
-              <a class="group inline-flex items-center gap-x-2 py-3 px-6 mt-10 bg-yellow-500 font-semibold text-sm text-black rounded-full focus:outline-hidden hover:bg-yellow-600 transition-all shadow-lg transform hover:scale-105 duration-300 cursor-pointer"
-                href="#reservation">
-                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                  </path>
-                  <path
-                    class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 group-hover:delay-100 transition"
-                    d="M14.05 2a9 9 0 0 1 8 7.94"></path>
-                  <path class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition"
-                    d="M14.05 6A5 5 0 0 1 18 10"></path>
-                </svg>
-                Reserve a Table
-              </a>
+              <!-- End Social Brands -->
             </div>
-            <!-- End Timeline -->
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/chanchhay.png"
+                  alt="Chanchhay Srey Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Chanchhay Srey
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Sous Chef
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Proud to preserve Khmer culinary traditions while adding a touch
+                of innovation to each plate. I help bring our culture to life
+                through food.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:chanchhay07@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/menglong.png"
+                  alt="Menglong Keo Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Menglong Keo
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Pastry Chef
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Passionate about creating traditional and modern Khmer desserts
+                that leave a lasting impression. Every sweet I make tells a
+                story of our culture.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:menglongkeo07@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/menglong.keo.1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.instagram.com/menglongkeo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/samnang.png"
+                  alt="Samnang Rin Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Samnang Rin
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Line Cook
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Focused and fast, I prepare ingredients and cook dishes with
+                precision. I make sure every plate of Khmer food is delivered
+                fresh and flavorful.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:rinsamnang111gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/klewlwywsi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.instagram.com/biqq_frogz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/na.png"
+                  alt="Na Mot Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Na Mot
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Kitchen Assistant
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Behind every great dish is a clean and well-prepared kitchen. I
+                help keep everything running smoothly so the chefs can focus on
+                cooking.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:nanamot206@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/nana.mot.1232"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/sovanthorng.png"
+                  alt="Sovanthorng Prak Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Sovanthorng Prak
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Ingredient Specialist
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                I source and prepare the freshest local ingredients, making sure
+                each dish captures the true taste and essence of Khmer tradition
+                with every bite.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:sovanthorngprak09@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <div
+              class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer"
+            >
+              <div class="flex items-center gap-x-4 rounded-lg transition">
+                <img
+                  class="rounded-full size-20 w-24 h-24 mx-auto"
+                  src="./images/piseth-2.png"
+                  alt="Piseth Mao 2 Image"
+                />
+                <div class="grow">
+                  <h3
+                    class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                  >
+                    Piseth Mao 2
+                  </h3>
+                  <p
+                    class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide"
+                  >
+                    Grill Master
+                  </p>
+                </div>
+              </div>
+
+              <p
+                class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white"
+              >
+                Mastering the flame is my passion. I craft perfectly grilled
+                meats and vegetables that bring out bold, smoky flavors rooted
+                in Khmer cuisine.
+              </p>
+
+              <!-- Social Brands -->
+              <div class="mt-3 space-x-1 flex gap-3">
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="mailto:pisethmao2002@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
+                </a>
+                <a
+                  class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
+                </a>
+              </div>
+              <!-- End Social Brands -->
+            </div>
+            <!-- End Col -->
+
+            <a
+              class="col-span-full lg:col-span-1 group flex flex-col justify-center items-center text-center rounded-xl p-6 md:p-6 border border-dashed border-gray-300 hover:shadow-lg focus:outline-hidden focus:shadow-2xs dark:border-neutral-700 hover:border-gray-400 dark:hover:border-neutral-500 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+              href="#job-section"
+            >
+              <h3
+                class="text-lg text-gray-800 dark:text-neutral-200 font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+              >
+                We are hiring!
+              </h3>
+              <div>
+                <span
+                  class="mt-2 inline-flex items-center gap-x-2 text-blue-600 group-hover:text-blue-700 group-focus:text-blue-700 dark:text-blue-500 dark:group-hover:text-blue-400 dark:group-focus:text-blue-400"
+                >
+                  See all opening positions
+                  <svg
+                    class="shrink-0 size-4 group-hover:translate-x-1 transition-transform duration-300"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m9 18 6-6-6-6" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+            <!-- End Col -->
           </div>
           <!-- End Grid -->
         </div>
-      </div>
-      <!-- End Approach -->
-    </section>
-    <section class=" dark:bg-[#222831] scroll-mt-20" id="job-section">
-      <!-- Team -->
-      <div class="max-w-[85rem] px-4 py-12 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <!-- Title -->
-        <div class="max-w-7xl mx-auto text-center mb-10 lg:mb-14 px-4">
-          <h2 class="text-3xl font-bold md:text-4xl md:leading-tight dark:text-white font-[Montserrat] text-gray-800">
-            Meet Our Chefs
-          </h2>
-          <p class="mt-2 text-gray-600 dark:text-neutral-400 font-[Inter]">
-            The heart and soul behind every dish
-          </p>
-        </div>
-        <!-- End Title -->
-
-        <!-- Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/piseth.png" alt="Piseth Mao Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Piseth Mao
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Restaurant Manager
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Proud to represent Khmer hospitality. I lead with heart,
-              ensuring every customer leaves with a smile and a memorable
-              taste of our culture.
+        <!-- End Team -->
+      </section>
+      <section>
+        <!-- FAQ -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+          <!-- Title -->
+          <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+            <h2
+              class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white font-[Montserrat]"
+            >
+              Your questions, answered
+            </h2>
+            <p class="mt-1 text-gray-600 dark:text-neutral-400 font-[Inter]">
+              Answers to the most frequently asked questions.
             </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:pisethmao2002@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.instagram.com/seth_spider/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
           </div>
-          <!-- End Col -->
+          <!-- End Title -->
 
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/kompheak.png"
-                alt="Kompheak Yarn Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Kompheak Yarn
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Head Chef
-                </p>
+          <div class="max-w-2xl mx-auto">
+            <!-- Accordion -->
+            <div class="hs-accordion-group space-y-4">
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10 active"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="true"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  What types of food does Tasty Bites serve?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    We specialize in authentic Khmer cuisine, made with fresh
+                    local ingredients and traditional recipes.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="false"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  Do you offer vegetarian or vegan options?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    Yes, we have a selection of vegetarian and vegan dishes
+                    available. Please ask our staff for recommendations or check
+                    our menu icons.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="false"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  Can I make a reservation online?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    Absolutely! You can reserve your table online through our
+                    website — just click on the "Reserve a Table" button and
+                    fill in your details.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="false"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  Do you offer delivery or takeaway?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    Yes, we provide both delivery and takeaway options. You can
+                    place your order through our website or call us directly.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="false"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  What are your opening hours?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    We're open daily from 10:00 AM to 10:00 PM, including
+                    weekends and public holidays.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
+                id="hs-basic-with-title-and-arrow-stretched-heading-one"
+              >
+                <button
+                  type="button"
+                  class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
+                  aria-expanded="false"
+                  aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                >
+                  Do you cater for private events or parties?
+                  <svg
+                    class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <svg
+                    class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="m18 15-6-6-6 6" />
+                  </svg>
+                </button>
+                <div
+                  id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+                  class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden"
+                  role="region"
+                  aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one"
+                >
+                  <p
+                    class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300"
+                  >
+                    Yes, Tasty Bites offers catering services for small to
+                    medium-sized events. Contact us to customize your menu and
+                    resreve space.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Passionate about traditional Khmer recipes with a modern twist.
-              I blend tradition with creativity to serve dishes that delight
-              locals and visitors alike.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:kompheakyarn@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/8p4xh8w4vq" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.instagram.com/pheak_diary/?hl=en" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/chanchhay.png"
-                alt="Chanchhay Srey Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Chanchhay Srey
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Sous Chef
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Proud to preserve Khmer culinary traditions while adding a touch
-              of innovation to each plate. I help bring our culture to life
-              through food.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:chanchhay07@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/menglong.png"
-                alt="Menglong Keo Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Menglong Keo
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Pastry Chef
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Passionate about creating traditional and modern Khmer desserts
-              that leave a lasting impression. Every sweet I make tells a
-              story of our culture.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:menglongkeo07@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/menglong.keo.1" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.instagram.com/menglongkeo/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/samnang.png" alt="Samnang Rin Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Samnang Rin
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Line Cook
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Focused and fast, I prepare ingredients and cook dishes with
-              precision. I make sure every plate of Khmer food is delivered
-              fresh and flavorful.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:rinsamnang111gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/klewlwywsi" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.instagram.com/biqq_frogz/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/na.png" alt="Na Mot Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Na Mot
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Kitchen Assistant
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Behind every great dish is a clean and well-prepared kitchen. I
-              help keep everything running smoothly so the chefs can focus on
-              cooking.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:nanamot206@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/nana.mot.1232" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/sovanthorng.png"
-                alt="Sovanthorng Prak Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Sovanthorng Prak
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Ingredient Specialist
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              I source and prepare the freshest local ingredients, making sure
-              each dish captures the true taste and essence of Khmer tradition
-              with every bite.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:sovanthorngprak09@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="#" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <div
-            class="group flex flex-col rounded-xl p-6 bg-white dark:bg-[#393E46] border border-gray-200 dark:border-neutral-700 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ease-in-out cursor-pointer">
-            <div class="flex items-center gap-x-4 rounded-lg transition">
-              <img class="rounded-full size-20 w-24 h-24 mx-auto" src="./images/piseth-2.png"
-                alt="Piseth Mao 2 Image" />
-              <div class="grow">
-                <h3
-                  class="font-bold text-gray-800 dark:text-white text-xl font-[Montserrat] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Piseth Mao 2
-                </h3>
-                <p class="text-sm uppercase text-gray-500 dark:text-neutral-500 mt-1 tracking-wide">
-                  Grill Master
-                </p>
-              </div>
-            </div>
-
-            <p
-              class="mt-3 text-gray-600 dark:text-neutral-400 text-sm font-[Inter] leading-relaxed px-2 transition-colors duration-300 group-hover:text-gray-800 dark:group-hover:text-white">
-              Mastering the flame is my passion. I craft perfectly grilled
-              meats and vegetables that bring out bold, smoky flavors rooted
-              in Khmer cuisine.
-            </p>
-
-            <!-- Social Brands -->
-            <div class="mt-3 space-x-1 flex gap-3">
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="mailto:pisethmao2002@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope text-amber-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-facebook text-blue-600 text-lg"></i>
-              </a>
-              <a class="inline-flex justify-center items-center size-8 text-sm font-semibold rounded-lg border border-gray-200 text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110"
-                href="https://www.instagram.com/seth_spider/" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-instagram text-pink-600 text-lg"></i>
-              </a>
-            </div>
-            <!-- End Social Brands -->
-          </div>
-          <!-- End Col -->
-
-          <a class="col-span-full lg:col-span-1 group flex flex-col justify-center items-center text-center rounded-xl p-6 md:p-6 border border-dashed border-gray-300 hover:shadow-lg focus:outline-hidden focus:shadow-2xs dark:border-neutral-700 hover:border-gray-400 dark:hover:border-neutral-500 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
-            href="#job-section">
-            <h3
-              class="text-lg text-gray-800 dark:text-neutral-200 font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              We are hiring!
-            </h3>
-            <div>
-              <span
-                class="mt-2 inline-flex items-center gap-x-2 text-blue-600 group-hover:text-blue-700 group-focus:text-blue-700 dark:text-blue-500 dark:group-hover:text-blue-400 dark:group-focus:text-blue-400">
-                See all opening positions
-                <svg class="shrink-0 size-4 group-hover:translate-x-1 transition-transform duration-300"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </span>
-            </div>
-          </a>
-          <!-- End Col -->
-        </div>
-        <!-- End Grid -->
-      </div>
-      <!-- End Team -->
-    </section>
-    <section>
-      <!-- FAQ -->
-      <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <!-- Title -->
-        <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-          <h2 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white font-[Montserrat]">
-            Your questions, answered
-          </h2>
-          <p class="mt-1 text-gray-600 dark:text-neutral-400 font-[Inter]">
-            Answers to the most frequently asked questions.
-          </p>
-        </div>
-        <!-- End Title -->
-
-        <div class="max-w-2xl mx-auto">
-          <!-- Accordion -->
-          <div class="hs-accordion-group space-y-4">
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10 active"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                What types of food does Tasty Bites serve?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  We specialize in authentic Khmer cuisine, made with fresh
-                  local ingredients and traditional recipes.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                Do you offer vegetarian or vegan options?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  Yes, we have a selection of vegetarian and vegan dishes
-                  available. Please ask our staff for recommendations or check
-                  our menu icons.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                Can I make a reservation online?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  Absolutely! You can reserve your table online through our
-                  website — just click on the "Reserve a Table" button and
-                  fill in your details.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                Do you offer delivery or takeaway?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  Yes, we provide both delivery and takeaway options. You can
-                  place your order through our website or call us directly.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                What are your opening hours?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  We're open daily from 10:00 AM to 10:00 PM, including
-                  weekends and public holidays.
-                </p>
-              </div>
-            </div>
-
-            <div
-              class="hs-accordion rounded-xl transition-shadow duration-300 hs-accordion-active:bg-gray-100 p-6 dark:hs-accordion-active:bg-white/10"
-              id="hs-basic-with-title-and-arrow-stretched-heading-one">
-              <button type="button"
-                class="font-[Montserrat] hs-accordion-toggle group pb-3 items-center justify-between gap-x-3 md:text-lg font-semibold text-gray-800 rounded-lg hover:text-teal-600 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400 hs-accordion-toggle group w-full text-left flex text-lg transition-colors duration-300 cursor-pointer"
-                aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
-                Do you cater for private events or parties?
-                <svg
-                  class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-                <svg
-                  class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-500 group-hover:text-gray-500 dark:text-neutral-400 transition-transform duration-300 transform group-[aria-expanded='true']:rotate-180"
-                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-              </button>
-              <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
-                class="hs-accordion-content w-full overflow-hidden transition-all duration-300 hidden" role="region"
-                aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
-                <p
-                  class="text-gray-700 dark:text-neutral-200 font-[Inter] hs-accordion-content transition-all duration-300">
-                  Yes, Tasty Bites offers catering services for small to
-                  medium-sized events. Contact us to customize your menu and
-                  resreve space.
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- End Accordion -->
-        </div>
-      </div>
-      <!-- End FAQ -->
-    </section>
-  </main>
-  <footer>
-    <address class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700">
-      <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-md text-center">
-          <strong class="block text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white font-[Montserrat]">
-            Want our chef's specials deliverd to your inbox?
-          </strong>
-
-          <form class="mt-6">
-            <div class="relative max-w-lg mx-auto">
-              <label class="sr-only font-[Inter]" for="email"> Email </label>
-
-              <input
-                class="font-[Inter] w-full rounded-full border-gray-200 bg-gray-100 dark:bg-neutral-800 p-4 pe-32 text-sm font-medium text-gray-800 dark:text-white shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
-                id="email" type="email" placeholder="pisethmao2002@gmail.com" />
-
-              <button type="submit"
-                class="font-[Inter] cursor-pointer absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-700 active:scale-95">
-                Subscribe
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-32">
-          <div class="mx-auto max-w-sm lg:max-w-none">
-            <p class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg">
-              At
-              <span class="font-semibold text-teal-600">Tasty Bitets</span>,
-              we celebrate Khmer heritage with every dish. From flavorful
-              soups to fresh herbs, we bring the heartt of Cambodia to your
-              plate.
-            </p>
-
-            <div class="mt-6 flex justify-center gap-5 lg:justify-start">
-              <a class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
-                href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-                <span class="sr-only font-[Inter]"> Facebook </span>
-
-                <i class="fa-brands fa-facebook fa-lg"></i>
-              </a>
-
-              <a class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
-                href="https://www.instagram.com/seth_spider/" target="_blank" rel="noreferrer">
-                <span class="sr-only font-[Inter]"> Instagram </span>
-
-                <i class="fa-brands fa-instagram fa-lg"></i>
-              </a>
-
-              <a class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
-                href="https://x.com/PisethMao528763" target="_blank" rel="noreferrer">
-                <span class="sr-only font-[Inter]"> Twitter </span>
-
-                <i class="fa-brands fa-x-twitter fa-lg"></i>
-              </a>
-
-              <a class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
-                href="https://www.youtube.com/@maopiseth5456" target="_blank" rel="noreferrer">
-                <span class="sr-only font-[Inter]"> YouTube </span>
-
-                <i class="fa-brands fa-youtube fa-lg"></i>
-              </a>
-
-              <a class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
-                href="https://www.tiktok.com/@piseth_mao" target="_blank" rel="noreferrer">
-                <span class="sr-only font-[Inter]"> TikTok </span>
-
-                <i class="fa-brands fa-tiktok fa-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="mt-8 grid grid-cols-3 gap-8 text-sm text-center">
-            <div class="mb-6 md:mb-0">
-              <strong class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]">
-                Explore
-              </strong>
-
-              <ul class="mt-6 space-y-1">
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="./home-page.html">
-                    Home
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="./listing-page.html">
-                    Menu
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="./detail-page.html">
-                    Our Story
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="./contact-page.html">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="mb-6 md:mb-0">
-              <strong class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]">
-                Services
-              </strong>
-
-              <ul class="mt-6 space-y-1">
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    Dine-In
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    Takeaway
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    Catering
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    Private Events
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="mb-6 md:mb-0">
-              <strong class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]">
-                Support
-              </strong>
-
-              <ul class="mt-6 space-y-1">
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    FAQs
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="./contact-page.html">
-                    Customer Service
-                  </a>
-                </li>
-
-                <li>
-                  <a class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                    href="#">
-                    Location & Hours
-                  </a>
-                </li>
-              </ul>
-            </div>
+            <!-- End Accordion -->
           </div>
         </div>
+        <!-- End FAQ -->
+      </section>
+    </main>
+    <footer>
+      <address
+        class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md text-center">
+            <strong
+              class="block text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white font-[Montserrat]"
+            >
+              Want our chef's specials deliverd to your inbox?
+            </strong>
 
-        <div class="mt-16 border-t border-gray-100 pt-8 dark:border-neutral-700">
-          <p class="text-center text-xs text-gray-500 dark:text-neutral-400">
-            © 2025
-            <span class="font-semibold text-teal-600">Tasty Bites</span> . All
-            rights reserved.
+            <form class="mt-6">
+              <div class="relative max-w-lg mx-auto">
+                <label class="sr-only font-[Inter]" for="email"> Email </label>
 
-            <br />
+                <input
+                  class="font-[Inter] w-full rounded-full border-gray-200 bg-gray-100 dark:bg-neutral-800 p-4 pe-32 text-sm font-medium text-gray-800 dark:text-white shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
+                  id="email"
+                  type="email"
+                  placeholder="pisethmao2002@gmail.com"
+                />
 
-            Designed with passion in Phnom Penh 🍲🇰🇭
-          </p>
+                <button
+                  type="submit"
+                  class="font-[Inter] cursor-pointer absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-700 active:scale-95"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-32">
+            <div class="mx-auto max-w-sm lg:max-w-none">
+              <p
+                class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
+              >
+                At
+                <span class="font-semibold text-teal-600">Tasty Bitets</span>,
+                we celebrate Khmer heritage with every dish. From flavorful
+                soups to fresh herbs, we bring the heartt of Cambodia to your
+                plate.
+              </p>
+
+              <div class="mt-6 flex justify-center gap-5 lg:justify-start">
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Facebook </span>
+
+                  <i class="fa-brands fa-facebook fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Instagram </span>
+
+                  <i class="fa-brands fa-instagram fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://x.com/PisethMao528763"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Twitter </span>
+
+                  <i class="fa-brands fa-x-twitter fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.youtube.com/@maopiseth5456"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> YouTube </span>
+
+                  <i class="fa-brands fa-youtube fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.tiktok.com/@piseth_mao"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> TikTok </span>
+
+                  <i class="fa-brands fa-tiktok fa-lg"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-8 text-sm text-center">
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Explore
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html"
+                    >
+                      Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./listing-page.html"
+                    >
+                      Menu
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./detail-page.html"
+                    >
+                      Our Story
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Services
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Dine-In
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Takeaway
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Catering
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Private Events
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Support
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Customer Service
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="#"
+                    >
+                      Location & Hours
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-16 border-t border-gray-100 pt-8 dark:border-neutral-700"
+          >
+            <p class="text-center text-xs text-gray-500 dark:text-neutral-400">
+              © 2025
+              <span class="font-semibold text-teal-600">Tasty Bites</span> . All
+              rights reserved.
+
+              <br />
+
+              Designed with passion in Phnom Penh 🍲🇰🇭
+            </p>
+          </div>
         </div>
-      </div>
-    </address>
-    <address>
-      <button type="button" id="backToTop"
-        class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]">
-        ↑ Top
-      </button>
-    </address>
-  </footer>
-  <script src="../node_modules/preline/preline.js"></script>
-  <script>
-    const toggleBtn = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
+      </address>
+      <address>
+        <button
+          type="button"
+          id="backToTop"
+          class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]"
+        >
+          ↑ Top
+        </button>
+      </address>
+    </footer>
+    <script src="../node_modules/preline/preline.js"></script>
+    <script>
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-    toggleBtn.addEventListener("click", (event) => {
-      event.stopPropagation();
-      mobileMenu.classList.toggle("hidden");
-    });
+      toggleBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        mobileMenu.classList.toggle("hidden");
+      });
 
-    document.addEventListener("click", (event) => {
-      const isClickInside =
-        mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
-      if (!isClickInside) {
-        mobileMenu.classList.add("hidden");
+      document.addEventListener("click", (event) => {
+        const isClickInside =
+          mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
+        if (!isClickInside) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
+    <script>
+      const btnMode = document.getElementById("btnMode");
+      const modeLabel = document.getElementById("mode-label");
+      const modeIcon = document.getElementById("mode-icon");
+
+      const btnModeMobile = document.getElementById("btnModeMobile");
+      const modeLabelMobile = document.getElementById("mode-label-mobile");
+      const modeIconMobile = document.getElementById("mode-icon-mobile");
+
+      function updateToggleUI(isDark) {
+        modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+        modeIcon.classList.remove("fa-moon", "fa-sun");
+        modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
+
+        modeIconMobile.classList.remove("fa-moon", "fa-sun");
+        modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
       }
-    });
-  </script>
-  <script>
-    const btnMode = document.getElementById("btnMode");
-    const modeLabel = document.getElementById("mode-label");
-    const modeIcon = document.getElementById("mode-icon");
 
-    const btnModeMobile = document.getElementById("btnModeMobile");
-    const modeLabelMobile = document.getElementById("mode-label-mobile");
-    const modeIconMobile = document.getElementById("mode-icon-mobile");
+      function applyTheme(isDark) {
+        localStorage.theme = isDark ? "dark" : "light";
+        document.documentElement.classList.toggle("dark", isDark);
+        updateToggleUI(isDark);
+      }
 
-    function updateToggleUI(isDark) {
-      modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
-      modeIcon.classList.remove("fa-moon", "fa-sun");
-      modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
+      const isDarkMode =
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      applyTheme(isDarkMode);
 
-      modeIconMobile.classList.remove("fa-moon", "fa-sun");
-      modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
-    }
-
-    function applyTheme(isDark) {
-      localStorage.theme = isDark ? "dark" : "light";
-      document.documentElement.classList.toggle("dark", isDark);
-      updateToggleUI(isDark);
-    }
-
-    const isDarkMode =
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    applyTheme(isDarkMode);
-
-    btnMode.onclick = () =>
-      applyTheme(!document.documentElement.classList.contains("dark"));
-    btnModeMobile.onclick = () =>
-      applyTheme(!document.documentElement.classList.contains("dark"));
-  </script>
-  <script>
-    window.addEventListener("beforeunload", function () {
-      window.scrollTo(0, 0);
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth"
-            });
-            window.history.replaceState(null, null, window.location.pathname);
-          }
+      btnMode.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+      btnModeMobile.onclick = () =>
+        applyTheme(!document.documentElement.classList.contains("dark"));
+    </script>
+    <script>
+      window.addEventListener("beforeunload", function () {
+        window.scrollTo(0, 0);
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              target.scrollIntoView({
+                behavior: "smooth",
+              });
+              window.history.replaceState(null, null, window.location.pathname);
+            }
+          });
         });
       });
-    });
-  </script>
-  <script>
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.remove("hidden");
-      } else {
-        backToTop.classList.add("hidden");
-      }
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    </script>
+    <script>
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.remove("hidden");
+        } else {
+          backToTop.classList.add("hidden");
+        }
       });
-    });
-  </script>
-  <script src="scripts/footer.js" defer></script>
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+    <script src="scripts/footer.js" defer></script>
 
-  <!-- navbar disappear -->
-  <script>
-    let lastScrollTop = 0;
-    const navbar = document.getElementById("navbar");
+    <!-- navbar disappear -->
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
 
-    window.addEventListener("scroll", function () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
 
-      if (scrollTop > lastScrollTop) {
-        // Scroll down → hide navbar
-        navbar.style.transform = "translateY(-100%)";
-      } else {
-        // Scroll up → show navbar
-        navbar.style.transform = "translateY(0)";
-      }
+        if (scrollTop > lastScrollTop) {
+          // Scroll down → hide navbar
+          navbar.style.transform = "translateY(-100%)";
+        } else {
+          // Scroll up → show navbar
+          navbar.style.transform = "translateY(0)";
+        }
 
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
-    });
-  </script>
-
-</body>
-
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+      });
+    </script>
+  </body>
 </html>

@@ -22,7 +22,10 @@
           "view-timeline-axis: block",
           "color: color-mix(in srgb, #fff 80%, transparent)",
           "animation-timeline: view()",
-          "background-color: color-mix(in srgb, #000 50%, transparent)"
+          "background-color: color-mix(in srgb, #000 50%, transparent)",
+          "background-color: color-mix(in srgb, #000 60%, transparent)",
+          "background-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 10%, transparent)",
+          "background-color: color-mix(in srgb, oklch(70.4% 0.14 182.503) 10%, transparent)"
         ]
       }
     ],
@@ -50,6 +53,18 @@
     "disown-opener": "off",
     "meta-viewport": "off",
     "detect-css-reflows/composite": "off",
-    "detect-css-reflows/paint": "off"
+    "detect-css-reflows/paint": "off",
+    "axe/forms": [
+      "default",
+      {
+        "select-name": "off"
+      }
+    ],
+    "axe/aria": [
+      "default",
+      {
+        "aria-required-children": "off"
+      }
+    ]
   }
 }
