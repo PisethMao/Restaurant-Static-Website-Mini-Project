@@ -444,6 +444,9 @@
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
+  .mb-5 {
+    margin-bottom: calc(var(--spacing) * 5);
+  }
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
@@ -918,6 +921,10 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
+  .rounded-e-md {
+    border-start-end-radius: var(--radius-md);
+    border-end-end-radius: var(--radius-md);
+  }
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -1124,6 +1131,9 @@
   }
   .pe-9 {
     padding-inline-end: calc(var(--spacing) * 9);
+  }
+  .pe-10 {
+    padding-inline-end: calc(var(--spacing) * 10);
   }
   .pe-32 {
     padding-inline-end: calc(var(--spacing) * 32);
@@ -1971,6 +1981,11 @@
       border-color: var(--color-blue-500);
     }
   }
+  .focus\:border-teal-500 {
+    &:focus {
+      border-color: var(--color-teal-500);
+    }
+  }
   .focus\:border-teal-600 {
     &:focus {
       border-color: var(--color-teal-600);
@@ -1994,6 +2009,11 @@
   .focus\:text-gray-500 {
     &:focus {
       color: var(--color-gray-500);
+    }
+  }
+  .focus\:text-teal-600 {
+    &:focus {
+      color: var(--color-teal-600);
     }
   }
   .focus\:shadow-2xs {
@@ -2048,6 +2068,11 @@
   .focus\:ring-teal-400 {
     &:focus {
       --tw-ring-color: var(--color-teal-400);
+    }
+  }
+  .focus\:ring-teal-500 {
+    &:focus {
+      --tw-ring-color: var(--color-teal-500);
     }
   }
   .focus\:ring-violet-400 {
@@ -2164,11 +2189,6 @@
       flex-direction: row;
     }
   }
-  .sm\:justify-center {
-    @media (width >= 40rem) {
-      justify-content: center;
-    }
-  }
   .sm\:space-y-3 {
     @media (width >= 40rem) {
       :where(& > :not(:last-child)) {
@@ -2213,6 +2233,11 @@
       padding-block: calc(var(--spacing) * 2.5);
     }
   }
+  .sm\:py-3 {
+    @media (width >= 40rem) {
+      padding-block: calc(var(--spacing) * 3);
+    }
+  }
   .sm\:py-12 {
     @media (width >= 40rem) {
       padding-block: calc(var(--spacing) * 12);
@@ -2250,6 +2275,12 @@
     @media (width >= 40rem) {
       font-size: var(--text-lg);
       line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .sm\:text-sm {
+    @media (width >= 40rem) {
+      font-size: var(--text-sm);
+      line-height: var(--tw-leading, var(--text-sm--line-height));
     }
   }
   .sm\:text-xl {
@@ -2674,12 +2705,6 @@
       text-align: left;
     }
   }
-  .lg\:text-5xl {
-    @media (width >= 64rem) {
-      font-size: var(--text-5xl);
-      line-height: var(--tw-leading, var(--text-5xl--line-height));
-    }
-  }
   .lg\:text-7xl {
     @media (width >= 64rem) {
       font-size: var(--text-7xl);
@@ -2740,6 +2765,11 @@
       border-width: 1px;
     }
   }
+  .dark\:border-gray-200 {
+    &:where(.dark, .dark *) {
+      border-color: var(--color-gray-200);
+    }
+  }
   .dark\:border-neutral-600 {
     &:where(.dark, .dark *) {
       border-color: var(--color-neutral-600);
@@ -2748,6 +2778,11 @@
   .dark\:border-neutral-700 {
     &:where(.dark, .dark *) {
       border-color: var(--color-neutral-700);
+    }
+  }
+  .dark\:border-teal-700 {
+    &:where(.dark, .dark *) {
+      border-color: var(--color-teal-700);
     }
   }
   .dark\:bg-\[\#393E46\] {
@@ -2796,6 +2831,11 @@
       }
     }
   }
+  .dark\:bg-teal-600 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-teal-600);
+    }
+  }
   .dark\:bg-white {
     &:where(.dark, .dark *) {
       background-color: var(--color-white);
@@ -2819,6 +2859,11 @@
   .dark\:text-gray-400 {
     &:where(.dark, .dark *) {
       color: var(--color-gray-400);
+    }
+  }
+  .dark\:text-gray-500 {
+    &:where(.dark, .dark *) {
+      color: var(--color-gray-500);
     }
   }
   .dark\:text-neutral-200 {
@@ -2919,6 +2964,15 @@
       }
     }
   }
+  .dark\:hover\:bg-gray-300 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-gray-300);
+        }
+      }
+    }
+  }
   .dark\:hover\:bg-neutral-700 {
     &:where(.dark, .dark *) {
       &:hover {
@@ -2985,10 +3039,24 @@
       }
     }
   }
+  .dark\:focus\:text-teal-500 {
+    &:where(.dark, .dark *) {
+      &:focus {
+        color: var(--color-teal-500);
+      }
+    }
+  }
   .dark\:focus\:ring-neutral-600 {
     &:where(.dark, .dark *) {
       &:focus {
         --tw-ring-color: var(--color-neutral-600);
+      }
+    }
+  }
+  .dark\:focus\:ring-teal-600 {
+    &:where(.dark, .dark *) {
+      &:focus {
+        --tw-ring-color: var(--color-teal-600);
       }
     }
   }
@@ -3248,6 +3316,22 @@
       [data-hs-tab].active & {
         color: var(--color-teal-400);
       }
+    }
+  }
+  .hs-password-active\:block {
+    &.active {
+      display: block;
+    }
+    .active & {
+      display: block;
+    }
+  }
+  .hs-password-active\:hidden {
+    &.active {
+      display: none;
+    }
+    .active & {
+      display: none;
     }
   }
 }
