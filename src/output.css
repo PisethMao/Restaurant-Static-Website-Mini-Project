@@ -35,6 +35,8 @@
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-indigo-500: oklch(58.5% 0.233 277.117);
+    --color-indigo-600: oklch(51.1% 0.262 276.966);
     --color-violet-400: oklch(70.2% 0.183 293.541);
     --color-pink-600: oklch(59.2% 0.249 0.584);
     --color-gray-50: oklch(98.5% 0.002 247.839);
@@ -1304,6 +1306,9 @@
   .text-gray-900 {
     color: var(--color-gray-900);
   }
+  .text-indigo-600 {
+    color: var(--color-indigo-600);
+  }
   .text-orange-500 {
     color: var(--color-orange-500);
   }
@@ -1387,6 +1392,9 @@
   }
   .ring-emerald-300 {
     --tw-ring-color: var(--color-emerald-300);
+  }
+  .ring-indigo-600 {
+    --tw-ring-color: var(--color-indigo-600);
   }
   .ring-teal-600 {
     --tw-ring-color: var(--color-teal-600);
@@ -1552,6 +1560,11 @@
   .group-\[aria-expanded\=\'true\'\]\:rotate-180 {
     &:is(:where(.group):is(aria-expanded='true') *) {
       rotate: 180deg;
+    }
+  }
+  .peer-checked\:bg-indigo-600 {
+    &:is(:where(.peer):checked ~ *) {
+      background-color: var(--color-indigo-600);
     }
   }
   .peer-checked\:bg-teal-600 {
@@ -1830,13 +1843,6 @@
       }
     }
   }
-  .hover\:bg-teal-500 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-teal-500);
-      }
-    }
-  }
   .hover\:bg-teal-600 {
     &:hover {
       @media (hover: hover) {
@@ -1883,6 +1889,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-gray-800);
+      }
+    }
+  }
+  .hover\:text-indigo-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-indigo-500);
       }
     }
   }
@@ -1986,11 +1999,6 @@
       border-color: var(--color-teal-500);
     }
   }
-  .focus\:border-teal-600 {
-    &:focus {
-      border-color: var(--color-teal-600);
-    }
-  }
   .focus\:bg-gray-50 {
     &:focus {
       background-color: var(--color-gray-50);
@@ -2004,6 +2012,11 @@
   .focus\:bg-gray-200 {
     &:focus {
       background-color: var(--color-gray-200);
+    }
+  }
+  .focus\:text-blue-600 {
+    &:focus {
+      color: var(--color-blue-600);
     }
   }
   .focus\:text-gray-500 {
@@ -2800,6 +2813,11 @@
       background-color: var(--color-black);
     }
   }
+  .dark\:bg-neutral-300 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-neutral-300);
+    }
+  }
   .dark\:bg-neutral-700 {
     &:where(.dark, .dark *) {
       background-color: var(--color-neutral-700);
@@ -2839,6 +2857,11 @@
   .dark\:bg-white {
     &:where(.dark, .dark *) {
       background-color: var(--color-white);
+    }
+  }
+  .dark\:fill-neutral-900 {
+    &:where(.dark, .dark *) {
+      fill: var(--color-neutral-900);
     }
   }
   .dark\:text-black {
@@ -2884,6 +2907,11 @@
   .dark\:text-neutral-600 {
     &:where(.dark, .dark *) {
       color: var(--color-neutral-600);
+    }
+  }
+  .dark\:text-neutral-900 {
+    &:where(.dark, .dark *) {
+      color: var(--color-neutral-900);
     }
   }
   .dark\:text-red-500 {
@@ -2938,6 +2966,20 @@
     &:where(.dark, .dark *) {
       &:is(:where(.group):focus *) {
         color: var(--color-blue-400);
+      }
+    }
+  }
+  .dark\:peer-checked\:bg-neutral-900 {
+    &:where(.dark, .dark *) {
+      &:is(:where(.peer):checked ~ *) {
+        background-color: var(--color-neutral-900);
+      }
+    }
+  }
+  .dark\:peer-checked\:bg-teal-600 {
+    &:where(.dark, .dark *) {
+      &:is(:where(.peer):checked ~ *) {
+        background-color: var(--color-teal-600);
       }
     }
   }
@@ -3022,6 +3064,13 @@
     &:where(.dark, .dark *) {
       &:focus {
         background-color: var(--color-neutral-700);
+      }
+    }
+  }
+  .dark\:focus\:text-blue-500 {
+    &:where(.dark, .dark *) {
+      &:focus {
+        color: var(--color-blue-500);
       }
     }
   }
