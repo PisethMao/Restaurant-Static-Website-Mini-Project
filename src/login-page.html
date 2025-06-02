@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listing Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="./output.css" />
     <link
       rel="shortcut icon"
@@ -73,7 +73,7 @@
             <a
               href="./contact-page.html"
               class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
-              >Contact</a
+              >Contact/ Services</a
             >
             <a
               href="./register-page.html"
@@ -166,36 +166,46 @@
       </nav>
     </header>
   <body>
-<main
-  class="w-full mt-8 mb-8 flex flex-col items-center justify-center px-4"
->
+<main class="w-full mt-8 mb-8 flex flex-col items-center justify-center px-4">
   <div class="max-w-sm w-full text-gray-600 space-y-5">
     <div class="text-center pb-8">
-      <div class="mt-5">
+      <div>
         <h3 class="text-gray-800 dark:text-white text-2xl font-bold sm:text-3xl">
           Log in to your account
         </h3>
       </div>
     </div>
-    <form onSubmit="event.preventDefault()" class="space-y-5">
-      <div>
-        <label class="font-medium"> Email </label>
-        <input
-          type="email"
-          placeholder="pisethmao2002@gmail.com"
-          required
-          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-teal-600 shadow-sm rounded-lg"
-        />
-      </div>
-      <div>
-        <label class="font-medium"> Password </label>
-        <input
-          type="password"
-          placeholder="***********"
-          required
-          class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-teal-600 shadow-sm rounded-lg"
-        />
-      </div>
+    <div class="bg-white dark:bg-neutral-900 shadow p-4 py-6 sm:p-6 sm:rounded-lg">
+      <form onSubmit="event.preventDefault()" class="space-y-5">
+        <div>
+          <label class="block text-md mb-2 dark:text-neutral-400">Email</label>
+          <input
+            type="email"
+            placeholder="pisethmao2002@gmail.com"
+            required
+            class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+          />
+        </div>
+        <!-- Form Group -->
+        <div class="max-w-sm">
+          <label class="block text-sm mb-2 dark:text-neutral-400">Password</label>
+          <div class="relative">
+            <input id="hs-toggle-password" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345qwerty">
+            <button type="button" data-hs-toggle-password='{
+                "target": "#hs-toggle-password"
+              }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
+              <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
+                <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
+                <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <!-- End Form Group -->
       <div class="flex items-center justify-between text-sm">
         <div class="flex items-center gap-x-3">
           <input
@@ -205,9 +215,9 @@
           />
           <label
             for="remember-me-checkbox"
-            class="relative flex w-5 h-5 bg-white peer-checked:bg-teal-600 rounded-md border ring-offset-2 ring-teal-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45"
+            class="relative flex w-5 h-5 bg-white peer-checked:bg-teal-600 rounded-md border ring-offset-2 ring-teal-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 after:border-white after:rotate-45  text-gray-500 outline-none border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
           ></label>
-          <span>Remember me</span>
+          <span class="dark:text-neutral-400">Remember me</span>
         </div>
         <a
           href="javascript:void(0)"
@@ -215,15 +225,14 @@
           >Forgot password?</a
         >
       </div>
-      <button
-        class="w-full mb-2 px-4 py-2 text-white font-medium bg-teal-600 hover:bg-teal-500 active:bg-teal-600 rounded-lg duration-150"
-      >
-        Sign in
-      </button>
-    </form>
-    <button
-      class="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100"
-    >
+
+        <button
+          class="w-full mt-5 px-3 py-2 text-white outline-none border shadow-sm sm:py-3 ps-4 pe-10 block border-gray-200 bg-teal-600 text-sm font-medium hover:bg-teal-700 transition hover:border-teal-600 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-teal-600 dark:border-teal-700 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-teal-600 mb-2 text-md active:bg-teal-600 rounded-lg duration-150"
+        >
+          Sign in
+        </button>
+      </form>
+      <button class="w-full flex mt-5 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:hover:bg-gray-300 dark:border-gray-200 dark:text-gray-500 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 items-center justify-center gap-x-3 text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100">
       <!-- SVG for Google Sign In -->
       <img
         src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
@@ -233,7 +242,7 @@
       <!-- Comment: Google Icon SVG here -->
       Continue with Google
     </button>
-    <p class="text-center">
+    <p class="mt-5 text-center dark:text-neutral-400">
       Don't have an account?
       <a
         href="./register-page.html"
