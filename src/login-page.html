@@ -183,7 +183,7 @@
             </h3>
           </div>
         </div>
-        <div class="bg-white dark:bg-neutral-900 shadow p-4 py-6 sm:p-6 sm:rounded-lg">
+        <div class="bg-white dark:bg-neutral-700 shadow p-4 py-6 sm:p-6 sm:rounded-lg">
           <form onSubmit="event.preventDefault()" class="space-y-5">
             <div>
               <label class="block text-md mb-2 dark:text-neutral-400">Email</label>
@@ -191,14 +191,14 @@
                 type="email"
                 placeholder="pisethmao2002@gmail.com"
                 required
-                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
               />
             </div>
             <!-- Form Group -->
             <div class="max-w-sm">
               <label class="block text-md mb-2 dark:text-neutral-400">Password</label>
               <div class="relative">
-                <input id="hs-toggle-password" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345qwerty">
+                <input id="hs-toggle-password" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345qwerty">
                 <button type="button" data-hs-toggle-password='{
                     "target": "#hs-toggle-password"
                   }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
@@ -223,7 +223,7 @@
               />
               <label
                 for="remember-me-checkbox"
-                class="relative flex w-5 h-5 bg-white dark:bg-neutral-900 peer-checked:bg-teal-600 rounded-md border ring-offset-2 ring-teal-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 dark:after:border-r-neutral-900 dark:after:border-b-neutral-900 after:border-white after:rotate-45  text-gray-500 outline-none border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                class="relative flex w-5 h-5 bg-white dark:bg-neutral-800 peer-checked:bg-teal-600 rounded-md border ring-offset-2 ring-teal-600 duration-150 peer-active:ring cursor-pointer after:absolute after:inset-x-0 after:top-[3px] after:m-auto after:w-1.5 after:h-2.5 after:border-r-2 after:border-b-2 dark:after:border-r-neutral-800 dark:after:border-b-neutral-800 after:border-white after:rotate-45  text-gray-500 outline-none border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
               ></label>
               <span class="dark:text-neutral-400">Remember me</span>
             </div>
@@ -262,7 +262,7 @@
     </main>
     <footer>
       <address
-        class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
+        class="bg-white dark:bg-[#222831] shadow-inner border-t border-gray-200 dark:border-neutral-700"
       >
         <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-md text-center">
@@ -299,10 +299,9 @@
                 class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
               >
                 At
-                <span class="font-semibold text-teal-600">Tasty Bitets</span>,
-                we celebrate Khmer heritage with every dish. From flavorful
-                soups to fresh herbs, we bring the heartt of Cambodia to your
-                plate.
+                <span class="font-semibold text-teal-600">Tasty Bites</span>, we
+                celebrate Khmer heritage with every dish. From flavorful soups
+                to fresh herbs, we bring the heartt of Cambodia to your plate.
               </p>
 
               <div class="mt-6 flex justify-center gap-5 lg:justify-start">
@@ -509,6 +508,15 @@
             </p>
           </div>
         </div>
+      </address>
+      <address>
+        <button
+          type="button"
+          id="backToTop"
+          class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]"
+        >
+          ↑ Top
+        </button>
       </address>
     </footer>
     <script src="../node_modules/preline/preline.js"></script>

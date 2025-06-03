@@ -3023,16 +3023,6 @@
       border-color: var(--color-teal-700);
     }
   }
-  .dark\:border-r-neutral-900 {
-    &:where(.dark, .dark *) {
-      border-right-color: var(--color-neutral-900);
-    }
-  }
-  .dark\:border-b-neutral-900 {
-    &:where(.dark, .dark *) {
-      border-bottom-color: var(--color-neutral-900);
-    }
-  }
   .dark\:bg-\[\#393E46\] {
     &:where(.dark, .dark *) {
       background-color: #393E46;
@@ -3233,28 +3223,19 @@
       }
     }
   }
-  .dark\:after\:border-r-2 {
+  .dark\:after\:border-r-neutral-800 {
     &:where(.dark, .dark *) {
       &::after {
         content: var(--tw-content);
-        border-right-style: var(--tw-border-style);
-        border-right-width: 2px;
+        border-right-color: var(--color-neutral-800);
       }
     }
   }
-  .dark\:after\:border-r-neutral-900 {
+  .dark\:after\:border-b-neutral-800 {
     &:where(.dark, .dark *) {
       &::after {
         content: var(--tw-content);
-        border-right-color: var(--color-neutral-900);
-      }
-    }
-  }
-  .dark\:after\:border-b-neutral-900 {
-    &:where(.dark, .dark *) {
-      &::after {
-        content: var(--tw-content);
-        border-bottom-color: var(--color-neutral-900);
+        border-bottom-color: var(--color-neutral-800);
       }
     }
   }
