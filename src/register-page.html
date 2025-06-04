@@ -1,273 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Register Page</title>
-      <link rel="stylesheet" href="./output.css" />
-      <link
-        rel="shortcut icon"
-        href="./images/istad-logo.png"
-        type="image/x-icon"
-      />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-      />
-      <script>
-        localStorage.theme = "light";
-        // On page load or when changing themes, best to add inline in head to avoid FOUC
-        document.documentElement.classList.toggle(
-          "dark",
-          localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches)
-        );
-        // Whenever the user explicitly chooses light mode
-        //   localStorage.theme = "light";
-        // Whenever the user explicitly chooses dark mode
-        //   localStorage.theme = "dark";
-        // Whenever the user explicitly chooses to respect the OS preference
-        //   localStorage.removeItem("theme");
-      </script>
-    </head>
-    <body class="dark:bg-black">
-      <header
-        class="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-black text-gray-800 dark:text-white"
-      >
-        <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div class="flex h-16 items-center justify-between">
-            <div class="md:flex md:items-center md:gap-12">
-              <a
-                class="block text-teal-600 transition-transform hover:scale-105"
-                href="./home-page.html"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/istad-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in head to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
+    </script>
+  </head>
+  <body class="dark:bg-black">
+    <header
+      id="navbar"
+      class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white"
+    >
+      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <a
+              class="block text-[#00ADB5] transition-transform hover:scale-105"
+              href="./home-page.html"
+            >
+              <span class="sr-only">Home</span>
+              <img
+                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
+                src="./images/restaurant-logo.png"
+                alt="Restaurant Logo"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
+            <a
+              href="./listing-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Listing</a
+            >
+            <a
+              href="./detail-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Detail</a
+            >
+            <a
+              href="./services-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Services</a
+            >
+            <a
+              href="./contact-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Contact</a
+            >
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600"
+            >
+              Register
+            </a>
+            <a
+              href="./login-page.html"
+              class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+            >
+              Login
+            </a>
+            <button
+              type="button"
+              id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
+            >
+              <span id="mode-label">Light Mode</span>
+              <i id="mode-icon" class="fa-solid fa-sun"></i>
+            </button>
+          </div>
+          <div class="lg:hidden relative items-center">
+            <div class="flex">
+              <button
+                type="button"
+                id="btnModeMobile"
+                class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
               >
-                <span class="sr-only">Home</span>
-                <img
-                  class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
-                  src="./images/restaurant-logo.png"
-                  alt="Restaurant Logo"
-                />
-              </a>
+                <i
+                  id="mode-icon-mobile"
+                  class="fa-solid fa-moon text-sm pt-[1px]"
+                ></i>
+              </button>
+              <button
+                type="button"
+                id="menu-toggle"
+                class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
             </div>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+            <div
+              id="mobile-menu"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
+            >
               <a
                 href="./listing-page.html"
-                class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Listing</a
-              >
+              ><br />
               <a
                 href="./detail-page.html"
-                class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Detail</a
-              >
+              ><br />
+              <a
+                href="./services-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Services</a
+              ><br />
               <a
                 href="./contact-page.html"
-                class="text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition dark:text-white dark:hover:text-teal-300"
-                >Contact/ Services</a
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Contact</a
               >
               <a
                 href="./register-page.html"
-                class="rounded-md bg-white px-4 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition hover:border-teal-600"
+                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
               >
                 Register
               </a>
               <a
                 href="./login-page.html"
-                class="rounded-md bg-teal-600 px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                >Login</a
               >
-                Login
-              </a>
-              <button
-                type="button"
-                id="btnMode"
-                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
-              >
-                <span id="mode-label">Light Mode</span>
-                <i id="mode-icon" class="fa-solid fa-sun"></i>
-              </button>
             </div>
-            <div class="md:hidden relative items-center">
-              <div class="flex">
-                <button
-                  type="button"
-                  id="btnModeMobile"
-                  class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
-                >
-                  <i
-                    id="mode-icon-mobile"
-                    class="fa-solid fa-moon text-sm pt-[1px]"
-                  ></i>
-                </button>
-                <button
-                  type="button"
-                  id="menu-toggle"
-                  class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              <div
-                id="mobile-menu"
-                class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
-              >
-                <a
-                  href="./listing-page.html"
-                  class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
-                  >Listing</a
-                ><br />
-                <a
-                  href="./detail-page.html"
-                  class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
-                  >Detail</a
-                ><br />
-                <a
-                  href="./contact-page.html"
-                  class="inline-block ml-4 py-1 text-gray-700 hover:text-teal-600 border-b border-transparent hover:border-teal-600 transition"
-                  >Contact</a
-                >
-                <a
-                  href="./register-page.html"
-                  class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-teal-600 border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
-                >
-                  Register
-                </a>
-                <a
-                  href="./login-page.html"
-                  class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
-                  >Login</a
-                >
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
-    <body>
-
-    <main class="w-full mt-8 mb-8 flex flex-col items-center justify-center px-4">
-      <div class="max-w-sm w-full text-gray-600 space-y-5">
-        <div class="text-center pb-8">
-          <div>
-            <h3 class="text-gray-800 dark:text-white text-2xl font-bold sm:text-3xl">
-              Create an account
-            </h3>
-            <p class="mt-2 text-center dark:text-neutral-400">
-              Already have an account?
-              <a href="./login-page.html"
-                class="font-medium text-teal-600 hover:text-teal-500">
-                Log in
-              </a>
-            </p>
           </div>
         </div>
-        <div class="bg-white dark:bg-neutral-900 shadow p-4 py-6 sm:p-6 sm:rounded-lg">
-          <form onSubmit="event.preventDefault()" class="space-y-5">
-            <div>
-              <label class="block text-md mb-2 dark:text-neutral-400">Name</label>
-              <input
-                type="Name"
-                placeholder="Piseth MAO"
-                required
-                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-              />
-            </div>
-            <div>
-              <label class="block text-md mb-2 dark:text-neutral-400">Email</label>
-              <input
-                type="email"
-                placeholder="pisethmao2002@gmail.com"
-                required
-                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-              />
-            </div>
-
-            <div class="space-y-5" data-hs-toggle-password-group="">
-              <!-- Form Group -->
-              <div class="max-w-sm">
-                <label for="hs-toggle-password-multi-toggle-np" class="block text-sm mb-2 dark:text-neutral-400">Enter Password</label>
-                <div class="relative">
-                  <input id="hs-toggle-password-multi-toggle-np" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345qwerty">
-                  <button type="button" data-hs-toggle-password='{
-                      "target": ["#hs-toggle-password-multi-toggle", "#hs-toggle-password-multi-toggle-np"]
-                    }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
-                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
-                      <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
-                      <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
-                      <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
-                      <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                      <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <!-- End Form Group -->
-
-              <!-- Form Group -->
-              <div class="max-w-sm mb-5">
-                <label for="hs-toggle-password-multi-toggle" class="block text-sm mb-2 dark:text-neutral-400">Re-enter Password</label>
-                <div class="relative">
-                  <input id="hs-toggle-password-multi-toggle" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Re-enter password" value="12345qwerty">
-                  <button type="button" data-hs-toggle-password='{
-                      "target": ["#hs-toggle-password-multi-toggle", "#hs-toggle-password-multi-toggle-np"]
-                    }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
-                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
-                      <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
-                      <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
-                      <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
-                      <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
-                      <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <!-- End Form Group -->
-            </div>
-          <button
-              class="w-full mt-5 px-3 py-2 text-white outline-none border shadow-sm sm:py-3 ps-4 pe-10 block border-gray-200 bg-teal-600 text-sm font-medium hover:bg-teal-700 transition hover:border-teal-600 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-teal-600 dark:border-teal-700 dark:text-white dark:placeholder-neutral-500 dark:focus:ring-teal-600 mb-2 text-md active:bg-teal-600 rounded-lg duration-150"
+      </nav>
+    </header>
+    <main>
+      <section
+        aria-label="Breadcrumb"
+        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#393E46]"
+      >
+        <ol
+          class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+        >
+          <li class="relative group" aria-current="page">
+            <a
+              href="./home-page.html"
+              class="cursor-pointer block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none"
             >
-              Create account
-            </button>
-          </form>
-          <button class="w-full flex mt-5 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-white dark:hover:bg-gray-300 dark:border-gray-200 dark:text-gray-500 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 items-center justify-center gap-x-3 text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100">
-          <!-- SVG for Google Sign In -->
-          <img
-            src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
-            alt="Google"
-            class="w-5 h-5"
-          />
-          <!-- Comment: Google Icon SVG here -->
-          Continue with Google
-        </button>
-      </div>
+              Home
+            </a>
+          </li>
+
+          <li class="rtl:rotate-180 text-gray-400 dark:text-neutral-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m9 20.247 6-16.5"
+              />
+            </svg>
+          </li>
+
+          <li class="relative group" aria-current="page">
+            <a
+              href="./register-page.html"
+              class="block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
+            >
+              Register
+            </a>
+          </li>
+        </ol>
+      </section>
+      <section>
+        <main
+          class="w-full flex flex-col lg:flex-row min-h-screen bg-white dark:bg-[#111827] transition-colors duration-300"
+        >
+          <div
+            class="relative flex-1 hidden items-center justify-center text-white px-8 bg-gray-900 lg:flex"
+          >
+            <div
+              class="mb-8 p-6 bg-white/40 dark:bg-white/10 backdrop-blur-md rounded-xl shadow-md border border-white/20 transition hover:shadow-lg duration-300 hover:scale-[1.02] w-fit mx-auto"
+            >
+              <img
+                src="./images/restaurant-logo.png"
+                alt="Tasty Bites Logo"
+                class="w-32 h-32 object-contain rounded-xl mx-auto"
+              />
+              <h1 class="font-[Montserrat] text-4xl font-bold">
+                🍽️ Taste Bytes
+              </h1>
+              <div class="mt-16 space-y-3">
+                <h3 class="text-xl font-semibold font-[Montserrat] mb-2">
+                  Join our Foodie Community Today
+                </h3>
+                <p class="font-[Inter] mb-6 leading-relaxed">
+                  Create your free account and get access to exclusive
+                  member-only deals, table reservations, and our secret chef
+                  specials. No credit card needed.
+                </p>
+                <div class="flex items-center -space-x-2 overflow-hidden">
+                  <img
+                    src="./images/piseth.png"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="Piseth Mao Image"
+                  />
+                  <img
+                    src="./images/kompheak.png"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="Kompheak Yarn Image"
+                  />
+                  <img
+                    src="./images/chanchhay.png"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="Chanchhay Srey Image"
+                  />
+                  <img
+                    src="./images/menglong.png"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="Menglong Keo Image"
+                  />
+                  <img
+                    src="./images/samnang.png"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="Samnang Rin"
+                  />
+                  <p class="text-sm font-medium font-[Inter] mt-1 ml-5">
+                    Join 5,000+ food lovers!
+                  </p>
+                </div>
+              </div>
+              <div
+                class="absolute inset-0 m-auto h-[500px] w-[500px] bg-gradient-to-br from-purple-400/30 via-pink-300/30 to-purple-200/10 blur-[100px] rounded-full"
+              ></div>
+            </div>
+            <div
+              class="absolute inset-0 my-auto h-[500px]"
+              style="
+                background: linear-gradient(
+                  152.92deg,
+                  rgba(192, 132, 252, 0.2) 4.54%,
+                  rgba(232, 121, 249, 0.26) 34.2%,
+                  rgba(192, 132, 252, 0.1) 77.55%
+                );
+                filter: blur(118px);
+              "
+            ></div>
+          </div>
+          <div class="flex-1 flex items-center justify-center p-6 sm:p-12">
+            <div class="w-full max-w-md space-y-8">
+              <div>
+                <div class="lg:hidden mb-6 text-center">
+                  <img
+                    src="./images/restaurant-logo.png"
+                    alt="Tasty Bites Logo"
+                    class="w-32 h-32 object-contain rounded-xl mx-auto"
+                  />
+                  <h3
+                    class="text-2xl font-bold font-[Montserrat] text-gray-900 dark:text-white"
+                  >
+                    🍽️ Taste Bites
+                  </h3>
+                </div>
+                <h3
+                  class="text-3xl font-bold font-[Montserrat] text-gray-800 dark:text-white mb-2 text-center"
+                >
+                  Create an Account
+                </h3>
+                <p
+                  class="font-[Inter] text-sm text-gray-600 dark:text-neutral-400 text-center"
+                >
+                  Already a member?
+                  <a
+                    href="#"
+                    class="font-medium text-indigo-600 hover:underline hover:text-indigo-500 font-[Inter] cursor-pointer transition"
+                    >Log in</a
+                  >
+                </p>
+              </div>
+              <div class="grid grid-cols-3 gap-x-3">
+                <button
+                  type="button"
+                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
+                >
+                  <!-- Comment: Google Icon SVG here -->
+                  <img
+                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
+                    alt="Google"
+                    class="w-5 h-5"
+                  />
+                </button>
+                <button
+                  type="button"
+                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
+                >
+                  <!-- Comment: Twitter Icon SVG here -->
+                  <img
+                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/f7119b9bdd8c58864383802fb92c7fc3a25c0646/twitter-icon.svg"
+                    alt="Twitter"
+                    class="w-5 h-5"
+                  />
+                </button>
+                <button
+                  type="button"
+                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
+                >
+                  <!-- Comment: GitHub Icon SVG here -->
+                  <img
+                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/0d3b55a09c6bb8155ca19f43283dc6d88ff88bf5/github-icon.svg"
+                    alt="Github"
+                    class="w-5 h-5"
+                  />
+                </button>
+              </div>
+              <div class="relative text-center">
+                <hr class="border-gray-300" />
+                <span
+                  class="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-sm px-3 font-[Inter] text-gray-600 dark:bg-[#111827] dark:text-gray-300"
+                  >Or continue with</span
+                >
+              </div>
+              <form onSubmit="event.preventDefault()" class="space-y-5">
+                <div>
+                  <label class="font-medium font-[Inter] block mb-1 dark:text-white"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    required
+                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
+                  />
+                </div>
+                <div>
+                  <label class="font-medium font-[Inter] block mb-1 dark:text-white"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    required
+                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
+                  />
+                </div>
+                <div>
+                  <label class="font-medium font-[Inter] block mb-1 dark:text-white"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    required
+                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="cursor-pointer font-[Inter] w-full py-2.5 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-500 transition transform active:scale-[0.97]"
+                >
+                  Join Taste Bites
+                </button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </section>
     </main>
     <footer>
       <address
-        class="bg-white dark:bg-black shadow-inner border-t border-gray-200 dark:border-neutral-700"
+        class="bg-white dark:bg-[#222831] shadow-inner border-t border-gray-200 dark:border-neutral-700"
       >
         <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-md text-center">
@@ -304,10 +451,9 @@
                 class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
               >
                 At
-                <span class="font-semibold text-teal-600">Tasty Bitets</span>,
-                we celebrate Khmer heritage with every dish. From flavorful
-                soups to fresh herbs, we bring the heartt of Cambodia to your
-                plate.
+                <span class="font-semibold text-teal-600">Tasty Bites</span>, we
+                celebrate Khmer heritage with every dish. From flavorful soups
+                to fresh herbs, we bring the heartt of Cambodia to your plate.
               </p>
 
               <div class="mt-6 flex justify-center gap-5 lg:justify-start">
@@ -407,6 +553,15 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html"
+                    >
+                      Services
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
                       href="./contact-page.html"
                     >
                       Contact
@@ -426,7 +581,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./services-page.html#dine-in"
                     >
                       Dine-In
                     </a>
@@ -435,7 +590,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./contact-page.html#takeaway-catering"
                     >
                       Takeaway
                     </a>
@@ -444,7 +599,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./contact-page.html#takeaway-catering"
                     >
                       Catering
                     </a>
@@ -453,7 +608,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./services-page.html#private-events"
                     >
                       Private Events
                     </a>
@@ -472,7 +627,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./home-page.html#faqs"
                     >
                       FAQs
                     </a>
@@ -481,7 +636,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="./contact-page.html"
+                      href="./services-page.html"
                     >
                       Customer Service
                     </a>
@@ -490,7 +645,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="#"
+                      href="./contact-page.html#location-and-hours"
                     >
                       Location & Hours
                     </a>
@@ -515,8 +670,18 @@
           </div>
         </div>
       </address>
+      <address>
+        <button
+          type="button"
+          id="backToTop"
+          class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]"
+        >
+          ↑ Top
+        </button>
+      </address>
     </footer>
     <script src="../node_modules/preline/preline.js"></script>
+
     <script>
       const toggleBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
@@ -581,13 +746,54 @@
             e.preventDefault();
             const target = document.querySelector(this.getAttribute("href"));
             if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
+              target.scrollIntoView({
+                behavior: "smooth",
+              });
               window.history.replaceState(null, null, window.location.pathname);
             }
           });
         });
       });
     </script>
+    <script>
+      const backToTop = document.getElementById("backToTop");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.remove("hidden");
+        } else {
+          backToTop.classList.add("hidden");
+        }
+      });
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
     <script src="scripts/footer.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Scroll down → hide navbar
+          navbar.style.transform = "translateY(-100%)";
+        } else {
+          // Scroll up → show navbar
+          navbar.style.transform = "translateY(0)";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+      });
+    </script>
   </body>
 </html>
