@@ -46,9 +46,12 @@ svg{
     max-width: 80%;
     z-index: 1;
 }
+h2 {
+    font-weight: bold;
+}
 .slider .list .item .content p:nth-child(1){
     text-transform: uppercase;
-    letter-spacing: 10px;
+    letter-spacing: 2px;
 }
 .slider .list .item .content h2{
     font-size: 70px;

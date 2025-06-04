@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services Page</title>
+  <title>Contact Page</title>
   <link rel="stylesheet" href="./output.css" />
   <link rel="shortcut icon" href="./images/istad-logo.png" type="image/x-icon" />
-  <link rel="stylesheet" href="style/custom.css" />
-  <link rel="stylesheet" href="style/servicesCustom.css">
+  <link rel="stylesheet" href="style/custom.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style/servicesCustom.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet" />
@@ -18,50 +19,6 @@
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <style>
-    /* right to left */
-    @keyframes slideInFromRight {
-      from {
-        transform: translateX(100px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .animate-on-scroll-right-left {
-      transform: translateX(100px);
-      opacity: 0;
-      animation: slideInFromRight 1s ease forwards;
-      animation-timeline: view();
-      animation-range: entry 0% cover 40%;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes slideInFromLeft {
-      from {
-        transform: translateX(-100px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .slide-in-left {
-      transform: translateX(-100px);
-      opacity: 0;
-      animation: slideInFromLeft 1s ease forwards;
-      animation-timeline: view();
-      animation-range: entry 0% cover 30%;
-      animation-delay: 0.1s;
-    }
-  </style>
   <script>
     localStorage.theme = "light";
     // On page load or when changing themes, best to add inline in head to avoid FOUC
@@ -113,7 +70,7 @@
             Login
           </a>
           <button type="button" id="btnMode"
-            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-white text-gray-800 hover:bg-gray-50 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer">
+            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer">
             <span id="mode-label">Light Mode</span>
             <i id="mode-icon" class="fa-solid fa-sun"></i>
           </button>
@@ -148,98 +105,12 @@
             </a>
             <a href="./login-page.html"
               class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition">Login</a>
-            <a
-              href="./login-page.html"
-              class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
-            >
-              Login
-            </a>
-            <button
-              type="button"
-              id="btnMode"
-              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
-            >
-              <span id="mode-label">Light Mode</span>
-              <i id="mode-icon" class="fa-solid fa-sun"></i>
-            </button>
-          </div>
-          <div class="lg:hidden relative items-center">
-            <div class="flex">
-              <button
-                type="button"
-                id="btnModeMobile"
-                class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
-              >
-                <i
-                  id="mode-icon-mobile"
-                  class="fa-solid fa-moon text-sm pt-[1px]"
-                ></i>
-              </button>
-              <button
-                type="button"
-                id="menu-toggle"
-                class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div
-              id="mobile-menu"
-              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
-            >
-              <a
-                href="./listing-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
-                >Listing</a
-              ><br />
-              <a
-                href="./detail-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
-                >Detail</a
-              ><br />
-              <a
-                href="./services-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
-                >Services</a
-              ><br />
-              <a
-                href="./contact-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
-                >Contact</a
-              >
-              <a
-                href="./register-page.html"
-                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
-              >
-                Register
-              </a>
-              <a
-                href="./login-page.html"
-                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
-                >Login</a
-              >
-            </div>
           </div>
         </div>
       </div>
     </nav>
   </header>
-
-<!-- end-of-navigation-bar -->
+  <!-- end-of-navigation-bar -->
 
   <!-- slider -->
 
@@ -294,8 +165,9 @@
           <p>Party Perfect – Your Celebration, Our Creation!</p>
           <h2>Special Event</h2>
           <p>
-            Make any occasion special with our personalized event dining. From birthdays to anniversaries, enjoy a
-            custom menu, elegant ambiance, and attentive service—perfect for creating unforgettable memories.
+            Make your next occasion unforgettable with our personalized dining experiences. From birthdays to corporate
+            events, enjoy a custom menu, elegant décor, and exceptional service—all in a warm, inviting setting. Let us
+            handle the details while you make lasting memories.
           </p>
         </div>
       </div>
@@ -313,18 +185,6 @@
         <div class="content">
           Dine-In
         </div>
-      </section>
-    </main>
-
-    <script src="../node_modules/preline/preline.js"></script>
-    <script>
-      const toggleBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      toggleBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-        mobileMenu.classList.toggle("hidden");
-      });
       </div>
       <div class="item" style="background-color: #222831; border-radius: 10px;">
         <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module">
@@ -352,9 +212,7 @@
     </div>
   </div>
 
-
   <script src="style/services.js"></script>
-
   <script src="../node_modules/preline/preline.js"></script>
   <script>
     const toggleBtn = document.getElementById("menu-toggle");
@@ -429,22 +287,6 @@
       });
     });
   </script>
-  <script>
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.remove("hidden");
-      } else {
-        backToTop.classList.add("hidden");
-      }
-    });
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    });
-  </script>
 
   <!-- navbar disappear -->
   <script>
@@ -452,8 +294,7 @@
     const navbar = document.getElementById("navbar");
 
     window.addEventListener("scroll", function () {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
         // Scroll down → hide navbar
@@ -466,6 +307,11 @@
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
     });
   </script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 
 </html>
