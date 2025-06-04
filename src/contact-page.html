@@ -1,185 +1,1221 @@
 <!DOCTYPE html>
-<html lang="en" class="!scroll-smooth">
-
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Page</title>
     <link rel="stylesheet" href="./output.css" />
-    <link rel="shortcut icon" href="./images/istad-logo.png" type="image/x-icon" />
-    <link rel="stylesheet" href="style/custom.css">
+    <link rel="stylesheet" href="./style/custom.css" />
+    <link
+      rel="shortcut icon"
+      href="./images/istad-logo.png"
+      type="image/x-icon"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        /* right to left */
-        @keyframes slideInFromRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-on-scroll-right-left {
-            transform: translateX(100px);
-            opacity: 0;
-            animation: slideInFromRight 1s ease forwards;
-            animation-timeline: view();
-            animation-range: entry 0% cover 40%;
-            animation-delay: 0.3s;
-        }
-
-        @keyframes slideInFromLeft {
-            from {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .slide-in-left {
-            transform: translateX(-100px);
-            opacity: 0;
-            animation: slideInFromLeft 1s ease forwards;
-            animation-timeline: view();
-            animation-range: entry 0% cover 30%;
-            animation-delay: 0.1s;
-        }
-    </style>
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
-        localStorage.theme = "light";
-        // On page load or when changing themes, best to add inline in head to avoid FOUC
-        document.documentElement.classList.toggle(
-            "dark",
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        );
-        // Whenever the user explicitly chooses light mode
-        //   localStorage.theme = "light";
-        // Whenever the user explicitly chooses dark mode
-        //   localStorage.theme = "dark";
-        // Whenever the user explicitly chooses to respect the OS preference
-        //   localStorage.removeItem("theme");
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in head to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
     </script>
-</head>
-
-<body class="dark:bg-[#222831]">
-
-    <!-- NAVBAR -->
-
-    <header id="navbar"
-        class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white">
-        <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="md:flex md:items-center md:gap-12">
-                    <a class="block text-[#00ADB5] transition-transform hover:scale-105" href="./home-page.html">
-                        <span class="sr-only">Home</span>
-                        <img class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
-                            src="./images/restaurant-logo.png" alt="Restaurant Logo" />
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="./listing-page.html"
-                        class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Listing</a>
-                    <a href="./detail-page.html"
-                        class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Detail</a>
-                    <a href="./services-page.html"
-                        class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Services</a>
-                    <a href="./contact-page.html"
-                        class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Contact</a>
-                    <a href="./register-page.html"
-                        class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600">
-                        Register
-                    </a>
-                    <a href="./login-page.html"
-                        class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600">
-                        Login
-                    </a>
-                    <button type="button" id="btnMode"
-                        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-white text-gray-800 hover:bg-gray-50 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer">
-                        <span id="mode-label">Light Mode</span>
-                        <i id="mode-icon" class="fa-solid fa-sun"></i>
-                    </button>
-                </div>
-                <div class="md:hidden relative items-center">
-                    <div class="flex">
-                        <button type="button" id="btnModeMobile"
-                            class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700">
-                            <i id="mode-icon-mobile" class="fa-solid fa-moon text-sm pt-[1px]"></i>
-                        </button>
-                        <button type="button" id="menu-toggle"
-                            class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div id="mobile-menu"
-                        class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50">
-                        <a href="./listing-page.html"
-                            class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Listing</a><br />
-                        <a href="./detail-page.html"
-                            class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Detail</a><br />
-                        <a href="./contact-page.html"
-                            class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Contact</a>
-                        <a href="./register-page.html"
-                            class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600">
-                            Register
-                        </a>
-                        <a href="./login-page.html"
-                            class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition">Login</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <section aria-label="Breadcrumb"
-        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#222831]">
-        <ol class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]">
-            <li class="relative group" aria-current="page">
-                <a href="./home-page.html"
-                    class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer">
-                    Home
-                </a>
-            </li>
-
-            <li class="rtl:rotate-180 text-gray-400 dark:text-neutral-500">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="m9 20.247 6-16.5" />
+  </head>
+  <body class="dark:bg-black">
+    <header
+      id="navbar"
+      class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white"
+    >
+      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+          <div class="md:flex md:items-center md:gap-12">
+            <a
+              class="block text-[#00ADB5] transition-transform hover:scale-105"
+              href="./home-page.html"
+            >
+              <span class="sr-only">Home</span>
+              <img
+                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
+                src="./images/restaurant-logo.png"
+                alt="Restaurant Logo"
+              />
+            </a>
+          </div>
+          <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
+            <a
+              href="./listing-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Listing</a
+            >
+            <a
+              href="./detail-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Detail</a
+            >
+            <a
+              href="./services-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Services</a
+            >
+            <a
+              href="./contact-page.html"
+              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              >Contact</a
+            >
+            <a
+              href="./register-page.html"
+              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600"
+            >
+              Register
+            </a>
+            <a
+              href="./login-page.html"
+              class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+            >
+              Login
+            </a>
+            <button
+              type="button"
+              id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg text-gray-800 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer"
+            >
+              <span id="mode-label">Light Mode</span>
+              <i id="mode-icon" class="fa-solid fa-sun"></i>
+            </button>
+          </div>
+          <div class="lg:hidden relative items-center">
+            <div class="flex">
+              <button
+                type="button"
+                id="btnModeMobile"
+                class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700"
+              >
+                <i
+                  id="mode-icon-mobile"
+                  class="fa-solid fa-moon text-sm pt-[1px]"
+                ></i>
+              </button>
+              <button
+                type="button"
+                id="menu-toggle"
+                class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 </svg>
-            </li>
+              </button>
+            </div>
 
-            <li class="relative group" aria-current="page">
-                <a href="./contact-page.html"
-                    class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer">
-                    Contact
-                </a>
-            </li>
+            <div
+              id="mobile-menu"
+              class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50"
+            >
+              <a
+                href="./listing-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Listing</a
+              ><br />
+              <a
+                href="./detail-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Detail</a
+              ><br />
+              <a
+                href="./services-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Services</a
+              ><br />
+              <a
+                href="./contact-page.html"
+                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                >Contact</a
+              >
+              <a
+                href="./register-page.html"
+                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
+              >
+                Register
+              </a>
+              <a
+                href="./login-page.html"
+                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                >Login</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section
+        aria-label="Breadcrumb"
+        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#393E46]"
+      >
+        <ol
+          class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+        >
+          <li class="relative group" aria-current="page">
+            <a
+              href="./home-page.html"
+              class="block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
+            >
+              Home
+            </a>
+          </li>
+
+          <li class="rtl:rotate-180 text-gray-400 dark:text-neutral-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m9 20.247 6-16.5"
+              />
+            </svg>
+          </li>
+
+          <li class="relative group" aria-current="page">
+            <a
+              href="./contact-page.html"
+              class="block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
+            >
+              Contact
+            </a>
+          </li>
         </ol>
-    </section>
+      </section>
+      <section>
+        <!-- Hire Us -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+          <!-- Grid -->
+          <div class="grid md:grid-cols-2 items-center gap-12">
+            <div>
+              <h1
+                class="font-[Montserrat] text-2xl font-bold text-gray-900 sm:text-3xl md:text-2xl md:text-center text-center sm:text-left leading-snug dark:text-white"
+              >
+                We value your feedback
+              </h1>
+              <p
+                class="font-[Inter] mt-2 md:text-lg text-gray-700 dark:text-neutral-300 text-center sm:text-left"
+              >
+                Your thoughs help us improve our dishes, service, and your
+                dining experience. Whether it's a compliment, suggestion, or
+                complaint - we'd love to here from you!
+              </p>
 
-  <script src="../node_modules/preline/preline.js"></script>
-  <script>
+              <div class="mt-6 space-y-2 text-center">
+                <h2
+                  class="font-[Inter] text-lg font-semibold text-gray-900 dark:text-white"
+                >
+                  Why leave feedback?
+                </h2>
+
+                <ul
+                  class="mt-2 space-y-2 list-none text-gray-700 dark:text-neutral-300"
+                >
+                  <li class="flex gap-x-3 items-start sm:justify-start">
+                    <svg
+                      class="shrink-0 mt-0.5 size-5 text-gray-600 dark:text-neutral-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span class="font-[Inter]">
+                      Help us improve our food and service
+                    </span>
+                  </li>
+
+                  <li class="flex gap-x-3 items-start sm:justify-start">
+                    <svg
+                      class="shrink-0 mt-0.5 size-5 text-gray-600 dark:text-neutral-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span class="font-[Inter]">
+                      Let us know what you loved
+                    </span>
+                  </li>
+
+                  <li class="flex gap-x-3 items-start sm:justify-start">
+                    <svg
+                      class="shrink-0 mt-0.5 size-5 text-gray-600 dark:text-neutral-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    <span class="font-[Inter]">
+                      Make your next visit even after
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-6 text-center sm:text-left">
+                <p
+                  class="text-sm text-gray-500 md:text-center dark:text-neutral-400 font-[Inter] transition-opacity duration-500 opacity-90 hover:opacity-100"
+                >
+                  Thank you for supporting our restaurant. Every message
+                  matters.
+                </p>
+              </div>
+
+              <!-- Brands -->
+              <div class="mt-8">
+                <h2
+                  class="text-lg font-semibold text-gray-800 dark:text-neutral-200 font-[Inter] text-center"
+                >
+                  What our customers say
+                </h2>
+
+                <div class="mt-4 flex gap-x-6 items-center">
+                  <div
+                    class="text-sm text-gray-700 dark:text-neutral-300 font-[Inter]"
+                  >
+                    ⭐⭐⭐⭐⭐ “Absolutely delicious! Great atmosphere and
+                    friendly staff.”
+                    <br /><span class="text-xs text-gray-500 font-[Inter]"
+                      >- Piseth Mao, Phnom Penh</span
+                    >
+                  </div>
+                  <div
+                    class="text-sm text-gray-700 dark:text-neutral-300 font-[Inter]"
+                  >
+                    ⭐⭐⭐⭐⭐ “My go-to spot for family dinners. Highly
+                    recommend the grilled fish!”
+                    <br /><span class="text-xs text-gray-500 font-[Inter]"
+                      >- Kompheak Yarn, Kep</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Brands -->
+
+              <div class="mt-10 flex flex-col items-center gap-x-3 text-center">
+                <!-- Avatar Group -->
+                <div class="flex justify-center md:justify-start -space-x-2">
+                  <img
+                    class="inline-block size-8 rounded-full ring-2 ring-white dark:ring-neutral-900 hover:scale-105 transition-transform duration-200 cursor-pointer"
+                    src="./images/piseth.png"
+                    alt="Piseth Mao Image"
+                  />
+                  <img
+                    class="inline-block size-8 rounded-full ring-2 ring-white dark:ring-neutral-900 hover:scale-105 transition-transform duration-200 cursor-pointer"
+                    src="./images/kompheak.png"
+                    alt="Kompheak Yarn Image"
+                  />
+                  <img
+                    class="inline-block size-8 rounded-full ring-2 ring-white dark:ring-neutral-900 hover:scale-105 transition-transform duration-200 cursor-pointer"
+                    src="./images/chanchhay.png"
+                    alt="Chanchhay Srey Image"
+                  />
+                  <span
+                    class="inline-flex justify-center items-center size-8 rounded-full bg-yellow-500 text-white ring-2 ring-white dark:ring-neutral-900"
+                  >
+                    🍽️
+                  </span>
+                </div>
+                <!-- End Avatar Group -->
+                <span
+                  class="mt-3 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+                >
+                  Loved by thousands of happy dinners
+                </span>
+              </div>
+            </div>
+            <!-- End Col -->
+
+            <div class="relative">
+              <!-- Card -->
+              <div
+                class="flex flex-col border border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-10 dark:border-neutral-700 shadow-md hover:shadow-xl transition-shadow duration-300 bg-white dark:bg-neutral-900"
+              >
+                <h2
+                  class="md:text-xl text-2xl font-bold text-gray-800 dark:text-white font-[Montserrat] mb-2 text-center"
+                >
+                  Send us your feedback
+                </h2>
+                <p
+                  class="text-sm text-gray-500 dark:text-neutral-400 mb-4 text-center"
+                >
+                  We'd love to hear about your experience!
+                </p>
+
+                <form class="space-y-6" onsubmit="return validateForm()">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                    <!-- Grid -->
+                    <div class="group">
+                      <label
+                        for="first-name"
+                        class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                        >First Name</label
+                      >
+                      <input
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                        placeholder="Piseth"
+                      />
+                    </div>
+
+                    <div class="group">
+                      <label
+                        for="last-name"
+                        class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                        >Last Name</label
+                      >
+                      <input
+                        type="text"
+                        name="last-name"
+                        id="last-name"
+                        class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                        placeholder="Mao"
+                      />
+                    </div>
+                  </div>
+                  <!-- End Grid -->
+
+                  <div>
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                      >Email Address</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      autocomplete="email"
+                      class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                      placeholder="pisethmao2002@gmail.com"
+                    />
+                  </div>
+
+                  <!-- Grid -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                    <div>
+                      <label
+                        for="phone"
+                        class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                        >Phone Number</label
+                      >
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                        placeholder="+855 95 256 602"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        for="visit-time"
+                        class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                        >Preferred Visit Time</label
+                      >
+                      <input
+                        type="datetime-local"
+                        name="visit-time"
+                        id="visit-time"
+                        class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                      />
+                    </div>
+                  </div>
+                  <!-- End Grid -->
+
+                  <div>
+                    <label
+                      for="message"
+                      class="block mb-2 text-sm text-gray-700 font-medium dark:text-white font-[Inter]"
+                      >Your Message / Feedback</label
+                    >
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      class="dark:placeholder-white placeholder-gray-500 focus:outline-none peer py-2.5 px-4 w-full border border-gray-300 rounded-lg sm:text-sm transition focus:ring-2 focus:ring-blue-600 focus:border-blue-500 hover:shdow-sm dark:bg-neutral-800 dark:border-neutral-700 dark:text-white"
+                      placeholder="Let us know how we did, or make a reservation..."
+                    ></textarea>
+                  </div>
+
+                  <div class="flex items-start space-x-2 justify-center">
+                    <input
+                      id="consent"
+                      type="checkbox"
+                      class="cursor-pointer mt-1 accent-blue-600 h-4 w-4 rounded border-gray-300 dark:border-neutral-700 dark:bg-neutral-800 dark:checked:bg-blue-600"
+                    />
+                    <label
+                      for="consent"
+                      class="text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+                      >I agree to the
+                      <a
+                        class="font-[Inter] text-blue-600 hover:underline dark:text-blue-500"
+                        href="#"
+                        >privacy policy</a
+                      ></label
+                    >
+                  </div>
+
+                  <div class="pt-2">
+                    <button
+                      type="submit"
+                      class="cursor-pointer font-[Inter] w-full py-3 px-6 bg-blue-600 text-white hover:bg-blue-700 focus:ring-2 focus:bg-blue-700 rounded-lg text-sm font-medium transition transform hover:scale-105 active:scale-95 shadow-sm"
+                    >
+                      Submit Feedback
+                    </button>
+                  </div>
+                </form>
+
+                <div class="mt-3 text-center">
+                  <p class="text-sm text-gray-500 dark:text-neutral-500">
+                    We'll response between 1-2 business days.
+                  </p>
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
+            <!-- End Col -->
+          </div>
+          <!-- End Grid -->
+        </div>
+        <!-- End Hire Us -->
+      </section>
+      <section
+        id="location-and-hours"
+        class="bg-white dark:bg-neutral-900 text-gray-800 dark:text-white py-16 px-4 sm:px-6 lg:px-20 font-[Inter]"
+      >
+        <div
+          class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+        >
+          <!-- Map & Location Details -->
+          <div class="space-y-6">
+            <h2
+              class="text-2xl sm:text-3xl font-semibold font-[Montserrat] tracking-tight mb-2"
+            >
+              <span class="inline-block mr-2 font-[Montserrat]">📍</span
+              >Location & Hours
+            </h2>
+            <p
+              class="text-gray-600 dark:text-neutral-300 leading-relaxed font-[Inter]"
+            >
+              Come visit us and enjoy a delicious meal in a relaxing atmosphere.
+              Our location is convenient and easy to find.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">🏠</div>
+                <div>
+                  <p class="font-semibold font-[Inter]">
+                    Tasty Bites Restaurant
+                  </p>
+                  <p
+                    class="text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+                  >
+                    #45 Street 123, Phnom Penh, Cambodia
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">⏰</div>
+                <div>
+                  <p class="font-semibold font-[Inter]">Opening Hours</p>
+                  <ul
+                    class="text-sm text-gray-600 dark:text-neutral-400 space-y-1"
+                  >
+                    <li class="font-[Inter]">Mon - Fri: 10:00 AM - 10:00 PM</li>
+                    <li class="font-[Inter]">Sat - Sun: 9:00 AM - 11:00 PM</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="text-2xl">📞</div>
+                <div>
+                  <p class="font-semibold font-[Inter]">Contact</p>
+                  <p
+                    class="text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+                  >
+                    +855 95 256 602
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Maps Embed -->
+          <div
+            class="w-full rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d488.2379492297309!2d104.91719516931093!3d11.55674732847456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095114dbb1097d%3A0x3766df17ab53b709!2sPhnom%20Penh!5e0!3m2!1sen!2skh!4v1686036570341!5m2!1sen!2skh"
+              width="100%"
+              height="300"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              class="w-full h-[300px] sm:h-[360px] md:h-[400px]"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <section>
+        <!-- Contact Us -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+          <div class="max-w-2xl lg:max-w-5xl mx-auto">
+            <div class="text-center -mb-10">
+              <h1
+                class="text-3xl font-bold text-gray-800 sm:text-4xl dark:text-white font-[Montserrat] transition-colors duration-300"
+              >
+                Get in Touch with Us
+              </h1>
+              <p class="mt-2 text-gray-600 dark:text-neutral-400 font-[Inter]">
+                Whether it's a reservation, event inquiry, or feedback-we're
+                here to help!
+              </p>
+            </div>
+
+            <div class="mt-12 grid items-start lg:grid-cols-2 gap-6 lg:gap-16">
+              <!-- Card -->
+              <div
+                class="border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 rounded-xl p-6 lg:p-8 shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
+                <h2
+                  class="mb-6 text-xl font-semibold text-gray-800 dark:text-neutral-200 font-[Montserrat]"
+                >
+                  Send us your request
+                </h2>
+
+                <form>
+                  <div class="grid gap-4">
+                    <!-- Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <input
+                          type="text"
+                          name="first-name"
+                          class="dark:placeholder-white placeholder-gray-500 w-full rounded-lg bg-gray-100 dark:bg-neutral-800 text-sm py-4 px-2.5 font-[Inter] focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+                          placeholder="First Name"
+                        />
+                      </div>
+
+                      <div>
+                        <input
+                          type="text"
+                          name="last-name"
+                          class="dark:placeholder-white placeholder-gray-500 w-full rounded-lg bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800 text-sm py-4 px-2.5 font-[Inter] focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+                          placeholder="Last Name"
+                        />
+                      </div>
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      class="dark:placeholder-white placeholder-gray-500 w-full rounded-lg bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800 text-sm py-4 px-2.5 font-[Inter] focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+                      placeholder="Email Address"
+                    />
+                    <input
+                      type="text"
+                      name="phone"
+                      class="dark:placeholder-white placeholder-gray-500 w-full rounded-lg bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800 text-sm py-4 px-2.5 font-[Inter] focus:ring-2 focus:ring-teal-500 focus:outline-none transition"
+                      placeholder="Phone Number"
+                    />
+                    <textarea
+                      name="message"
+                      rows="4"
+                      class="dark:placeholder-white placeholder-gray-500 w-full rounded-lg bg-gray-100 dark:border-neutral-700 dark:bg-neutral-800 text-sm py-4 px-2.5 font-[Inter] focus:ring-2 focus:ring-teal-500 focus:outline-none transition resize-none"
+                      placeholder="Tell us about your reservation, catering request, or question"
+                    ></textarea>
+                  </div>
+                  <!-- End Grid -->
+
+                  <div class="mt-4">
+                    <button
+                      type="submit"
+                      class="font-[Inter] w-full py-3 px-4 rounded-lg bg-teal-600 text-white shadow-sm text-sm hover:bg-teal-700 transform hover:scale-105 transition-all duration-300 cursor-pointer"
+                    >
+                      Submit Request
+                    </button>
+                    <p
+                      class="text-sm text-center mt-2 text-gray-500 dark:text-neutral-500"
+                    >
+                      We'll confirm with you within 1-2 business days.
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <!-- End Card -->
+
+              <div
+                id="takeaway-catering"
+                class="divide-y divide-gray-200 dark:divide-neutral-800 cursor-pointer"
+              >
+                <!-- Icon Block -->
+                <div
+                  class="group flex gap-x-6 py-6 transition-all hover:translate-x-1"
+                >
+                  <div
+                    class="size-10 shrink-0 rounded-full bg-teal-100 dark:bg-emerald-900 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="size-5 text-teal-600 dark:text-teal-300"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                      <path d="M12 17h.01" />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <h3
+                      class="font-semibold text-gray-800 dark:text-neutral-200 font-[Inter]"
+                    >
+                      Table reservation
+                    </h3>
+                    <p
+                      class="mt-1 text-sm text-gray-600 dark:text-neutral-500 font-[Inter]"
+                    >
+                      Book a table online or call us to reserve you spot.
+                    </p>
+                    <a
+                      class="font-[Inter] mt-2 inline-flex items-center gap-x-1 text-teal-700 hover:underline dark:text-teal-300 transition"
+                      href="#"
+                    >
+                      Reserve Now
+                      <svg
+                        class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <!-- End Icon Block -->
+
+                <!-- Icon Block -->
+                <div
+                  class="group flex gap-x-6 py-6 transition-all hover:translate-x-1"
+                >
+                  <div
+                    class="size-10 shrink-0 rounded-full bg-teal-100 dark:bg-emerald-900 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="size-5 text-teal-600 dark:text-teal-300"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"
+                      />
+                      <path
+                        d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="font-semibold text-gray-800 dark:text-neutral-200 font-[Inter]"
+                    >
+                      Delivery & Takeaway
+                    </h3>
+                    <p
+                      class="text-sm text-gray-500 dark:text-neutral-500 font-[Inter]"
+                    >
+                      Get your favorite meals delivered to your door or ready
+                      for pickup.
+                    </p>
+                    <a
+                      class="font-[Inter] mt-2 inline-flex items-center gap-x-1 text-teal-700 hover:underline dark:text-teal-300 transition"
+                      href="#"
+                    >
+                      Order Online
+                      <svg
+                        class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <!-- End Icon Block -->
+
+                <!-- Icon Block -->
+                <div
+                  class="group flex gap-x-6 py-6 transition-all hover:translate-x-1"
+                >
+                  <div
+                    class="size-10 shrink-0 rounded-full bg-teal-100 dark:bg-emerald-900 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="size-5 text-teal-600 dark:text-teal-300"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m7 11 2-2-2-2" />
+                      <path d="M11 13h4" />
+                      <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="font-semibold text-gray-800 dark:text-neutral-200 font-[Inter]"
+                    >
+                      Catering & Events
+                    </h3>
+                    <p
+                      class="text-sm text-gray-500 dark:text-neutral-500 font-[Inter]"
+                    >
+                      Hosting a part or event? Let us take care of the food!
+                    </p>
+                    <a
+                      class="font-[Inter] mt-2 inline-flex items-center gap-x-1 text-teal-700 hover:underline dark:text-teal-300 transition"
+                      href="#"
+                    >
+                      Contact Catering
+                      <svg
+                        class="shrink-0 size-2.5 transition ease-in-out group-hover:translate-x-1 group-focus:translate-x-1"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0.975821 6.92249C0.43689 6.92249 -3.50468e-07 7.34222 -3.27835e-07 7.85999C-3.05203e-07 8.37775 0.43689 8.79749 0.975821 8.79749L12.7694 8.79748L7.60447 13.7596C7.22339 14.1257 7.22339 14.7193 7.60447 15.0854C7.98555 15.4515 8.60341 15.4515 8.98449 15.0854L15.6427 8.68862C16.1191 8.23098 16.1191 7.48899 15.6427 7.03134L8.98449 0.634573C8.60341 0.268455 7.98555 0.268456 7.60447 0.634573C7.22339 1.00069 7.22339 1.59428 7.60447 1.9604L12.7694 6.92248L0.975821 6.92249Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <!-- End Icon Block -->
+
+                <!-- Icon Block -->
+                <div
+                  class="group flex gap-x-6 py-6 transition-all hover:translate-x-1"
+                >
+                  <div
+                    class="size-10 shrink-0 rounded-full bg-teal-100 dark:bg-emerald-900 flex items-center justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="size-5 text-teal-600 dark:text-teal-300"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21.2 8.4c.5.38.8.97.8 1.6v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V10a2 2 0 0 1 .8-1.6l8-6a2 2 0 0 1 2.4 0l8 6Z"
+                      />
+                      <path d="m22 10-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 10" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3
+                      class="font-semibold text-gray-800 dark:text-neutral-200 font-[Inter]"
+                    >
+                      General Inquiries
+                    </h3>
+                    <p
+                      class="text-sm text-gray-500 dark:text-neutral-500 font-[Inter]"
+                    >
+                      Have a question or feedback? We'd love to here from you.
+                    </p>
+                    <a
+                      class="mt-2 inline-flex items-center gap-x-1 text-sm font-medium text-teal-700 dark:text-teal-300 hover:underline transition"
+                      href="mailto:pisethmao2002@gmail.com"
+                    >
+                      pisethmao2002@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <!-- End Icon Block -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Contact Us -->
+      </section>
+    </main>
+    <footer>
+      <address
+        class="bg-white dark:bg-[#222831] shadow-inner border-t border-gray-200 dark:border-neutral-700"
+      >
+        <div class="mx-auto max-w-screen-xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-md text-center">
+            <strong
+              class="block text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white font-[Montserrat]"
+            >
+              Want our chef's specials deliverd to your inbox?
+            </strong>
+
+            <form class="mt-6">
+              <div class="relative max-w-lg mx-auto">
+                <label class="sr-only font-[Inter]" for="email"> Email </label>
+
+                <input
+                  class="font-[Inter] w-full rounded-full border-gray-200 bg-gray-100 dark:bg-neutral-800 p-4 pe-32 text-sm font-medium text-gray-800 dark:text-white shadow-sm focus:ring-2 focus:ring-teal-400 focus:outline-none"
+                  id="email"
+                  type="email"
+                  placeholder="pisethmao2002@gmail.com"
+                />
+
+                <button
+                  type="submit"
+                  class="font-[Inter] cursor-pointer absolute right-1 top-1/2 -translate-y-1/2 rounded-full bg-teal-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-teal-700 active:scale-95"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-32">
+            <div class="mx-auto max-w-sm lg:max-w-none">
+              <p
+                class="font-[Inter] text-center text-gray-600 dark:text-neutral-400 lg:text-left text-lg"
+              >
+                At
+                <span class="font-semibold text-teal-600">Tasty Bites</span>, we
+                celebrate Khmer heritage with every dish. From flavorful soups
+                to fresh herbs, we bring the heartt of Cambodia to your plate.
+              </p>
+
+              <div class="mt-6 flex justify-center gap-5 lg:justify-start">
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Facebook </span>
+
+                  <i class="fa-brands fa-facebook fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.instagram.com/seth_spider/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Instagram </span>
+
+                  <i class="fa-brands fa-instagram fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://x.com/PisethMao528763"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> Twitter </span>
+
+                  <i class="fa-brands fa-x-twitter fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.youtube.com/@maopiseth5456"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> YouTube </span>
+
+                  <i class="fa-brands fa-youtube fa-lg"></i>
+                </a>
+
+                <a
+                  class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
+                  href="https://www.tiktok.com/@piseth_mao"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span class="sr-only font-[Inter]"> TikTok </span>
+
+                  <i class="fa-brands fa-tiktok fa-lg"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-8 grid grid-cols-3 gap-8 text-sm text-center">
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Explore
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html"
+                    >
+                      Home
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./listing-page.html"
+                    >
+                      Menu
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./detail-page.html"
+                    >
+                      Our Story
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html"
+                    >
+                      Services
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Services
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html#dine-in"
+                    >
+                      Dine-In
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#takeaway-catering"
+                    >
+                      Takeaway
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#takeaway-catering"
+                    >
+                      Catering
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html#private-events"
+                    >
+                      Private Events
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Support
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html#faqs"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html"
+                    >
+                      Customer Service
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#location-and-hours"
+                    >
+                      Location & Hours
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-16 border-t border-gray-100 pt-8 dark:border-neutral-700"
+          >
+            <p class="text-center text-xs text-gray-500 dark:text-neutral-400">
+              © 2025
+              <span class="font-semibold text-teal-600">Tasty Bites</span> . All
+              rights reserved.
+
+              <br />
+
+              Designed with passion in Phnom Penh 🍲🇰🇭
+            </p>
+          </div>
+        </div>
+      </address>
+      <address>
+        <button
+          type="button"
+          id="backToTop"
+          class="cursor-pointer hover:bg-[#00ADB5] fixed bottom-6 right-6 bg-[#00ADB5] text-white px-4 py-2 rounded shadow hidden transition-opacity duration-300 font-[Inter]"
+        >
+          ↑ Top
+        </button>
+      </address>
+    </footer>
+    <script src="../node_modules/preline/preline.js"></script>
+
+    <script>
       const toggleBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
 
@@ -243,7 +1279,9 @@
             e.preventDefault();
             const target = document.querySelector(this.getAttribute("href"));
             if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
+              target.scrollIntoView({
+                behavior: "smooth",
+              });
               window.history.replaceState(null, null, window.location.pathname);
             }
           });
@@ -260,30 +1298,45 @@
         }
       });
       backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       });
     </script>
-
-    <!-- navbar disappear -->
+    <script src="scripts/footer.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-  let lastScrollTop = 0;
-  const navbar = document.getElementById("navbar");
+      AOS.init();
+    </script>
+    <script>
+      let lastScrollTop = 0;
+      const navbar = document.getElementById("navbar");
 
-  window.addEventListener("scroll", function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      window.addEventListener("scroll", function () {
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-      // Scroll down → hide navbar
-      navbar.style.transform = "translateY(-100%)";
-    } else {
-      // Scroll up → show navbar
-      navbar.style.transform = "translateY(0)";
-    }
+        if (scrollTop > lastScrollTop) {
+          // Scroll down → hide navbar
+          navbar.style.transform = "translateY(-100%)";
+        } else {
+          // Scroll up → show navbar
+          navbar.style.transform = "translateY(0)";
+        }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
-  });
-</script>
-
-</body>
-
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+      });
+    </script>
+    <script>
+      function validateForm() {
+        const email = document.getElementById("email").value;
+        if (!email) {
+          alert("Please enter your email address.");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
 </html>
