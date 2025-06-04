@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "development"
-  ],
+  "extends": ["development"],
   "hints": {
     "compat-api/css": [
       "default",
@@ -76,10 +74,7 @@
     "compat-api/html": [
       "default",
       {
-        "ignore": [
-          "iframe[loading]",
-          "video[playsinline]"
-        ]
+        "ignore": ["iframe[loading]", "video[playsinline]"]
       }
     ]
   }
