@@ -244,7 +244,6 @@
   embed,
   object {
     display: block;
-    vertical-align: middle;
   }
   img,
   video {
@@ -3696,11 +3695,6 @@
   }
   .dark\:bg-red-500\/10 {
     &:where(.dark, .dark *) {
-      background-color: color-mix(
-        in srgb,
-        oklch(63.7% 0.237 25.331) 10%,
-        transparent
-      );
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(
           in oklab,
@@ -3712,11 +3706,6 @@
   }
   .dark\:bg-teal-500\/10 {
     &:where(.dark, .dark *) {
-      background-color: color-mix(
-        in srgb,
-        oklch(70.4% 0.14 182.503) 10%,
-        transparent
-      );
       @supports (color: color-mix(in lab, red, red)) {
         background-color: color-mix(
           in oklab,
