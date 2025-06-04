@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register Page</title>
-    <link rel="stylesheet" href="./output.css" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="output.css" />
     <link
       rel="shortcut icon"
       href="./images/istad-logo.png"
@@ -23,6 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
       localStorage.theme = "light";
       document.documentElement.classList.toggle(
@@ -202,203 +203,179 @@
           </li>
           <li class="relative group" aria-current="page">
             <a
-              href="./register-page.html"
+              href="./login-page.html"
               class="block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
             >
-              Register
+              Login
             </a>
           </li>
         </ol>
       </section>
-      <section>
-        <main
-          class="w-full flex flex-col lg:flex-row min-h-screen bg-white dark:bg-[#111827] transition-colors duration-300"
+      <section
+        class="flex items-center justify-center min-h-[calc(100vh-80px)] px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-neutral-950"
+      >
+        <div
+          class="w-full max-w-md bg-white dark:bg-neutral-900 rounded-xl shadow-lg border border-gray-200 dark:border-neutral-800 p-6 sm:p-8"
         >
-          <div
-            class="relative flex-1 hidden items-center justify-center text-white px-8 bg-gray-900 lg:flex"
-          >
-            <div
-              class="mb-8 p-6 bg-white/40 dark:bg-white/10 backdrop-blur-md rounded-xl shadow-md border border-white/20 transition hover:shadow-lg duration-300 hover:scale-[1.02] w-fit mx-auto"
+          <div class="text-center mb-6">
+            <h1
+              class="text-3xl font-bold text-gray-800 dark:text-white font-[Montserrat]"
             >
-              <img
-                src="./images/restaurant-logo.png"
-                alt="Tasty Bites Logo"
-                class="w-32 h-32 object-contain rounded-xl mx-auto"
-              />
-              <h1 class="font-[Montserrat] text-4xl font-bold">
-                🍽️ Taste Bytes
-              </h1>
-              <div class="mt-16 space-y-3">
-                <h3 class="text-xl font-semibold font-[Montserrat] mb-2">
-                  Join our Foodie Community Today
-                </h3>
-                <p class="font-[Inter] mb-6 leading-relaxed">
-                  Create your free account and get access to exclusive
-                  member-only deals, table reservations, and our secret chef
-                  specials. No credit card needed.
-                </p>
-                <div class="flex items-center -space-x-2 overflow-hidden">
-                  <img
-                    src="./images/piseth.png"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="Piseth Mao Image"
-                  />
-                  <img
-                    src="./images/kompheak.png"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="Kompheak Yarn Image"
-                  />
-                  <img
-                    src="./images/chanchhay.png"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="Chanchhay Srey Image"
-                  />
-                  <img
-                    src="./images/menglong.png"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="Menglong Keo Image"
-                  />
-                  <img
-                    src="./images/samnang.png"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="Samnang Rin"
-                  />
-                  <p class="text-sm font-medium font-[Inter] mt-1 ml-5">
-                    Join 5,000+ food lovers!
-                  </p>
-                </div>
-              </div>
-              <div
-                class="absolute inset-0 m-auto h-[500px] w-[500px] bg-gradient-to-br from-purple-400/30 via-pink-300/30 to-purple-200/10 blur-[100px] rounded-full"
-              ></div>
-            </div>
+              Welcome Back, Foodie!
+            </h1>
+            <p
+              class="mt-2 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
+            >
+              Don't have an account?
+              <a
+                class="text-teal-600 dark:text-teal-400 hover:underline transition font-medium font-[Inter]"
+                href="./register-page.html"
+              >
+                Join the Taste Club!
+              </a>
+            </p>
+            <button
+              type="button"
+              class="mt-5 w-full flex items-center justify-center gap-2 py-2 border border-gray-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-gray-800 dark:text-white rounded-lg shadow-sm hover:shadow-md hover:-translate-y-0.5 transition transform cursor-pointer font-[Inter]"
+            >
+              <svg class="w-5 h-5" viewBox="0 0 46 47" fill="none">
+                <path
+                  d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
+                  fill="#4285F4"
+                />
+                <path
+                  d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z"
+                  fill="#34A853"
+                />
+                <path
+                  d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z"
+                  fill="#FBBC05"
+                />
+                <path
+                  d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
+                  fill="#EB4335"
+                />
+              </svg>
+              Sign in with Google
+            </button>
             <div
-              class="absolute inset-0 my-auto h-[500px]"
-              style="
-                background: linear-gradient(
-                  152.92deg,
-                  rgba(192, 132, 252, 0.2) 4.54%,
-                  rgba(232, 121, 249, 0.26) 34.2%,
-                  rgba(192, 132, 252, 0.1) 77.55%
-                );
-                filter: blur(118px);
-              "
-            ></div>
-          </div>
-          <div class="flex-1 flex items-center justify-center p-6 sm:p-12">
-            <div class="w-full max-w-md space-y-8">
-              <div>
-                <div class="lg:hidden mb-6 text-center">
-                  <img
-                    src="./images/restaurant-logo.png"
-                    alt="Tasty Bites Logo"
-                    class="w-32 h-32 object-contain rounded-xl mx-auto"
-                  />
-                  <h3
-                    class="text-2xl font-bold font-[Montserrat] text-gray-900 dark:text-white"
-                  >
-                    🍽️ Taste Bites
-                  </h3>
-                </div>
-                <h3
-                  class="text-3xl font-bold font-[Montserrat] text-gray-800 dark:text-white mb-2 text-center"
-                >
-                  Create an Account
-                </h3>
-                <p
-                  class="font-[Inter] text-sm text-gray-600 dark:text-neutral-400 text-center"
-                >
-                  Already a member?
-                  <a
-                    href="#"
-                    class="font-medium text-indigo-600 hover:underline hover:text-indigo-500 font-[Inter] cursor-pointer transition"
-                    >Log in</a
-                  >
-                </p>
-              </div>
-              <div class="grid grid-cols-3 gap-x-3">
-                <button
-                  type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
-                    alt="Google"
-                    class="w-5 h-5"
-                  />
-                </button>
-                <button
-                  type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/f7119b9bdd8c58864383802fb92c7fc3a25c0646/twitter-icon.svg"
-                    alt="Twitter"
-                    class="w-5 h-5"
-                  />
-                </button>
-                <button
-                  type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/0d3b55a09c6bb8155ca19f43283dc6d88ff88bf5/github-icon.svg"
-                    alt="Github"
-                    class="w-5 h-5"
-                  />
-                </button>
-              </div>
-              <div class="relative text-center">
-                <hr class="border-gray-300" />
-                <span
-                  class="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-sm px-3 font-[Inter] text-gray-600 dark:bg-[#111827] dark:text-gray-300"
-                  >Or continue with</span
-                >
-              </div>
-              <form onSubmit="event.preventDefault()" class="space-y-5">
-                <div>
+              class="flex items-center my-6 text-xs text-gray-400 uppercase font-[Inter] before:flex-1 before:border-t before:border-gray-300 dark:before:border-neutral-600 after:flex-1 after:border-t after:border-gray-300 dark:after:border-neutral-600"
+            >
+              <span class="mx-3 font-[Inter]">or continue with email</span>
+            </div>
+            <form class="space-y-5">
+              <div class="group">
+                <div class="flex items-center justify-between">
                   <label
-                    class="font-medium font-[Inter] block mb-1 dark:text-white"
-                    >Full Name</label
-                  >
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
-                  />
-                </div>
-                <div>
-                  <label
-                    class="font-medium font-[Inter] block mb-1 dark:text-white"
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 dark:text-white font-[Inter]"
                     >Email Address</label
                   >
-                  <input
-                    type="email"
-                    required
-                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
-                  />
                 </div>
-                <div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="mt-1 w-full px-4 py-2 bg-gray-50 dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:outline-none dark:text-white transition"
+                  required
+                  placeholder="pisethmao2002@gmail.com"
+                />
+                <div
+                  class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3"
+                >
+                  <svg
+                    class="size-5 text-red-500"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                    />
+                  </svg>
+                </div>
+                <p class="hidden text-xs text-red-600 mt-2" id="email-error">
+                  Please include a valid email address so we can get back to you
+                </p>
+              </div>
+              <div class="group">
+                <div class="flex items-center justify-between">
                   <label
-                    class="font-medium font-[Inter] block mb-1 dark:text-white"
+                    for="password"
+                    class="block text-sm font-medium text-gray-700 dark:text-white font-[Inter]"
                     >Password</label
                   >
-                  <input
-                    type="password"
-                    required
-                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
-                  />
+                  <a
+                    class="text-sm text-teal-600 dark:text-teal-400 hover:underline font-medium font-[Inter]"
+                    href="../examples/html/recover-account.html"
+                    >Forgot your password?</a
+                  >
                 </div>
-                <button
-                  type="submit"
-                  class="cursor-pointer font-[Inter] w-full py-2.5 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-500 transition transform active:scale-[0.97]"
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="mt-1 w-full px-4 py-2 bg-gray-50 dark:bg-neutral-800 border border-gray-300 dark:border-neutral-700 rounded-lg shadow-sm focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:outline-none dark:text-white transition"
+                  required
+                  placeholder="••••••••"
+                />
+                <div
+                  class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3"
                 >
-                  Join Taste Bites
-                </button>
-              </form>
-            </div>
+                  <svg
+                    class="size-5 text-red-500"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                    />
+                  </svg>
+                </div>
+                <p
+                  class="hidden text-xs text-red-600 mt-2"
+                  id="password-error font-[Inter]"
+                >
+                  8+ characters required
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  id="remember-me"
+                  name="remember-me"
+                  type="checkbox"
+                  class="cursor-pointer form-checkbox text-teal-600 rounded transition focus:ring-0 focus:ring-offset-0"
+                />
+                <label
+                  for="remember-me"
+                  class="text-sm text-gray-600 dark:text-neutral-300 cursor-pointer font-[Inter]"
+                  >Remember me</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="cursor-pointer w-full py-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 fon-[Inter]"
+              >
+                Sign In To Tasty Bites
+              </button>
+              <p
+                class="text-sm text-center text-gray-600 dark:text-neutral-400 mt-4 font-[Inter]"
+              >
+                New to Tasty Bites?
+                <a
+                  href="./register-page.html"
+                  class="text-teal-600 hover:underline dark:text-teal-400 font-[Inter]"
+                  >Create an account</a
+                >
+              </p>
+            </form>
           </div>
-        </main>
+        </div>
       </section>
     </main>
     <footer>
@@ -642,7 +619,7 @@
         </button>
       </address>
     </footer>
-    <script src="../node_modules/preline/preline.js"></script>
+    <script src="../../node_modules/preline/preline.js"></script>
     <script>
       const toggleBtn = document.getElementById("menu-toggle");
       const mobileMenu = document.getElementById("mobile-menu");
