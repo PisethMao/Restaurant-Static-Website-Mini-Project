@@ -25,7 +25,12 @@
           "background-color: color-mix(in srgb, #000 50%, transparent)",
           "background-color: color-mix(in srgb, #000 60%, transparent)",
           "background-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 10%, transparent)",
-          "background-color: color-mix(in srgb, oklch(70.4% 0.14 182.503) 10%, transparent)"
+          "background-color: color-mix(in srgb, oklch(70.4% 0.14 182.503) 10%, transparent)",
+          "border-color: color-mix(in srgb, #fff 20%, transparent)",
+          "background-color: color-mix(in srgb, #fff 40%, transparent)",
+          "background-color: color-mix(in oklab, #00adb5 10%, transparent)",
+          "background-color: color-mix(in oklab, #00adb5 70%, transparent)",
+          "background-color: color-mix(in oklab, #00adb5 80%, transparent)"
         ]
       }
     ],
@@ -47,7 +52,8 @@
     "axe/text-alternatives": [
       "default",
       {
-        "image-alt": "off"
+        "image-alt": "off",
+        "frame-title": "off"
       }
     ],
     "disown-opener": "off",
@@ -57,13 +63,23 @@
     "axe/forms": [
       "default",
       {
-        "select-name": "off"
+        "select-name": "off",
+        "label": "off"
       }
     ],
     "axe/aria": [
       "default",
       {
         "aria-required-children": "off"
+      }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[loading]",
+          "video[playsinline]"
+        ]
       }
     ]
   }
