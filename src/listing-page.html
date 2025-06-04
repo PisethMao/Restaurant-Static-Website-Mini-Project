@@ -1,5 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+<<<<<<< HEAD
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listing Page</title>
+    <link rel="stylesheet" href="./output.css" />
+    <link rel="stylesheet" href="./style/custom.css">
+    <link
+      rel="shortcut icon"
+      href="./images/istad-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+      localStorage.theme = "light";
+      // On page load or when changing themes, best to add inline in head to avoid FOUC
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+      // Whenever the user explicitly chooses light mode
+      //   localStorage.theme = "light";
+      // Whenever the user explicitly chooses dark mode
+      //   localStorage.theme = "dark";
+      // Whenever the user explicitly chooses to respect the OS preference
+      //   localStorage.removeItem("theme");
+    </script>
+  </head>
+>>>>>>> 4df05f6f014d2c2520f920a86aea51027834c4b7
 
 <head>
   <meta charset="UTF-8" />
@@ -90,7 +135,11 @@
             <button
               type="button"
               id="btnMode"
+<<<<<<< HEAD
               class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
+=======
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg text-gray-800 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer"
+>>>>>>> 4df05f6f014d2c2520f920a86aea51027834c4b7
             >
               <span id="mode-label">Light Mode</span>
               <i id="mode-icon" class="fa-solid fa-sun"></i>
@@ -799,6 +848,7 @@
                   Reserve Now
                 </button>
               </div>
+<<<<<<< HEAD
               <div data-aos="fade-up"
                 class="w-full sm:w-[48%] lg:w-[31%] max-w-sm dark:bg-neutral-800 group bg-white rounded-xl shadow-lg p-6 transition-all transform hover:scale-[1.02] hover:shadow-xl cursor-pointer border border-transparent hover:border-emerald-300">
                 <h3
@@ -882,6 +932,90 @@
                   class="cursor-pointer font-[Inter] mt-4 inline-block px-4 bg-[#00ADB5] text-white font-semibold py-2 rounded-md shadow-md hover:bg-[#00ADB5]/80 transition-all duration-300 hover:shadow-lg">
                   Reserve Now
                 </button>
+=======
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Services
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html#dine-in"
+                    >
+                      Dine-In
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#takeaway-catering"
+                    >
+                      Takeaway
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#takeaway-catering"
+                    >
+                      Catering
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html#private-events"
+                    >
+                      Private Events
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mb-6 md:mb-0">
+                <strong
+                  class="font-semibold text-gray-900 dark:text-white mb-2 font-[Montserrat]"
+                >
+                  Support
+                </strong>
+
+                <ul class="mt-6 space-y-1">
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./home-page.html#faqs"
+                    >
+                      FAQs
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./services-page.html"
+                    >
+                      Customer Service
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
+                      href="./contact-page.html#location-and-hours"
+                    >
+                      Location & Hours
+                    </a>
+                  </li>
+                </ul>
+>>>>>>> 4df05f6f014d2c2520f920a86aea51027834c4b7
               </div>
             </div>
           </div>
