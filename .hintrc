@@ -47,7 +47,8 @@
     "axe/text-alternatives": [
       "default",
       {
-        "image-alt": "off"
+        "image-alt": "off",
+        "frame-title": "off"
       }
     ],
     "disown-opener": "off",
@@ -65,6 +66,15 @@
       "default",
       {
         "aria-required-children": "off"
+      }
+    ],
+    "compat-api/html": [
+      "default",
+      {
+        "ignore": [
+          "iframe[loading]",
+          "video[playsinline]"
+        ]
       }
     ]
   }
