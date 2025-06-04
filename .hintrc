@@ -1,5 +1,7 @@
 {
-  "extends": ["development"],
+  "extends": [
+    "development"
+  ],
   "hints": {
     "compat-api/css": [
       "default",
@@ -28,7 +30,9 @@
           "background-color: color-mix(in srgb, #fff 40%, transparent)",
           "background-color: color-mix(in oklab, #00adb5 10%, transparent)",
           "background-color: color-mix(in oklab, #00adb5 70%, transparent)",
-          "background-color: color-mix(in oklab, #00adb5 80%, transparent)"
+          "background-color: color-mix(in oklab, #00adb5 80%, transparent)",
+          "background-color: color-mix(in oklab, #00ADB5 80%, transparent)",
+          "background-color: color-mix(in oklab, #00ADB5 10%, transparent)"
         ]
       }
     ],
@@ -74,7 +78,10 @@
     "compat-api/html": [
       "default",
       {
-        "ignore": ["iframe[loading]", "video[playsinline]"]
+        "ignore": [
+          "iframe[loading]",
+          "video[playsinline]"
+        ]
       }
     ]
   }
