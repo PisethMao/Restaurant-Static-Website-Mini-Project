@@ -1,5 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Register Page</title>
+      <link rel="stylesheet" href="./output.css" />
+      <link
+        rel="shortcut icon"
+        href="./images/istad-logo.png"
+        type="image/x-icon"
+      />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <script>
+        localStorage.theme = "light";
+        // On page load or when changing themes, best to add inline in head to avoid FOUC
+        document.documentElement.classList.toggle(
+          "dark",
+          localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches)
+        );
+        // Whenever the user explicitly chooses light mode
+        //   localStorage.theme = "light";
+        // Whenever the user explicitly chooses dark mode
+        //   localStorage.theme = "dark";
+        // Whenever the user explicitly chooses to respect the OS preference
+        //   localStorage.removeItem("theme");
+      </script>
+    </head>
+  <body class="dark:bg-[#222831] m-0 p-0 overflow-x-hidden">
+    <!-- NAVBAR -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,6 +103,7 @@
               />
             </a>
           </div>
+          <div class="hidden md:flex items-center gap-6 text-sm font-medium">
           <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
             <a
               href="./listing-page.html"
@@ -97,12 +140,14 @@
             <button
               type="button"
               id="btnMode"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-white text-gray-800 hover:bg-gray-50 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer"
               class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
             >
               <span id="mode-label">Light Mode</span>
               <i id="mode-icon" class="fa-solid fa-sun"></i>
             </button>
           </div>
+          <div class="md:hidden relative items-center">
           <div class="lg:hidden relative items-center">
             <div class="flex">
               <button
@@ -177,6 +222,83 @@
         </div>
       </nav>
     </header>
+
+    <main class="w-full mt-8 mb-8 flex flex-col items-center justify-center px-4">
+      <div class="max-w-sm w-full text-gray-600 space-y-5">
+        <div class="text-center pb-8">
+          <div>
+            <h3 class="text-gray-800 dark:text-white text-2xl font-bold sm:text-3xl">
+              Create an account
+            </h3>
+            <p class="mt-2 text-center dark:text-neutral-400">
+              Already have an account?
+              <a href="./login-page.html"
+                class="text-teal-600 hover:text-teal-500">
+                Log in
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-neutral-700 shadow p-4 py-6 sm:p-6 sm:rounded-lg">
+          <form onSubmit="event.preventDefault()" class="space-y-5">
+            <div>
+              <label class="block text-md mb-2 dark:text-neutral-400">Name</label>
+              <input
+                type="Name"
+                placeholder="Piseth MAO"
+                required
+                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+              />
+            </div>
+            <div>
+              <label class="block text-md mb-2 dark:text-neutral-400">Email</label>
+              <input
+                type="email"
+                placeholder="pisethmao2002@gmail.com"
+                required
+                class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+              />
+            </div>
+
+            <div class="space-y-5" data-hs-toggle-password-group="">
+              <!-- Form Group -->
+              <div class="max-w-sm">
+                <label for="hs-toggle-password-multi-toggle-np" class="block text-md mb-2 dark:text-neutral-400">Enter Password</label>
+                <div class="relative">
+                  <input id="hs-toggle-password-multi-toggle-np" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Enter password" value="12345qwerty">
+                  <button type="button" data-hs-toggle-password='{
+                      "target": ["#hs-toggle-password-multi-toggle", "#hs-toggle-password-multi-toggle-np"]
+                    }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
+                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                      <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
+                      <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                      <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
+                      <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                      <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <!-- End Form Group -->
+
+              <!-- Form Group -->
+              <div class="max-w-sm mb-5">
+                <label for="hs-toggle-password-multi-toggle" class="block text-md mb-2 dark:text-neutral-400">Re-enter Password</label>
+                <div class="relative">
+                  <input id="hs-toggle-password-multi-toggle" type="password" class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg sm:py-3 ps-4 pe-10 block border-gray-200 sm:text-sm focus:border-teal-500 focus:ring-teal-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Re-enter password" value="12345qwerty">
+                  <button type="button" data-hs-toggle-password='{
+                      "target": ["#hs-toggle-password-multi-toggle", "#hs-toggle-password-multi-toggle-np"]
+                    }' class="absolute inset-y-0 end-0 flex items-center z-20 px-3 cursor-pointer text-gray-400 rounded-e-md focus:outline-hidden focus:text-teal-600 dark:text-neutral-600 dark:focus:text-teal-500">
+                    <svg class="shrink-0 size-3.5" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path class="hs-password-active:hidden" d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path>
+                      <path class="hs-password-active:hidden" d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path>
+                      <path class="hs-password-active:hidden" d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path>
+                      <line class="hs-password-active:hidden" x1="2" x2="22" y1="2" y2="22"></line>
+                      <path class="hidden hs-password-active:block" d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                      <circle class="hidden hs-password-active:block" cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
     <main>
       <section
         aria-label="Breadcrumb"
