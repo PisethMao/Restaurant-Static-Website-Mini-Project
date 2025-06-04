@@ -1,144 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" class="!scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services Page</title>
-    <link rel="stylesheet" href="./output.css" />
-    <link
-      rel="shortcut icon"
-      href="./images/istad-logo.png"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="style/custom.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <style>
-      /* right to left */
-      @keyframes slideInFromRight {
-        from {
-          transform: translateX(100px);
-          opacity: 0;
-        }
 
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-
-      .animate-on-scroll-right-left {
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services Page</title>
+  <link rel="stylesheet" href="./output.css" />
+  <link rel="shortcut icon" href="./images/istad-logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style/custom.css" />
+  <link rel="stylesheet" href="style/servicesCustom.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    /* right to left */
+    @keyframes slideInFromRight {
+      from {
         transform: translateX(100px);
         opacity: 0;
-        animation: slideInFromRight 1s ease forwards;
-        animation-timeline: view();
-        animation-range: entry 0% cover 40%;
-        animation-delay: 0.3s;
       }
 
-      @keyframes slideInFromLeft {
-        from {
-          transform: translateX(-100px);
-          opacity: 0;
-        }
-
-        to {
-          transform: translateX(0);
-          opacity: 1;
-        }
+      to {
+        transform: translateX(0);
+        opacity: 1;
       }
+    }
 
-      .slide-in-left {
+    .animate-on-scroll-right-left {
+      transform: translateX(100px);
+      opacity: 0;
+      animation: slideInFromRight 1s ease forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes slideInFromLeft {
+      from {
         transform: translateX(-100px);
         opacity: 0;
-        animation: slideInFromLeft 1s ease forwards;
-        animation-timeline: view();
-        animation-range: entry 0% cover 30%;
-        animation-delay: 0.1s;
       }
-    </style>
-    <script>
-      localStorage.theme = "light";
-      // On page load or when changing themes, best to add inline in head to avoid FOUC
-      document.documentElement.classList.toggle(
-        "dark",
-        localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-      );
-      // Whenever the user explicitly chooses light mode
-      //   localStorage.theme = "light";
-      // Whenever the user explicitly chooses dark mode
-      //   localStorage.theme = "dark";
-      // Whenever the user explicitly chooses to respect the OS preference
-      //   localStorage.removeItem("theme");
-    </script>
-  </head>
 
-  <body class="dark:bg-[#222831]">
-    <!-- NAVBAR -->
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
 
-    <header
-      id="navbar"
-      class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white"
-    >
-      <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-          <div class="md:flex md:items-center md:gap-12">
-            <a
-              class="block text-[#00ADB5] transition-transform hover:scale-105"
-              href="./home-page.html"
-            >
-              <span class="sr-only">Home</span>
-              <img
-                class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
-                src="./images/restaurant-logo.png"
-                alt="Restaurant Logo"
-              />
-            </a>
+    .slide-in-left {
+      transform: translateX(-100px);
+      opacity: 0;
+      animation: slideInFromLeft 1s ease forwards;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+      animation-delay: 0.1s;
+    }
+  </style>
+  <script>
+    localStorage.theme = "light";
+    // On page load or when changing themes, best to add inline in head to avoid FOUC
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+    // Whenever the user explicitly chooses light mode
+    //   localStorage.theme = "light";
+    // Whenever the user explicitly chooses dark mode
+    //   localStorage.theme = "dark";
+    // Whenever the user explicitly chooses to respect the OS preference
+    //   localStorage.removeItem("theme");
+  </script>
+</head>
+
+<body class="dark:bg-[#222831]">
+
+  <!-- navigation-bar -->
+
+  <header id="navbar"
+    class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white">
+    <nav class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="md:flex md:items-center md:gap-12">
+          <a class="block text-[#00ADB5] transition-transform hover:scale-105" href="./home-page.html">
+            <span class="sr-only">Home</span>
+            <img class="w-14 mx-auto rounded-md shadow-sm object-contain h-14" src="./images/restaurant-logo.png"
+              alt="Restaurant Logo" />
+          </a>
+        </div>
+        <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <a href="./listing-page.html"
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Listing</a>
+          <a href="./detail-page.html"
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Detail</a>
+          <a href="./services-page.html"
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Services</a>
+          <a href="./contact-page.html"
+            class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300">Contact</a>
+          <a href="./register-page.html"
+            class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600">
+            Register
+          </a>
+          <a href="./login-page.html"
+            class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600">
+            Login
+          </a>
+          <button type="button" id="btnMode"
+            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg bg-white text-gray-800 hover:bg-gray-50 focus:outline-hidden disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:focus:bg-[#222831] cursor-pointer">
+            <span id="mode-label">Light Mode</span>
+            <i id="mode-icon" class="fa-solid fa-sun"></i>
+          </button>
+        </div>
+        <div class="lg:hidden relative items-center">
+          <div class="flex">
+            <button type="button" id="btnModeMobile"
+              class="mx-4 flex items-center justify-center gap-2 w-[80%] text-sm font-medium px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-800 shadow-sm hover:bg-gray-100 transition-all dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700">
+              <i id="mode-icon-mobile" class="fa-solid fa-moon text-sm pt-[1px]"></i>
+            </button>
+            <button type="button" id="menu-toggle" class="rounded-sm bg-gray-100 p-2 text-gray-600 hover:text-gray-800">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
-          <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
-            <a
-              href="./listing-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
-              >Listing</a
-            >
-            <a
-              href="./detail-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
-              >Detail</a
-            >
-            <a
-              href="./services-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
-              >Services</a
-            >
-            <a
-              href="./contact-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
-              >Contact</a
-            >
-            <a
-              href="./register-page.html"
-              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600"
-            >
+
+          <div id="mobile-menu"
+            class="hidden absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg py-1 text-sm z-50">
+            <a href="./listing-page.html"
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Listing</a><br />
+            <a href="./detail-page.html"
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Detail</a><br />
+            <a href="./services-page.html"
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Services</a><br />
+            <a href="./contact-page.html"
+              class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition">Contact</a>
+            <a href="./register-page.html"
+              class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600">
               Register
             </a>
+<<<<<<< HEAD
+            <a href="./login-page.html"
+              class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition">Login</a>
+=======
             <a
               href="./login-page.html"
               class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
@@ -224,427 +235,228 @@
                 >Login</a
               >
             </div>
+>>>>>>> 4df05f6f014d2c2520f920a86aea51027834c4b7
           </div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <section
-        aria-label="Breadcrumb"
-        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#222831]"
-      >
-        <ol
-          class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
-        >
-          <li class="relative group" aria-current="page">
-            <a
-              href="./home-page.html"
-              class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
-            >
-              Home
-            </a>
-          </li>
+      </div>
+    </nav>
+  </header>
 
-          <li class="rtl:rotate-180 text-gray-400 dark:text-neutral-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-4"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m9 20.247 6-16.5"
-              />
-            </svg>
-          </li>
+<!-- end-of-navigation-bar -->
 
-          <li class="relative group" aria-current="page">
-            <a
-              href="./services-page.html"
-              class="block transition-all hover:text-teal-600 px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
-            >
-              Services
-            </a>
-          </li>
-        </ol>
-      </section>
+  <!-- slider -->
 
-      <section>
-        <h2
-          class="text-3xl font-bold text-center mb-10 mt-10 dark:text-white underline font-[Inter]"
-        >
-          Our Services
-        </h2>
-      </section>
-
-      <section id="dine-in">
-        <div
-          class="animate__animated animate__bounce mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8"
-        >
-          <div
-            class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8"
-          >
-            <div>
-              <div class="max-w-lg md:max-w-none dark:bg-[#222831]">
-                <h2
-                  class="text-2xl font-semibold text-gray-900 sm:text-3xl slide-in-left delay-1000 dark:text-white font-[Inter]"
-                >
-                  Dine-In
-                </h2>
-                <p
-                  class="mt-4 text-gray-700 slide-in-left dark:text-gray-400 font-[Montserrat]"
-                >
-                  Enjoy a cozy atmosphere and freshly prepared meals.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <img
-                src="https://camino.uk.com/wp-content/uploads/2024/05/Kings-Cross-Site-Shots-14-2000x1333.jpg"
-                class="rounded animate-animated animate__backInLeft"
-                alt=""
-              />
-            </div>
-          </div>
+  <div class="slider">
+    <!-- list Items -->
+    <div class="list">
+      <div class="item active">
+        <img src="https://camino.uk.com/wp-content/uploads/2024/05/Kings-Cross-Site-Shots-14-2000x1333.jpg">
+        <div class="content">
+          <p>Fresh Food, Cozy Vibes</p>
+          <h2>Dine-In</h2>
+          <p>
+            Enjoy a cozy atmosphere and freshly prepared meals.
+          </p>
         </div>
-      </section>
-
-      <section class="bg-white dark:bg-[#393E46]">
-        <div
-          class="gap-8 items-center py-6 px-2 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6"
-        >
-          <script
-            src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
-            type="module"
-          ></script>
-          <dotlottie-player
-            src="https://lottie.host/ea31e524-93a9-485d-9f5c-cd1df739d6ed/MCDoiQAhgk.lottie"
-            background="transparent"
-            speed="1"
-            style="width: 400px; height: 400px"
-            loop
-            autoplay
-          ></dotlottie-player>
-
-          <div class="mt-2 md:mt-0">
-            <h2
-              class="mb-2 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white animate-on-scroll-right-left delay-1000 font-[Inter]"
-            >
-              Delivery
-            </h2>
-            <p
-              class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400 animate-on-scroll-right-left delay-1000 font-[Montserrat]"
-            >
-              Whether you're working late, relaxing at home, or planning a
-              family dinner, our delivery service ensures you enjoy your
-              favorite dishes without stepping outside. We prepare your meals
-              fresh and package them with care to retain flavor, heat, and
-              presentation.
-            </p>
-          </div>
+      </div>
+      <div class="item" style="background-color: white;">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module">
+        </script>
+        <dotlottie-player src="https://lottie.host/ea31e524-93a9-485d-9f5c-cd1df739d6ed/MCDoiQAhgk.lottie"
+          background="transparent" speed="1" loop autoplay>
+        </dotlottie-player>
+        <div class="content">
+          <p>Hot meals to your doorstep</p>
+          <h2>Delivery</h2>
+          <p>
+            Whether
+            you're working late, relaxing at home, or planning a family dinner, our delivery service ensures
+            you enjoy
+            your favorite dishes without stepping outside. We prepare your meals fresh and package them with
+            care to
+            retain flavor, heat, and presentation.
+          </p>
         </div>
-      </section>
-
-      <section class="bg-white dark:bg-[#222831]">
-        <div
-          class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
-        >
-          <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
-            <h2
-              class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white slide-in-left delay-1000 font-[Inter]"
-            >
-              VIP Dining Experience
-            </h2>
-            <p class="mb-4 slide-in-left delay-1000 font-[Montserrat]">
-              Step into a world of refined taste and personalized service with
-              our exclusive VIP Dining Experience. Perfect for special
-              occasions, private celebrations, or simply indulging in luxury,
-              our VIP guests enjoy more than just a meal—they enjoy a curated
-              journey of Khmer culinary artistry in a setting designed for
-              comfort, privacy, and prestige.
-            </p>
-
-            <!-- List -->
-            <div class="relative text-base">
-              <div class="text-black-500 font-[Montserrat]">
-                <div class="inline-block h-3 w-3 rounded-full mr-2"></div>
-                <p class="inline-block animate-on-scroll">
-                  Luxuriously designed private dining areas with ambient
-                  lighting and sound control.
-                </p>
-              </div>
-              <div class="text-black-500">
-                <div class="inline-block h-3 w-3 rounded-full mr-2"></div>
-                <p class="inline-block animate-on-scroll">
-                  Perfect for business meetings, anniversaries, or private
-                  celebrations.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="grid grid-cols-2 gap-4 mt-8">
-            <img
-              class="w-full rounded-lg"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
-              alt="office content 1"
-            />
-            <img
-              class="mt-4 w-full lg:mt-10 rounded-lg"
-              src="https://www.covetedition.com/wp-content/uploads/2025/01/coltrane-1.jpg"
-              alt="office content 2"
-            />
-          </div>
+      </div>
+      <div class="item">
+        <img src="images/coltrane-1.jpg">
+        <div class="content">
+          <p>Special guest</p>
+          <h2>VIP Dining</h2>
+          <p>
+            Step into a world of refined taste and personalized service with our exclusive VIP Dining
+            Experience. Ideal for special occasions or private celebrations, it offers a curated journey of
+            Khmer culinary artistry in a setting of comfort, privacy, and prestige.
+          </p>
         </div>
-      </section>
-
-      <section class="dark:bg-[#393E46]" id="private-events">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-          <div
-            class="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8"
-          >
-            <div>
-              <img
-                src="https://cdn-blog.zameen.com/blog/wp-content/uploads/2020/05/How-to-Decorate-Your-Dining-Table-for-Dinner-Party-at-Home-B-26-05-1024x640.jpg"
-                class="rounded"
-                alt=""
-              />
-            </div>
-
-            <div>
-              <div class="max-w-lg md:max-w-none">
-                <h2
-                  class="text-2xl font-semibold text-gray-900 sm:text-3xl animate-on-scroll-right-left delay-1000 dark:text-white font-[Inter]"
-                >
-                  🎉 Party Perfect – Your Celebration, Our Creation! 🎉
-                </h2>
-                <p
-                  class="mt-4 text-gray-700 animate-on-scroll-right-left dark:text-gray-400 font-[Montserrat]"
-                >
-                  Whether you're planning a birthday bash, wedding reception,
-                  corporate event, or themed celebration, Party Perfect brings
-                  your vision to life with creativity, precision, and flair.
-                  From stunning décor and tailored catering to music, lighting,
-                  and entertainment, we handle every detail so you can enjoy the
-                  moment stress-free. Our team of experienced planners and
-                  coordinators work closely with you to create a unique,
-                  unforgettable experience—no matter the size or style of the
-                  event. Let us turn your ideas into a celebration to remember.
-                  Because with Party Perfect, it’s not just a party—it’s an
-                  experience.
-                </p>
-              </div>
-            </div>
-          </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://cdn-blog.zameen.com/blog/wp-content/uploads/2020/05/How-to-Decorate-Your-Dining-Table-for-Dinner-Party-at-Home-B-26-05-1024x640.jpg">
+        <div class="content">
+          <p>Party Perfect – Your Celebration, Our Creation!</p>
+          <h2>Special Event</h2>
+          <p>
+            Make any occasion special with our personalized event dining. From birthdays to anniversaries, enjoy a
+            custom menu, elegant ambiance, and attentive service—perfect for creating unforgettable memories.
+          </p>
         </div>
-      </section>
-
-      <section
-        class="py-6 bg-{#EEEEEE} text-black dark:bg-[#222831] dark:text-white"
-      >
-        <div
-          class="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x"
-        >
-          <div class="py-6 md:py-0 md:px-6">
-            <h1 class="text-4xl font-bold font-[Inter]">Get in touch</h1>
-            <p class="pt-2 pb-4 font-[Inter]">
-              Fill in the form to start a conversation
-            </p>
-            <div class="space-y-4">
-              <p class="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Toul Kork, Phnom Penh</span>
-              </p>
-              <p class="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path
-                    d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
-                  ></path>
-                </svg>
-                <span>+855 23900800</span>
-              </p>
-              <p class="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-5 h-5 mr-2 sm:mr-6"
-                >
-                  <path
-                    d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                  ></path>
-                  <path
-                    d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                  ></path>
-                </svg>
-                <span>tastyFood@business.com</span>
-              </p>
-            </div>
-          </div>
-          <form
-            novalidate=""
-            class="flex flex-col py-6 space-y-6 md:py-0 md:px-6"
-          >
-            <label class="block">
-              <span class="mb-1">Full name</span>
-              <input
-                type="text"
-                placeholder="Leroy Jenkins"
-                class="dark:bg-[#393E46] shadow-xs shadow-[#F5F5F5] p-1 block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 bg-white"
-              />
-            </label>
-            <label class="block">
-              <span class="mb-1">Email address</span>
-              <input
-                type="email"
-                placeholder="@jenkins.com"
-                class="dark:bg-[#393E46] shadow-xs shadow-[#F5F5F5] p-1 block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 bg-white"
-              />
-            </label>
-            <label class="block">
-              <span class="mb-1">Message</span>
-              <textarea
-                rows="3"
-                class="dark:bg-[#393E46] shadow-xs shadow-[#F5F5F5] block w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400 bg-white"
-              ></textarea>
-            </label>
-            <button
-              type="button"
-              class="self-center px-8 py-3 text-lg rounded focus:ring hover:ring focus:ring-opacity-75 bg-[#009689] text-white focus:ring-[#009689] hover:ring-[#009689]"
-            >
-              Submit
-            </button>
-          </form>
+      </div>
+    </div>
+    <!-- button arrows -->
+    <div class="arrows">
+      <button id="prev">
+        <</button> <button id="next">>
+      </button>
+    </div>
+    <!-- thumbnail -->
+    <div class="thumbnail cursor-pointer">
+      <div class="item active">
+        <img src="images/cozy-dining.jpg">
+        <div class="content">
+          Dine-In
         </div>
-      </section>
-      
-    </main>
+      </div>
+      <div class="item" style="background-color: #222831; border-radius: 10px;">
+        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module">
+        </script>
+        <dotlottie-player src="https://lottie.host/ea31e524-93a9-485d-9f5c-cd1df739d6ed/MCDoiQAhgk.lottie"
+          background="transparent" speed="1" loop autoplay>
+        </dotlottie-player>
+        <div class="content">
+          Delivery
+        </div>
+      </div>
+      <div class="item">
+        <img src="https://www.covetedition.com/wp-content/uploads/2025/01/coltrane-1.jpg">
+        <div class="content">
+          VIP Dining
+        </div>
+      </div>
+      <div class="item">
+        <img
+          src="https://cdn-blog.zameen.com/blog/wp-content/uploads/2020/05/How-to-Decorate-Your-Dining-Table-for-Dinner-Party-at-Home-B-26-05-1024x640.jpg">
+        <div class="content">
+          Special Event
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="../node_modules/preline/preline.js"></script>
-    <script>
-      const toggleBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
 
-      toggleBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-        mobileMenu.classList.toggle("hidden");
-      });
+  <script src="style/services.js"></script>
 
-      document.addEventListener("click", (event) => {
-        const isClickInside =
-          mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
-        if (!isClickInside) {
-          mobileMenu.classList.add("hidden");
-        }
-      });
-    </script>
-    <script>
-      const btnMode = document.getElementById("btnMode");
-      const modeLabel = document.getElementById("mode-label");
-      const modeIcon = document.getElementById("mode-icon");
+  <script src="../node_modules/preline/preline.js"></script>
+  <script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-      const btnModeMobile = document.getElementById("btnModeMobile");
-      const modeLabelMobile = document.getElementById("mode-label-mobile");
-      const modeIconMobile = document.getElementById("mode-icon-mobile");
+    toggleBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
+      mobileMenu.classList.toggle("hidden");
+    });
 
-      function updateToggleUI(isDark) {
-        modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
-        modeIcon.classList.remove("fa-moon", "fa-sun");
-        modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
-
-        modeIconMobile.classList.remove("fa-moon", "fa-sun");
-        modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
+    document.addEventListener("click", (event) => {
+      const isClickInside =
+        mobileMenu.contains(event.target) || toggleBtn.contains(event.target);
+      if (!isClickInside) {
+        mobileMenu.classList.add("hidden");
       }
+    });
+  </script>
+  <script>
+    const btnMode = document.getElementById("btnMode");
+    const modeLabel = document.getElementById("mode-label");
+    const modeIcon = document.getElementById("mode-icon");
 
-      function applyTheme(isDark) {
-        localStorage.theme = isDark ? "dark" : "light";
-        document.documentElement.classList.toggle("dark", isDark);
-        updateToggleUI(isDark);
-      }
+    const btnModeMobile = document.getElementById("btnModeMobile");
+    const modeLabelMobile = document.getElementById("mode-label-mobile");
+    const modeIconMobile = document.getElementById("mode-icon-mobile");
 
-      const isDarkMode =
-        localStorage.theme === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches);
-      applyTheme(isDarkMode);
+    function updateToggleUI(isDark) {
+      modeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+      modeIcon.classList.remove("fa-moon", "fa-sun");
+      modeIcon.classList.add(isDark ? "fa-sun" : "fa-moon");
 
-      btnMode.onclick = () =>
-        applyTheme(!document.documentElement.classList.contains("dark"));
-      btnModeMobile.onclick = () =>
-        applyTheme(!document.documentElement.classList.contains("dark"));
-    </script>
-    <script>
-      window.addEventListener("beforeunload", function () {
-        window.scrollTo(0, 0);
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
-              window.history.replaceState(null, null, window.location.pathname);
-            }
-          });
+      modeIconMobile.classList.remove("fa-moon", "fa-sun");
+      modeIconMobile.classList.add(isDark ? "fa-sun" : "fa-moon");
+    }
+
+    function applyTheme(isDark) {
+      localStorage.theme = isDark ? "dark" : "light";
+      document.documentElement.classList.toggle("dark", isDark);
+      updateToggleUI(isDark);
+    }
+
+    const isDarkMode =
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches);
+    applyTheme(isDarkMode);
+
+    btnMode.onclick = () =>
+      applyTheme(!document.documentElement.classList.contains("dark"));
+    btnModeMobile.onclick = () =>
+      applyTheme(!document.documentElement.classList.contains("dark"));
+  </script>
+  <script>
+    window.addEventListener("beforeunload", function () {
+      window.scrollTo(0, 0);
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth"
+            });
+            window.history.replaceState(null, null, window.location.pathname);
+          }
         });
       });
-    </script>
-    <script>
-      const backToTop = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.remove("hidden");
-        } else {
-          backToTop.classList.add("hidden");
-        }
+    });
+  </script>
+  <script>
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.remove("hidden");
+      } else {
+        backToTop.classList.add("hidden");
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
-      backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      });
-    </script>
+    });
+  </script>
 
-    <!-- navbar disappear -->
-    <script>
-      let lastScrollTop = 0;
-      const navbar = document.getElementById("navbar");
+  <!-- navbar disappear -->
+  <script>
+    let lastScrollTop = 0;
+    const navbar = document.getElementById("navbar");
 
-      window.addEventListener("scroll", function () {
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener("scroll", function () {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
 
-        if (scrollTop > lastScrollTop) {
-          // Scroll down → hide navbar
-          navbar.style.transform = "translateY(-100%)";
-        } else {
-          // Scroll up → show navbar
-          navbar.style.transform = "translateY(0)";
-        }
+      if (scrollTop > lastScrollTop) {
+        // Scroll down → hide navbar
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        // Scroll up → show navbar
+        navbar.style.transform = "translateY(0)";
+      }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
-      });
-    </script>
-  </body>
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+    });
+  </script>
+</body>
+
 </html>
