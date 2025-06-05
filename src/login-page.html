@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register Page</title>
-    <link rel="stylesheet" href="./output.css" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="output.css" />
     <link
       rel="shortcut icon"
       href="./images/istad-logo.png"
@@ -23,6 +23,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script>
       localStorage.theme = "light";
       document.documentElement.classList.toggle(
@@ -33,7 +34,7 @@
       );
     </script>
   </head>
-  <body class="dark:bg-black">
+  <body class="dark:bg-[#222831] m-0 p-0 overflow-x-hidden">
     <header
       id="navbar"
       class="transition-transform duration-300 transform bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-50 border-b border-gray-200 font-[Montserrat] dark:bg-[#222831] text-gray-800 dark:text-white"
@@ -43,9 +44,9 @@
           <div class="md:flex md:items-center md:gap-12">
             <a
               class="block text-[#00ADB5] transition-transform hover:scale-105"
-              href="./index.html"
+              href="./home-page.html"
             >
-              <span class="sr-only">Home</span>
+              <span class="sr-only font-[Montserrat]">Home</span>
               <img
                 class="w-14 mx-auto rounded-md shadow-sm object-contain h-14"
                 src="./images/restaurant-logo.png"
@@ -56,33 +57,33 @@
           <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
             <a
               href="./listing-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              class="font-[Montserrat] text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
               >Listing</a
             >
             <a
               href="./detail-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              class="font-[Montserrat] text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
               >Detail</a
             >
             <a
               href="./services-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              class="font-[Montserrat] text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
               >Services</a
             >
             <a
               href="./contact-page.html"
-              class="text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
+              class="font-[Montserrat] text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-[#00ADB5] transition dark:text-white dark:hover:text-teal-300"
               >Contact</a
             >
             <a
               href="./register-page.html"
-              class="rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-teal-50 transition hover:border-teal-600"
+              class="font-[Montserrat] rounded-md bg-white px-4 py-2 text-sm font-medium text-[#00ADB5] border border-[#00ADB5] hover:bg-[#FAF5EF] transition hover:border-teal-600"
             >
               Register
             </a>
             <a
               href="./login-page.html"
-              class="rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
+              class="font-[Montserrat] rounded-md bg-[#00ADB5] px-7.5 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 transition hover:border-teal-600"
             >
               Login
             </a>
@@ -91,7 +92,7 @@
               id="btnMode"
               class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer"
             >
-              <span id="mode-label">Light Mode</span>
+              <span id="mode-label" class="font-[Montserrat]">Light Mode</span>
               <i id="mode-icon" class="fa-solid fa-sun"></i>
             </button>
           </div>
@@ -134,33 +135,33 @@
             >
               <a
                 href="./listing-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                class="font-[Montserrat] inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Listing</a
               ><br />
               <a
                 href="./detail-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                class="font-[Montserrat] inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Detail</a
               ><br />
               <a
                 href="./services-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                class="font-[Montserrat] inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Services</a
               ><br />
               <a
                 href="./contact-page.html"
-                class="inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
+                class="font-[Montserrat] inline-block ml-4 py-1 text-gray-700 hover:text-[#00ADB5] border-b border-transparent hover:border-teal-600 transition"
                 >Contact</a
               >
               <a
                 href="./register-page.html"
-                class="mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
+                class="font-[Montserrat] mx-4 mt-2 inline-block rounded-md bg-white px-4.5 py-2 text-sm font-medium text-[#00ADB5] border border-teal-600 hover:bg-teal-50 transition duration-200 hover:border-teal-600"
               >
                 Register
               </a>
               <a
                 href="./login-page.html"
-                class="mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
+                class="font-[Montserrat] mx-4 mt-2 mb-2 inline-block px-7.5 py-2 bg-teal-600 text-white text-center rounded-md hover:bg-teal-700 transition"
                 >Login</a
               >
             </div>
@@ -171,7 +172,7 @@
     <main>
       <section
         aria-label="Breadcrumb"
-        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#111827]"
+        class="px-4 sm:px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-80 py-4 bg-white dark:bg-[#393E46]"
       >
         <ol
           class="flex items-center gap-1 text-sm text-gray-600 dark:text-neutral-400 font-[Inter]"
@@ -202,10 +203,10 @@
           </li>
           <li class="relative group" aria-current="page">
             <a
-              href="./register-page.html"
+              href="./login-page.html"
               class="block transition-all hover:text-[#00ADB5] px-3 py-1 rounded-lg duration-300 dark:text-white focus:outline-none cursor-pointer"
             >
-              Register
+              Login
             </a>
           </li>
         </ol>
@@ -300,73 +301,46 @@
                     🍽️ Taste Bites
                   </h3>
                 </div>
-                <h3
-                  class="text-3xl font-bold font-[Montserrat] text-gray-800 dark:text-white mb-2 text-center"
+                <h1
+                  class="text-3xl font-bold text-gray-800 dark:text-white font-[Montserrat] text-center"
                 >
-                  Create an Account
-                </h3>
+                  Welcome Back, Foodie!
+                </h1>
                 <p
-                  class="font-[Inter] text-sm text-gray-600 dark:text-neutral-400 text-center"
+                  class="mt-2 text-sm text-gray-600 dark:text-neutral-400 font-[Inter] text-center"
                 >
-                  Already a member?
+                  Don't have an account?
                   <a
-                    href="#"
-                    class="font-medium text-indigo-600 hover:underline hover:text-indigo-500 font-[Inter] cursor-pointer transition"
-                    >Log in</a
+                    class="text-teal-600 dark:text-teal-400 hover:underline transition font-medium font-[Inter]"
+                    href="./register-page.html"
                   >
+                    Join the Taste Club!
+                  </a>
                 </p>
               </div>
-              <div class="grid grid-cols-3 gap-x-3">
+              <div class="grid grid-cols-1 gap-x-3">
                 <button
                   type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
+                  class="w-full flex items-center justify-center gap-2 py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
                 >
                   <img
                     src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg"
                     alt="Google"
                     class="w-5 h-5"
                   />
-                </button>
-                <button
-                  type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/f7119b9bdd8c58864383802fb92c7fc3a25c0646/twitter-icon.svg"
-                    alt="Twitter"
-                    class="w-5 h-5"
-                  />
-                </button>
-                <button
-                  type="button"
-                  class="flex items-center justify-center py-2.5 border rounded-lg shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 bg-white hover:bg-gray-50 cursor-pointer"
-                >
-                  <img
-                    src="https://raw.githubusercontent.com/sidiDev/remote-assets/0d3b55a09c6bb8155ca19f43283dc6d88ff88bf5/github-icon.svg"
-                    alt="Github"
-                    class="w-5 h-5"
-                  />
+                  <span class="text-sm font-medium text-gray-700 font-[Inter]"
+                    >Sign in with Google</span
+                  >
                 </button>
               </div>
               <div class="relative text-center">
                 <hr class="border-gray-300" />
                 <span
                   class="absolute -top-2 left-1/2 -translate-x-1/2 bg-white text-sm px-3 font-[Inter] text-gray-600 dark:bg-[#111827] dark:text-gray-300"
-                  >Or continue with</span
+                  >Or continue with email</span
                 >
               </div>
               <form onSubmit="event.preventDefault()" class="space-y-5">
-                <div>
-                  <label
-                    class="font-medium font-[Inter] block mb-1 dark:text-white"
-                    >Full Name</label
-                  >
-                  <input
-                    type="text"
-                    required
-                    class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
-                  />
-                </div>
                 <div>
                   <label
                     class="font-medium font-[Inter] block mb-1 dark:text-white"
@@ -375,26 +349,56 @@
                   <input
                     type="email"
                     required
+                    placeholder="pisethmao2002@gmail.com"
                     class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
                   />
                 </div>
-                <div>
-                  <label
-                    class="font-medium font-[Inter] block mb-1 dark:text-white"
-                    >Password</label
-                  >
+                <div class="mb-4">
+                  <div class="flex items-center justify-between mb-1">
+                    <label class="font-medium font-[Inter] dark:text-white"
+                      >Password</label
+                    >
+                    <a
+                      href="#"
+                      class="text-sm hover:underline text-teal-600 font-[Inter]"
+                      >Forgot your password?</a
+                    >
+                  </div>
                   <input
                     type="password"
                     required
                     class="w-full px-4 py-2 rounded-lg shadow-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none transition duration-200 dark:text-white dark:bg-[#1f2937]"
                   />
                 </div>
+                <div class="flex items-center gap-2">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    class="cursor-pointer form-checkbox text-teal-600 rounded transition focus:ring-0 focus:ring-offset-0"
+                  />
+                  <label
+                    for="remember-me"
+                    class="text-sm text-gray-600 dark:text-neutral-300 cursor-pointer font-[Inter]"
+                    >Remember me</label
+                  >
+                </div>
                 <button
                   type="submit"
-                  class="cursor-pointer font-[Inter] w-full py-2.5 bg-indigo-600 text-white font-medium rounded-lg shadow-md hover:bg-indigo-500 transition transform active:scale-[0.97]"
+                  class="cursor-pointer font-[Inter] w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 transform active:scale-[0.97] duration-200"
                 >
-                  Join Taste Bites
+                  Sign In To Tasty Bites
                 </button>
+                <p
+                  class="text-sm text-center text-gray-600 dark:text-neutral-400 mt-4 font-[Inter]"
+                >
+                  New to Tasty Bites?
+                  <a
+                    href="./register-page.html"
+                    class="text-teal-600 hover:underline dark:text-teal-400 font-[Inter]"
+                    >Create an account</a
+                  >
+                </p>
               </form>
             </div>
           </div>
@@ -472,7 +476,7 @@
                   <i class="fa-brands fa-x-twitter fa-lg"></i>
                 </a>
                 <a
-                  class="text-gray-500 transition hover:text-red-600 transform hover:-translate-y-1 cursor-pointer"
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
                   href="https://www.youtube.com/@maopiseth5456"
                   target="_parent"
                   rel="noreferrer"
@@ -482,7 +486,7 @@
                   <i class="fa-brands fa-youtube fa-lg"></i>
                 </a>
                 <a
-                  class="text-gray-500 transition hover:text-black transform hover:-translate-y-1 cursor-pointer"
+                  class="text-gray-500 transition hover:text-teal-600 transform hover:-translate-y-1 cursor-pointer"
                   href="https://www.tiktok.com/@piseth_mao"
                   target="_parent"
                   rel="noreferrer"
@@ -504,7 +508,7 @@
                   <li>
                     <a
                       class="font-[Inter] text-gray-600 dark:text-neutral-400 transition hover:text-teal-600 cursor-pointer"
-                      href="./index.html"
+                      href="./home-page.html"
                     >
                       Home
                     </a>
