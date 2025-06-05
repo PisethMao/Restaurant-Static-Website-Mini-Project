@@ -1,15 +1,10 @@
+import tailwindcssMotion from "tailwindcss-motion";
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: {
-    relative: true,
-    transform: (content) => content.replace(/taos:/g, ""),
-    files: ["./src/**/*.{html,js}"],
+export default {
+  content: [],
+  theme: {
+    extend: {},
   },
-  safelist: [
-    "scroll-fade-in",
-    "taos:opacity-0",
-    "taos:translate-y-[100px]",
-    "taos:duration-[1500ms]",
-  ],
-  plugins: [require("taos/plugin")],
+  plugins: [tailwindcssMotion],
 };
