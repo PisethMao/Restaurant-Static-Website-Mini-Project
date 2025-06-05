@@ -173,7 +173,7 @@
 
     <main>
       <section
-        class="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-screen overflow-hidden"
+        class="relative w-full h-[80vh] sm:h-[90vh] md:h-h-screen lg:h-screen xl:h-screen overflow-hidden"
       >
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <video
@@ -181,10 +181,15 @@
           loop
           muted
           playsinline
-          class="absolute w-full h-full object-cover"
-          src="./videos/short-cooking.mp4"
+          loading="lazy"
+          aria-hidden="true"
+          poster="./images/fallback.jpg"
+          class="absolute w-full h-full object-cover inset-0 transition-opacity duration-700 ease-in-out"
           title="video player"
-        ></video>
+        >
+          <source src="./videos/short-cooking.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
         <div
           class="absolute inset-0 flex items-center lg:justify-start justify-center text-white z-20 p-4 md:p-6 lg:p-8 ml-4 sm:ml-6 md:ml-8 lg:ml-12"
         >
